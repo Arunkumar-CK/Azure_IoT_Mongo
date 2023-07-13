@@ -98,42 +98,19 @@
         "color": "#DDAA99"
     },
     {
-        "id": "09d5ccbd4dfaca3f",
+        "id": "b21bd85f55499775",
         "type": "subflow",
-        "name": "Azure status and other functions (2)",
+        "name": "Acknowlegement from PLC",
         "info": "",
         "category": "",
         "in": [],
         "out": [
             {
-                "x": 1120,
-                "y": 160,
-                "wires": [
-                    {
-                        "id": "5e92169cfed764e1",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "175a0f6663745ad4",
-        "type": "subflow",
-        "name": "Read request from PLC (2)",
-        "info": "",
-        "category": "",
-        "in": [],
-        "out": [
-            {
-                "x": 1300,
+                "x": 1260,
                 "y": 340,
                 "wires": [
                     {
-                        "id": "88aeb16710f4c0d7",
+                        "id": "775d09a2837ea5a3",
                         "port": 0
                     }
                 ]
@@ -142,113 +119,6 @@
         "env": [],
         "meta": {},
         "color": "#DDAA99"
-    },
-    {
-        "id": "b167e5614310e233",
-        "type": "subflow",
-        "name": "Read DB and send data to PLC (2)",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 60,
-                "y": 60,
-                "wires": [
-                    {
-                        "id": "e6b29462f623bcfb"
-                    }
-                ]
-            }
-        ],
-        "out": [],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "335c961684dc200e",
-        "type": "subflow",
-        "name": "Write Database (2)",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 100,
-                "y": 120,
-                "wires": [
-                    {
-                        "id": "f8564eaf5a74bf2c"
-                    }
-                ]
-            }
-        ],
-        "out": [],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "77d427850e68b76e",
-        "type": "group",
-        "z": "7b229efa69ac7866",
-        "name": "Subflow-2",
-        "style": {
-            "stroke": "#3f3f3f",
-            "fill": "#ffcf3f",
-            "fill-opacity": "0.34",
-            "label": true,
-            "label-position": "sw",
-            "color": "#000000"
-        },
-        "nodes": [
-            "174abfca7c1eff91"
-        ],
-        "x": 94,
-        "y": 419,
-        "w": 312,
-        "h": 90
-    },
-    {
-        "id": "5cd311501593d3e1",
-        "type": "group",
-        "z": "7b229efa69ac7866",
-        "name": "Subflow-3",
-        "style": {
-            "stroke": "#3f3f3f",
-            "fill": "#7fb7df",
-            "fill-opacity": "0.46",
-            "label": true,
-            "label-position": "sw",
-            "color": "#000000"
-        },
-        "nodes": [
-            "5ad4195533fa1608"
-        ],
-        "x": 694,
-        "y": 359,
-        "w": 212,
-        "h": 90
-    },
-    {
-        "id": "1b15535d340a8bc5",
-        "type": "group",
-        "z": "7b229efa69ac7866",
-        "name": "Subflow-4",
-        "style": {
-            "stroke": "#3f3f3f",
-            "fill": "#ffbfbf",
-            "fill-opacity": "0.66",
-            "label": true,
-            "label-position": "sw",
-            "color": "#000000"
-        },
-        "nodes": [
-            "c18c342f7541c4bb"
-        ],
-        "x": 694,
-        "y": 1819,
-        "w": 312,
-        "h": 90
     },
     {
         "id": "f4ebc30243c09416",
@@ -2625,904 +2495,112 @@
         ]
     },
     {
-        "id": "55c19b1306f3be05",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "func": "var Randomnumber = global.get (\"Gateway_To_Plc_Msg_Id\");\nmsg.payload = Randomnumber;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 400,
-        "wires": [
-            [
-                "55ee197fdf4db034"
-            ]
-        ]
-    },
-    {
-        "id": "7a6e509265ebf2f2",
-        "type": "inject",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "Task2",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "0.5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1700,
-        "y": 400,
-        "wires": [
-            [
-                "55c19b1306f3be05"
-            ]
-        ]
-    },
-    {
-        "id": "d0dcb6a6047e1552",
-        "type": "inject",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "send id to plc continously",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "0.5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1700,
-        "y": 520,
-        "wires": [
-            [
-                "fb6f131a12671a7a",
-                "91256ac0e9495b37",
-                "62259062ff786e8f"
-            ]
-        ]
-    },
-    {
-        "id": "fb6f131a12671a7a",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "func": "msg.payload  = global.get (\"Gateway_To_Plc_rRequest_Id_Ack\");\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 480,
-        "wires": [
-            [
-                "4474b1cc1863e709"
-            ]
-        ]
-    },
-    {
-        "id": "91256ac0e9495b37",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "func": "msg.payload  = global.get (\"Gateway_To_Plc_sRequest_Id_Ack\");\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 520,
-        "wires": [
-            [
-                "070e8f320e9e620f"
-            ]
-        ]
-    },
-    {
-        "id": "62259062ff786e8f",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "func": "msg.payload  = global.get (\"Gateway_To_Plc_pRequest_Id_Ack\");\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 560,
-        "wires": [
-            [
-                "c85b770383c2a4fe"
-            ]
-        ]
-    },
-    {
-        "id": "759fdaabeb296d58",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "function 22",
-        "func": "global.set(\"countercopied\", 0);\nglobal.set(\"queuecounter\", 0);\nglobal.set(\"reqcountercopied\", 0);\nglobal.set(\"reqqueuecounter\", 0);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9422c226e864fb7a",
-        "type": "inject",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 590,
-        "y": 740,
-        "wires": [
-            [
-                "759fdaabeb296d58"
-            ]
-        ]
-    },
-    {
-        "id": "7ea254e81fa2a0e9",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "buffer to String",
-        "func": "//var b=Buffer.from(msg.payload);\n//var s=b.toString();\nvar type = typeof msg.payload\nif (type == \"object\")\n{\n    msg.payload = JSON.parse(msg.payload)\n    return msg\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1060,
-        "y": 1060,
-        "wires": [
-            [
-                "bc2b7088d866cf84"
-            ]
-        ]
-    },
-    {
-        "id": "b28308ad8bb7de48",
-        "type": "inject",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"properties\":{\"propertyList\":[]},\"messageId\":\"\",\"to\":\"\",\"expiryTimeUtc\":null,\"lockToken\":\"\",\"correlationId\":\"\",\"userId\":\"\",\"payload\":{\"type\":\"Buffer\",\"data\":[123,10,32,32,34,98,105,110,73,100,34,58,32,34,66,80,84,67,48,50,45,51,55,45,49,45,50,45,49,34,44,10,32,32,34,99,111,109,109,97,110,100,84,121,112,101,34,58,32,53,44,10,32,32,34,112,82,101,113,117,101,115,116,73,100,34,58,32,34,57,97,54,48,55,102,51,51,45,51,53,55,53,45,52,97,49,102,45,57,51,98,54,45,100,51,55,48,100,101,99,102,101,53,55,51,34,44,10,32,32,34,112,105,99,107,81,116,121,34,58,32,49,44,10,32,32,34,115,107,117,73,100,34,58,32,34,70,67,66,49,48,48,54,48,34,10,125]}}",
-        "payloadType": "json",
-        "x": 790,
-        "y": 1080,
-        "wires": [
-            [
-                "7ea254e81fa2a0e9"
-            ]
-        ]
-    },
-    {
-        "id": "bc2b7088d866cf84",
-        "type": "debug",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "debug 40",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1340,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "3e9b783785108360",
-        "type": "inject",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "connect first scan",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "{\"deviceId\":\"ckplctest\",\"key\":\"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\"protocol\":\"amqp\",\"data\":\"\"}",
-        "payloadType": "json",
-        "x": 750,
-        "y": 120,
-        "wires": [
-            [
-                "5e92169cfed764e1"
-            ]
-        ]
-    },
-    {
-        "id": "5eaa04b97f93ade7",
-        "type": "inject",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "disconnect manually",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "{\"deviceId\":\"ckplctest\",\"key\":\"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\"protocol\":\"amqp\",\"data\":\"\"}",
-        "payloadType": "json",
-        "x": 750,
-        "y": 160,
-        "wires": [
-            [
-                "5e92169cfed764e1"
-            ]
-        ]
-    },
-    {
-        "id": "b0a863a3649b5ce8",
-        "type": "trigger",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "op1": "{\"deviceId\":\"ckplctest\",\"key\":\"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\"protocol\":\"amqp\",\"data\":\"\"}",
-        "op2": "0",
-        "op1type": "json",
-        "op2type": "str",
-        "duration": "-5",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 760,
-        "y": 200,
-        "wires": [
-            [
-                "5e92169cfed764e1"
-            ]
-        ]
-    },
-    {
-        "id": "6005e78038789df9",
-        "type": "switch",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "property": "payload.status",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Disconnected",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Error",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 530,
-        "y": 280,
-        "wires": [
-            [
-                "b0a863a3649b5ce8",
-                "cd8a855e896e57bd"
-            ],
-            [
-                "b0a863a3649b5ce8",
-                "cd8a855e896e57bd"
-            ],
-            [
-                "7aa2d420fa9f1920"
-            ]
-        ]
-    },
-    {
-        "id": "7aa2d420fa9f1920",
-        "type": "change",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "reset",
-                "pt": "msg",
-                "to": "1",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 260,
-        "wires": [
-            [
-                "b0a863a3649b5ce8"
-            ]
-        ]
-    },
-    {
-        "id": "9aaee860be6aba3c",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "func": "global.set(\"Azure1Status\",msg.status.text);\nmsg.payload={\n    \"status\":msg.status.text\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 200,
-        "wires": [
-            [
-                "6005e78038789df9",
-                "88c5425a4a483718"
-            ]
-        ]
-    },
-    {
-        "id": "cd8a855e896e57bd",
-        "type": "trigger",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "op1": "true",
-        "op2": "0",
-        "op1type": "bool",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 520,
-        "wires": [
-            [
-                "80ac0e2fe5a20e7b"
-            ]
-        ]
-    },
-    {
-        "id": "295fada7dc0ce287",
-        "type": "status",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "scope": [
-            "842966e89dcb8992"
-        ],
-        "x": 200,
-        "y": 200,
-        "wires": [
-            [
-                "9aaee860be6aba3c"
-            ]
-        ]
-    },
-    {
-        "id": "88c5425a4a483718",
-        "type": "debug",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "connection status Azure",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "80ac0e2fe5a20e7b",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "function 21",
-        "func": "var input =msg.payload\nvar text1 = \"hello \"\nvar text2 = \"Azure Connectivity Error\"\nif (input == true)\n{\nmsg.payload = text1.concat(text2);\n}\nelse\n{\n   msg.payload= \"Azure Connectivity done\"; \n}\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 520,
-        "wires": [
-            [
-                "8632603986de7377"
-            ]
-        ]
-    },
-    {
-        "id": "8632603986de7377",
-        "type": "ui_audio",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "group": "f4ebc30243c09416",
-        "voice": "Google UK English Female",
-        "always": false,
-        "x": 1400,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "cac6157399e40965",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "function 19",
-        "func": "var sw=msg.payload;\nif (sw == true) \n{\nmsg.payload=\"alarm Enabled \";\n}\nelse \n{\nmsg.payload=\"alarm disabled \";\n}\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1100,
-        "y": 480,
-        "wires": [
-            [
-                "8632603986de7377"
-            ]
-        ]
-    },
-    {
-        "id": "ab07b1bcc7970392",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "function 20",
-        "func": "msg.payload = \"Task Request Queue Unload Stopped\";\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1190,
-        "y": 860,
-        "wires": [
-            [
-                "8632603986de7377",
-                "c66a82e988084553"
-            ]
-        ]
-    },
-    {
-        "id": "f7b3297c2af2c6bd",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "function 24",
-        "func": "if (msg.payload == true) {\n    msg.payload = \"Bot 1 Emulate3d Error\";\n    return msg;\n}\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 580,
-        "wires": [
-            [
-                "8632603986de7377"
-            ]
-        ]
-    },
-    {
-        "id": "c6facf9c3174779a",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "function 25",
-        "func": "msg.payload = \"Acknowledgement Request Queue Unload Stopped\";\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1170,
-        "y": 800,
-        "wires": [
-            [
-                "8632603986de7377"
-            ]
-        ]
-    },
-    {
-        "id": "e767ad3b4c92643d",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "function 26",
-        "func": "if(msg.payload == true){\nmsg.payload = \"Bot 2 Emulate3d Error\";\nreturn msg;\n}\n\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 620,
-        "wires": [
-            [
-                "8632603986de7377"
-            ]
-        ]
-    },
-    {
-        "id": "c065c94f524f71bb",
-        "type": "ui_switch",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "label": "switch",
-        "tooltip": "",
-        "group": "f4ebc30243c09416",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "x": 930,
-        "y": 480,
-        "wires": [
-            [
-                "cac6157399e40965"
-            ]
-        ]
-    },
-    {
-        "id": "bee3bfc133d242b1",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "Task QUeue Stopped",
-        "func": "var counter=global.get(\"queuecounter\");\nvar ccopied = global.get(\"countercopied\");\nif (counter==ccopied && counter!=0){\n    msg.payload =\"Queue Failure\";\n    return msg;\n}\nelse{\n   // msg.payload =\"Queue Okay\"\nglobal.set(\"countercopied\", counter);\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 880,
-        "y": 860,
-        "wires": [
-            [
-                "ab07b1bcc7970392"
-            ]
-        ]
-    },
-    {
-        "id": "c66a82e988084553",
-        "type": "debug",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "debug 39",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1460,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "17fb021cf95ec477",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "Task Request QUeue Stopped",
-        "func": "var counter=global.get(\"reqqueuecounter\");\nvar ccopied = global.get(\"reqcountercopied\");\nif (counter==ccopied && counter!=0){\n    msg.payload =\"Queue Failure\";\n    return msg;\n}\nelse{\n   // msg.payload =\"Queue Okay\"\nglobal.set(\"reqcountercopied\", counter);\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 800,
-        "wires": [
-            [
-                "c6facf9c3174779a"
-            ]
-        ]
-    },
-    {
-        "id": "0ca308a6419139e6",
-        "type": "inject",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 590,
-        "y": 860,
-        "wires": [
-            [
-                "bee3bfc133d242b1"
-            ]
-        ]
-    },
-    {
-        "id": "6af5954fa88f69f8",
-        "type": "inject",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 590,
-        "y": 800,
-        "wires": [
-            [
-                "17fb021cf95ec477"
-            ]
-        ]
-    },
-    {
-        "id": "5e92169cfed764e1",
-        "type": "function",
-        "z": "09d5ccbd4dfaca3f",
-        "name": "function 29",
-        "func": "msg.payload=msg.payload\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 970,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0de67eb0199d088e",
+        "id": "bc7e839c7307e51c",
         "type": "eth-ip in",
-        "z": "09d5ccbd4dfaca3f",
+        "z": "b21bd85f55499775",
         "endpoint": "773333850a653945",
         "mode": "single",
-        "variable": "Bot1_Storage_Error",
+        "variable": "Plc_To_WMS_Msg.sRequestId",
         "program": "",
         "name": "",
-        "x": 910,
-        "y": 580,
+        "x": 210,
+        "y": 180,
         "wires": [
             [
-                "f7b3297c2af2c6bd"
+                "eed806a91dd01b8c",
+                "d00dc15cf41ed2af",
+                "926072810e121b35"
             ]
         ]
     },
     {
-        "id": "38f99cd81c1fd1cd",
-        "type": "eth-ip in",
-        "z": "09d5ccbd4dfaca3f",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Bot2_Storage_Error",
-        "program": "",
-        "name": "",
-        "x": 910,
-        "y": 620,
-        "wires": [
-            [
-                "e767ad3b4c92643d"
-            ]
-        ]
-    },
-    {
-        "id": "55ee197fdf4db034",
-        "type": "eth-ip out",
-        "z": "09d5ccbd4dfaca3f",
-        "endpoint": "773333850a653945",
-        "variable": "Gateway_To_Plc_Msg_Id",
-        "program": "",
-        "name": "",
-        "x": 2190,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "4474b1cc1863e709",
-        "type": "eth-ip out",
-        "z": "09d5ccbd4dfaca3f",
-        "endpoint": "773333850a653945",
-        "variable": "Gateway_To_Plc_rRequest_Id_Ack",
-        "program": "",
-        "name": "",
-        "x": 2220,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "070e8f320e9e620f",
-        "type": "eth-ip out",
-        "z": "09d5ccbd4dfaca3f",
-        "endpoint": "773333850a653945",
-        "variable": "Gateway_To_Plc_sRequest_Id_Ack",
-        "program": "",
-        "name": "",
-        "x": 2220,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "c85b770383c2a4fe",
-        "type": "eth-ip out",
-        "z": "09d5ccbd4dfaca3f",
-        "endpoint": "773333850a653945",
-        "variable": "Gateway_To_Plc_pRequest_Id_Ack",
-        "program": "",
-        "name": "",
-        "x": 2220,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "88aeb16710f4c0d7",
-        "type": "switch",
-        "z": "175a0f6663745ad4",
-        "name": "",
-        "property": "msg.payload.deviceId",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "ckplce3d",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1170,
-        "y": 340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6b31109820aace3c",
+        "id": "eed806a91dd01b8c",
         "type": "function",
-        "z": "175a0f6663745ad4",
-        "name": "Queue Count Capture",
-        "func": "var count =msg._queueCount;\nglobal.set(\"reqqueuecounter\", count);\nreturn msg;",
+        "z": "b21bd85f55499775",
+        "name": "sRequsetId",
+        "func": "global.set(\"Gateway_To_Plc_sRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1220,
-        "y": 260,
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "e94bc83a49cb729c"
+            ]
+        ]
+    },
+    {
+        "id": "d00dc15cf41ed2af",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "Writedatatoazure",
+        "func": "msg.payload = {\n\n    \"deviceId\": \"ckplctest\",\n    \"key\": \"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\n    \"protocol\": \"amqp\",\n    \"data\": {\n        \"requestId\": msg.payload\n    }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 240,
+        "wires": [
+            [
+                "587d4878410cd170"
+            ]
+        ]
+    },
+    {
+        "id": "926072810e121b35",
+        "type": "link out",
+        "z": "b21bd85f55499775",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "95a946ace8a5fdca"
+        ],
+        "x": 385,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e94bc83a49cb729c",
+        "type": "file",
+        "z": "b21bd85f55499775",
+        "name": "",
+        "filename": "C:\\Datalog\\sRequestIds.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 680,
+        "y": 180,
         "wires": [
             []
         ]
     },
     {
-        "id": "422bb1dbc86758fb",
+        "id": "587d4878410cd170",
         "type": "simple-queue",
-        "z": "175a0f6663745ad4",
+        "z": "b21bd85f55499775",
         "name": "",
         "firstMessageBypass": true,
         "bypassInterval": "0",
-        "x": 990,
+        "x": 950,
         "y": 300,
         "wires": [
             [
-                "6b31109820aace3c",
-                "88aeb16710f4c0d7"
+                "6563915a9e175031",
+                "775d09a2837ea5a3"
             ]
         ]
     },
     {
-        "id": "73cc193913bd7d76",
+        "id": "9b58794d1f21e9cf",
         "type": "change",
-        "z": "175a0f6663745ad4",
+        "z": "b21bd85f55499775",
         "name": "",
         "rules": [
             {
@@ -3538,18 +2616,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
+        "x": 600,
         "y": 480,
         "wires": [
             [
-                "422bb1dbc86758fb"
+                "587d4878410cd170"
             ]
         ]
     },
     {
-        "id": "bc70b0670741025d",
+        "id": "db43e39ce6b1ef3c",
         "type": "change",
-        "z": "175a0f6663745ad4",
+        "z": "b21bd85f55499775",
         "name": "",
         "rules": [
             {
@@ -3565,1147 +2643,73 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
+        "x": 700,
         "y": 420,
         "wires": [
             [
-                "422bb1dbc86758fb"
+                "587d4878410cd170"
             ]
         ]
     },
     {
-        "id": "ce4f9dedadc32e54",
-        "type": "switch",
-        "z": "175a0f6663745ad4",
-        "name": "",
-        "property": "Azure1Status",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Error",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Disconnected",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 510,
-        "y": 420,
-        "wires": [
-            [],
-            [],
-            [
-                "bc70b0670741025d"
-            ]
-        ]
-    },
-    {
-        "id": "c443732355cb1042",
+        "id": "fd0aab21a3f963f0",
         "type": "function",
-        "z": "175a0f6663745ad4",
+        "z": "b21bd85f55499775",
         "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n  \"deviceId\": \"ck-edge-test\",// \"ckplcprod\",\n  \"key\": \"4rmR7vjz0pMy85535C6SXbUubfHRjfrmEa996TANMCY=\",\n  \"protocol\": \"amqp\",\n  \"data\": {\n    \"requestId\": msg.payload\n  }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
+        "func": "msg.payload = {\n\n  \"deviceId\": \"ckplctest\",\n  \"key\": \"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\n  \"protocol\": \"amqp\",\n  \"data\": {\n    \"requestId\": msg.payload\n  }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
+        "x": 630,
         "y": 340,
         "wires": [
             [
-                "422bb1dbc86758fb"
+                "587d4878410cd170"
             ]
         ]
     },
     {
-        "id": "9c01ef3876661a3a",
-        "type": "file",
-        "z": "175a0f6663745ad4",
-        "name": "",
-        "filename": "C:\\Datalog\\pRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 720,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8323a0dcbe358b25",
+        "id": "7dfe1b0d862f6960",
         "type": "function",
-        "z": "175a0f6663745ad4",
+        "z": "b21bd85f55499775",
         "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n    \"deviceId\": \"ck-edge-test\",// \"ckplcprod\",\n    \"key\": \"4rmR7vjz0pMy85535C6SXbUubfHRjfrmEa996TANMCY=\",\n    \"protocol\": \"amqp\",\n    \"data\": {\n        \"requestId\": msg.payload\n    }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
+        "func": "msg.payload = {\n\n  \"deviceId\" : \"ckplctest\",\n  \"key\" : \"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\n  \"protocol\": \"amqp\",\n  \"data\": {\n    \"requestId\": msg.payload\n  }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 240,
-        "wires": [
-            [
-                "422bb1dbc86758fb"
-            ]
-        ]
-    },
-    {
-        "id": "7aa895168c4139ea",
-        "type": "file",
-        "z": "175a0f6663745ad4",
-        "name": "",
-        "filename": "C:\\Datalog\\rRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 740,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9e6ff67a1e2467c5",
-        "type": "function",
-        "z": "175a0f6663745ad4",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n  \"deviceId\": \"ck-edge-test\",// \"ckplcprod\",\n  \"key\": \"4rmR7vjz0pMy85535C6SXbUubfHRjfrmEa996TANMCY=\",\n  \"protocol\": \"amqp\",\n  \"data\": {\n    \"requestId\": msg.payload\n  }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 750,
+        "x": 710,
         "y": 140,
         "wires": [
             [
-                "422bb1dbc86758fb"
+                "587d4878410cd170"
             ]
         ]
     },
     {
-        "id": "02dab3c440387216",
-        "type": "file",
-        "z": "175a0f6663745ad4",
-        "name": "",
-        "filename": "C:\\Datalog\\sRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 720,
-        "y": 180,
+        "id": "6563915a9e175031",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "Queue Count Capture",
+        "func": "var count =msg._queueCount;\nglobal.set(\"reqqueuecounter\", count);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 260,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "6c929fab38bbd5a0",
-        "type": "function",
-        "z": "175a0f6663745ad4",
-        "name": "sRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_sRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 180,
-        "wires": [
-            [
-                "02dab3c440387216"
-            ]
-        ]
-    },
-    {
-        "id": "e43685ce47489708",
-        "type": "function",
-        "z": "175a0f6663745ad4",
-        "name": "rRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_rRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 80,
-        "wires": [
-            [
-                "7aa895168c4139ea"
-            ]
-        ]
-    },
-    {
-        "id": "6be6fcbc9853c287",
-        "type": "function",
-        "z": "175a0f6663745ad4",
-        "name": "pRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_pRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 280,
-        "wires": [
-            [
-                "9c01ef3876661a3a"
-            ]
-        ]
-    },
-    {
-        "id": "9534e628a82a53d4",
-        "type": "inject",
-        "z": "175a0f6663745ad4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "2",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 250,
-        "y": 420,
-        "wires": [
-            [
-                "ce4f9dedadc32e54"
-            ]
-        ]
-    },
-    {
-        "id": "62177a1d18b9af9d",
-        "type": "inject",
-        "z": "175a0f6663745ad4",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "0.1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 410,
-        "y": 500,
-        "wires": [
-            [
-                "73cc193913bd7d76"
-            ]
-        ]
-    },
-    {
-        "id": "22295c2fc1cb9cb4",
-        "type": "eth-ip in",
-        "z": "175a0f6663745ad4",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.rRequestId",
-        "program": "",
-        "name": "",
-        "x": 250,
-        "y": 80,
-        "wires": [
-            [
-                "e43685ce47489708",
-                "9e6ff67a1e2467c5"
-            ]
-        ]
-    },
-    {
-        "id": "744d6911eaec189f",
-        "type": "eth-ip in",
-        "z": "175a0f6663745ad4",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.sRequestId",
-        "program": "",
-        "name": "",
-        "x": 250,
-        "y": 180,
-        "wires": [
-            [
-                "6c929fab38bbd5a0",
-                "8323a0dcbe358b25"
-            ]
-        ]
-    },
-    {
-        "id": "f1e34e343b8c58c7",
-        "type": "eth-ip in",
-        "z": "175a0f6663745ad4",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.pRequestId",
-        "program": "",
-        "name": "",
-        "x": 250,
-        "y": 280,
-        "wires": [
-            [
-                "6be6fcbc9853c287",
-                "c443732355cb1042"
-            ]
-        ]
-    },
-    {
-        "id": "e3f005cb65ba9c5c",
-        "type": "mongodb out",
-        "z": "b167e5614310e233",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Update",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "update",
-        "x": 700,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "90df1b43916da752",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "function 31",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\n\nmsg.payload.status = 1\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 60,
-        "wires": [
-            [
-                "e3f005cb65ba9c5c",
-                "4f02334cfd022bef"
-            ]
-        ]
-    },
-    {
-        "id": "a629c4bb7d30de7d",
-        "type": "mongodb in",
-        "z": "b167e5614310e233",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 60,
-        "wires": [
-            [
-                "90df1b43916da752",
-                "fbe5f34fbd4f54c0"
-            ]
-        ]
-    },
-    {
-        "id": "e6b29462f623bcfb",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "function 32",
-        "func": "msg.payload = { \"status\": 0 }\nmsg.limit = 1\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 60,
-        "wires": [
-            [
-                "a629c4bb7d30de7d"
-            ]
-        ]
-    },
-    {
-        "id": "4f02334cfd022bef",
-        "type": "link out",
-        "z": "b167e5614310e233",
-        "name": "link out 1",
-        "mode": "link",
-        "links": [
-            "48126629590cb3c9"
-        ],
-        "x": 655,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "fbe5f34fbd4f54c0",
-        "type": "switch",
-        "z": "b167e5614310e233",
-        "name": "",
-        "property": "msg.payload[0].commandType",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "lte",
-                "v": "6",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 490,
-        "y": 160,
-        "wires": [
-            [
-                "a636e50108612134"
-            ]
-        ]
-    },
-    {
-        "id": "a636e50108612134",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "",
-        "func": "var time = new Date();\nmsg.payload = {\n    \"message\":msg.payload[0],\n    \"timestamp\":time\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 640,
-        "y": 160,
-        "wires": [
-            [
-                "a0c123a2af440dbf"
-            ]
-        ]
-    },
-    {
-        "id": "a0c123a2af440dbf",
-        "type": "file",
-        "z": "b167e5614310e233",
-        "name": "",
-        "filename": "C:\\Datalog\\cloudmessage.csv",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 800,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ba578909ff9a7a97",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.FromY",
-        "program": "",
-        "name": "",
-        "x": 840,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "178d2c79d0d95ba3",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data fromY",
-        "func": "msg.payload = msg.payload.fromY\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 360,
-        "wires": [
-            [
-                "ba578909ff9a7a97"
-            ]
-        ]
-    },
-    {
-        "id": "b76bc558e61781ec",
-        "type": "switch",
-        "z": "b167e5614310e233",
-        "name": "",
-        "property": "msg.payload.commandType",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "lte",
-                "v": "4",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "5",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "6",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 130,
-        "y": 440,
-        "wires": [
-            [
-                "ed18628ac777c4b4",
-                "1b96f8091387fc8a",
-                "a6aa83a11d2bbb2e",
-                "178d2c79d0d95ba3",
-                "2fee35ad9848934e",
-                "9ab0bacb18cab5d6",
-                "b6931d44ecba5997",
-                "888091de2b47a18b",
-                "7f28dcb78d80da6c",
-                "6535862b79c9fe0c",
-                "b779411e5e045b27"
-            ],
-            [
-                "70940a9b7abb0ee7",
-                "8b0bd317fd3c858f",
-                "42288636e27b1fa6",
-                "479c470262b58cfd",
-                "8852decf6283d65b",
-                "b779411e5e045b27"
-            ],
-            [
-                "ed18628ac777c4b4",
-                "1b96f8091387fc8a",
-                "a6aa83a11d2bbb2e",
-                "178d2c79d0d95ba3",
-                "2fee35ad9848934e",
-                "9ab0bacb18cab5d6",
-                "b6931d44ecba5997",
-                "888091de2b47a18b",
-                "7f28dcb78d80da6c",
-                "6535862b79c9fe0c",
-                "b779411e5e045b27"
-            ]
-        ]
-    },
-    {
-        "id": "48126629590cb3c9",
-        "type": "link in",
-        "z": "b167e5614310e233",
-        "name": "link in 1",
-        "links": [
-            "4f02334cfd022bef"
-        ],
-        "x": 35,
-        "y": 440,
-        "wires": [
-            [
-                "b76bc558e61781ec"
-            ]
-        ]
-    },
-    {
-        "id": "ed18628ac777c4b4",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read commandType",
-        "func": "msg.payload = msg.payload.commandType\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 240,
-        "wires": [
-            [
-                "88688db743d0a068"
-            ]
-        ]
-    },
-    {
-        "id": "1b96f8091387fc8a",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data binId",
-        "func": "msg.payload = msg.payload.binId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 280,
-        "wires": [
-            [
-                "3ba39a48cf001836"
-            ]
-        ]
-    },
-    {
-        "id": "a6aa83a11d2bbb2e",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data fromX",
-        "func": "msg.payload = msg.payload.fromX\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 320,
-        "wires": [
-            [
-                "c285eae1088ea948"
-            ]
-        ]
-    },
-    {
-        "id": "2fee35ad9848934e",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data fromZ",
-        "func": "msg.payload = msg.payload.fromZ\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 400,
-        "wires": [
-            [
-                "820f7b6b19e8aa75"
-            ]
-        ]
-    },
-    {
-        "id": "9ab0bacb18cab5d6",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data rRequestId",
-        "func": "msg.payload = msg.payload.rRequestId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 440,
-        "wires": [
-            [
-                "5edf1d727992973e"
-            ]
-        ]
-    },
-    {
-        "id": "b6931d44ecba5997",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data toX",
-        "func": "msg.payload = msg.payload.toX\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 480,
-        "wires": [
-            [
-                "68f75056a05edf48"
-            ]
-        ]
-    },
-    {
-        "id": "888091de2b47a18b",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data toY",
-        "func": "msg.payload = msg.payload.toY\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 520,
-        "wires": [
-            [
-                "d2e8627cda4422fd"
-            ]
-        ]
-    },
-    {
-        "id": "7f28dcb78d80da6c",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data toZ",
-        "func": "msg.payload = msg.payload.toZ\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 560,
-        "wires": [
-            [
-                "16d114321ca99f90"
-            ]
-        ]
-    },
-    {
-        "id": "6535862b79c9fe0c",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data Column sRequestId",
-        "func": "msg.payload = msg.payload.sRequestId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 600,
-        "wires": [
-            [
-                "a4eae418b914ea42"
-            ]
-        ]
-    },
-    {
-        "id": "b779411e5e045b27",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "generate random number for msg id to plc",
-        "func": "var Randomnumber = Math.floor(Math.random() * 1000+1);\nglobal.set (\"Gateway_To_Plc_Msg_Id\",Randomnumber);\nmsg.payload = Randomnumber;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 900,
-        "wires": [
-            [
-                "9e96bd8d3b9da342"
-            ]
-        ]
-    },
-    {
-        "id": "70940a9b7abb0ee7",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data skuId",
-        "func": "msg.payload = msg.payload.skuId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 740,
-        "wires": [
-            [
-                "1a484ec0785712e2"
-            ]
-        ]
-    },
-    {
-        "id": "8b0bd317fd3c858f",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data pickQty",
-        "func": "msg.payload = msg.payload.pickQty\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 780,
-        "wires": [
-            [
-                "47da8fa4e4a850b0"
-            ]
-        ]
-    },
-    {
-        "id": "42288636e27b1fa6",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data Column pRequestId",
-        "func": "msg.payload = msg.payload.pRequestId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 820,
-        "wires": [
-            [
-                "0faeb50e905c062e"
-            ]
-        ]
-    },
-    {
-        "id": "479c470262b58cfd",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read commandType",
-        "func": "msg.payload = msg.payload.commandType\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 660,
-        "wires": [
-            [
-                "f3cafb6974f21e59"
-            ]
-        ]
-    },
-    {
-        "id": "8852decf6283d65b",
-        "type": "function",
-        "z": "b167e5614310e233",
-        "name": "Read Data binId",
-        "func": "msg.payload = msg.payload.binId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 700,
-        "wires": [
-            [
-                "09f3d7f61e1e597c"
-            ]
-        ]
-    },
-    {
-        "id": "88688db743d0a068",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.CommandType",
-        "program": "",
-        "name": "",
-        "x": 860,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "3ba39a48cf001836",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.BinId",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "c285eae1088ea948",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.FromX",
-        "program": "",
-        "name": "",
-        "x": 840,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "820f7b6b19e8aa75",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.FromZ",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "5edf1d727992973e",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.rRequestId",
-        "program": "",
-        "name": "",
-        "x": 850,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "68f75056a05edf48",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.ToX",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "d2e8627cda4422fd",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.ToY",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "16d114321ca99f90",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.ToZ",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "a4eae418b914ea42",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.sRequestId",
-        "program": "",
-        "name": "",
-        "x": 850,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "9e96bd8d3b9da342",
-        "type": "debug",
-        "z": "b167e5614310e233",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "1a484ec0785712e2",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.SkuId",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "47da8fa4e4a850b0",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.PickQty",
-        "program": "",
-        "name": "",
-        "x": 840,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "0faeb50e905c062e",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.pRequestId",
-        "program": "",
-        "name": "",
-        "x": 850,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "f3cafb6974f21e59",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.CommandType",
-        "program": "",
-        "name": "",
-        "x": 860,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "09f3d7f61e1e597c",
-        "type": "eth-ip out",
-        "z": "b167e5614310e233",
-        "endpoint": "ad467d4fd7932147",
-        "variable": "WMS_To_Plc_Msg.BinId",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "f8564eaf5a74bf2c",
-        "type": "function",
-        "z": "335c961684dc200e",
-        "name": "buffer to String with Stringify",
-        "func": "var type = typeof msg.payload\nif (type == \"object\")\n{\nconst obj = msg.payload;\nlet string_from_array = String.fromCharCode.apply(String, obj);\nlet bring_obj_back = JSON.parse(string_from_array);\nmsg.payload = bring_obj_back;\nreturn msg;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 120,
-        "wires": [
-            [
-                "27735634e79bdbdc"
-            ]
-        ]
-    },
-    {
-        "id": "e312440d699d9905",
-        "type": "mongodb out",
-        "z": "335c961684dc200e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Insert",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "insert",
-        "x": 770,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "27735634e79bdbdc",
-        "type": "function",
-        "z": "335c961684dc200e",
-        "name": "function 30",
-        "func": "msg.payload.status=0\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 120,
-        "wires": [
-            [
-                "e312440d699d9905"
-            ]
-        ]
-    },
-    {
-        "id": "527647417291ad6f",
-        "type": "azureiothub",
-        "z": "7b229efa69ac7866",
-        "name": "Azure IoT Hub",
-        "protocol": "amqp",
-        "x": 560,
-        "y": 400,
-        "wires": [
-            [
-                "5ad4195533fa1608"
-            ]
-        ]
-    },
-    {
-        "id": "5ad4195533fa1608",
-        "type": "subflow:abf459b12a58a7d6",
-        "z": "7b229efa69ac7866",
-        "g": "5cd311501593d3e1",
-        "name": "Write Database",
-        "x": 800,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "174abfca7c1eff91",
-        "type": "subflow:168ce6884d330b26",
-        "z": "7b229efa69ac7866",
-        "g": "77d427850e68b76e",
-        "name": "Azure status and other functions ",
-        "x": 250,
-        "y": 460,
-        "wires": [
-            [
-                "527647417291ad6f"
-            ]
         ]
     },
     {
         "id": "775d09a2837ea5a3",
         "type": "switch",
-        "z": "7b229efa69ac7866",
+        "z": "b21bd85f55499775",
         "name": "",
         "property": "msg.payload.deviceId",
         "propertyType": "msg",
@@ -4719,105 +2723,45 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1150,
-        "y": 880,
-        "wires": [
-            [
-                "c6bb0fcea6db75aa"
-            ]
-        ]
-    },
-    {
-        "id": "6563915a9e175031",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Queue Count Capture",
-        "func": "var count =msg._queueCount;\nglobal.set(\"reqqueuecounter\", count);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1200,
-        "y": 800,
+        "x": 1130,
+        "y": 340,
         "wires": [
             []
         ]
     },
     {
-        "id": "587d4878410cd170",
-        "type": "simple-queue",
-        "z": "7b229efa69ac7866",
+        "id": "206b330784552903",
+        "type": "inject",
+        "z": "b21bd85f55499775",
         "name": "",
-        "firstMessageBypass": true,
-        "bypassInterval": "0",
-        "x": 970,
-        "y": 840,
-        "wires": [
-            [
-                "6563915a9e175031",
-                "775d09a2837ea5a3"
-            ]
-        ]
-    },
-    {
-        "id": "9b58794d1f21e9cf",
-        "type": "change",
-        "z": "7b229efa69ac7866",
-        "name": "",
-        "rules": [
+        "props": [
             {
-                "t": "set",
-                "p": "queueCount",
-                "pt": "msg",
-                "to": "1",
-                "tot": "str"
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 620,
-        "y": 1020,
+        "repeat": "0.1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 370,
+        "y": 500,
         "wires": [
             [
-                "587d4878410cd170"
-            ]
-        ]
-    },
-    {
-        "id": "db43e39ce6b1ef3c",
-        "type": "change",
-        "z": "7b229efa69ac7866",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "trigger",
-                "pt": "msg",
-                "to": "1",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 720,
-        "y": 960,
-        "wires": [
-            [
-                "587d4878410cd170"
+                "9b58794d1f21e9cf"
             ]
         ]
     },
     {
         "id": "57362a726bfb32a0",
         "type": "switch",
-        "z": "7b229efa69ac7866",
+        "z": "b21bd85f55499775",
         "name": "",
         "property": "Azure1Status",
         "propertyType": "global",
@@ -4839,8 +2783,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 490,
-        "y": 960,
+        "x": 470,
+        "y": 420,
         "wires": [
             [],
             [],
@@ -4850,174 +2794,47 @@
         ]
     },
     {
-        "id": "fd0aab21a3f963f0",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n  \"deviceId\": \"ckplctest\",\n  \"key\": \"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\n  \"protocol\": \"amqp\",\n  \"data\": {\n    \"requestId\": msg.payload\n  }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 650,
-        "y": 880,
-        "wires": [
-            [
-                "587d4878410cd170"
-            ]
-        ]
-    },
-    {
-        "id": "6b683397dd449fc5",
-        "type": "file",
-        "z": "7b229efa69ac7866",
+        "id": "c457d1ed87fa5308",
+        "type": "eth-ip in",
+        "z": "b21bd85f55499775",
+        "endpoint": "773333850a653945",
+        "mode": "single",
+        "variable": "Plc_To_WMS_Msg.pRequestId",
+        "program": "",
         "name": "",
-        "filename": "C:\\Datalog\\pRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 700,
-        "y": 820,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d00dc15cf41ed2af",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n    \"deviceId\": \"ckplctest\",\n    \"key\": \"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\n    \"protocol\": \"amqp\",\n    \"data\": {\n        \"requestId\": msg.payload\n    }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 780,
+        "x": 210,
+        "y": 280,
         "wires": [
             [
-                "587d4878410cd170"
+                "e5da2a3c75866743",
+                "fd0aab21a3f963f0",
+                "24ea2502f7362e25"
             ]
         ]
     },
     {
-        "id": "9cd409e327f8a1b4",
-        "type": "file",
-        "z": "7b229efa69ac7866",
+        "id": "d196634cf360d7ad",
+        "type": "eth-ip in",
+        "z": "b21bd85f55499775",
+        "endpoint": "773333850a653945",
+        "mode": "single",
+        "variable": "Plc_To_WMS_Msg.rRequestId",
+        "program": "",
         "name": "",
-        "filename": "C:\\Datalog\\rRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 720,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7dfe1b0d862f6960",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n  \"deviceId\" : \"ckplctest\",\n  \"key\" : \"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\n  \"protocol\": \"amqp\",\n  \"data\": {\n    \"requestId\": msg.payload\n  }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 680,
+        "x": 190,
+        "y": 80,
         "wires": [
             [
-                "587d4878410cd170"
-            ]
-        ]
-    },
-    {
-        "id": "e94bc83a49cb729c",
-        "type": "file",
-        "z": "7b229efa69ac7866",
-        "name": "",
-        "filename": "C:\\Datalog\\sRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 700,
-        "y": 720,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "eed806a91dd01b8c",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "sRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_sRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 720,
-        "wires": [
-            [
-                "e94bc83a49cb729c"
-            ]
-        ]
-    },
-    {
-        "id": "c593c96a94a695b5",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "rRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_rRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 620,
-        "wires": [
-            [
-                "9cd409e327f8a1b4"
-            ]
-        ]
-    },
-    {
-        "id": "e5da2a3c75866743",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "pRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_pRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 820,
-        "wires": [
-            [
-                "6b683397dd449fc5"
+                "c593c96a94a695b5",
+                "7dfe1b0d862f6960",
+                "1db70c93e855a135"
             ]
         ]
     },
     {
         "id": "60d5d5d3e28f39f3",
         "type": "inject",
-        "z": "7b229efa69ac7866",
+        "z": "b21bd85f55499775",
         "name": "",
         "props": [
             {
@@ -5035,8 +2852,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 230,
-        "y": 960,
+        "x": 210,
+        "y": 420,
         "wires": [
             [
                 "57362a726bfb32a0"
@@ -5044,95 +2861,107 @@
         ]
     },
     {
-        "id": "206b330784552903",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
+        "id": "e5da2a3c75866743",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "pRequsetId",
+        "func": "global.set(\"Gateway_To_Plc_pRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "6b683397dd449fc5"
+            ]
+        ]
+    },
+    {
+        "id": "24ea2502f7362e25",
+        "type": "link out",
+        "z": "b21bd85f55499775",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "f6415885ca6b290a"
         ],
-        "repeat": "0.1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 390,
-        "y": 1040,
+        "x": 385,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c593c96a94a695b5",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "rRequsetId",
+        "func": "global.set(\"Gateway_To_Plc_rRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 80,
         "wires": [
             [
-                "9b58794d1f21e9cf"
+                "9cd409e327f8a1b4"
             ]
         ]
     },
     {
-        "id": "d196634cf360d7ad",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.rRequestId",
-        "program": "",
+        "id": "1db70c93e855a135",
+        "type": "link out",
+        "z": "b21bd85f55499775",
+        "name": "link out 5",
+        "mode": "link",
+        "links": [
+            "1b6e432bd20c4993"
+        ],
+        "x": 375,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6b683397dd449fc5",
+        "type": "file",
+        "z": "b21bd85f55499775",
         "name": "",
-        "x": 210,
-        "y": 620,
+        "filename": "C:\\Datalog\\pRequestIds.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 680,
+        "y": 280,
         "wires": [
-            [
-                "c593c96a94a695b5",
-                "7dfe1b0d862f6960",
-                "1db70c93e855a135"
-            ]
+            []
         ]
     },
     {
-        "id": "bc7e839c7307e51c",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.sRequestId",
-        "program": "",
+        "id": "9cd409e327f8a1b4",
+        "type": "file",
+        "z": "b21bd85f55499775",
         "name": "",
-        "x": 230,
-        "y": 720,
+        "filename": "C:\\Datalog\\rRequestIds.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 700,
+        "y": 80,
         "wires": [
-            [
-                "eed806a91dd01b8c",
-                "d00dc15cf41ed2af",
-                "926072810e121b35"
-            ]
-        ]
-    },
-    {
-        "id": "c457d1ed87fa5308",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.pRequestId",
-        "program": "",
-        "name": "",
-        "x": 230,
-        "y": 820,
-        "wires": [
-            [
-                "e5da2a3c75866743",
-                "fd0aab21a3f963f0",
-                "24ea2502f7362e25"
-            ]
+            []
         ]
     },
     {
         "id": "12a58724ddade1e8",
         "type": "function",
-        "z": "7b229efa69ac7866",
+        "z": "b21bd85f55499775",
         "name": "function 33",
         "func": "msg.payload = { \"sRequestId\": msg.payload}\nreturn msg;",
         "outputs": 1,
@@ -5140,8 +2969,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 1160,
+        "x": 450,
+        "y": 620,
         "wires": [
             [
                 "3c2febb4a98754b1"
@@ -5151,7 +2980,7 @@
     {
         "id": "3c2febb4a98754b1",
         "type": "mongodb out",
-        "z": "7b229efa69ac7866",
+        "z": "b21bd85f55499775",
         "mongodb": "8bdab089b2660f17",
         "name": "Delete ",
         "collection": "table",
@@ -5159,72 +2988,14 @@
         "upsert": false,
         "multi": false,
         "operation": "delete",
-        "x": 630,
-        "y": 1160,
+        "x": 610,
+        "y": 620,
         "wires": []
-    },
-    {
-        "id": "c6bb0fcea6db75aa",
-        "type": "link out",
-        "z": "7b229efa69ac7866",
-        "name": "link out 2",
-        "mode": "link",
-        "links": [
-            "3f1ebcee41e254b8"
-        ],
-        "x": 1275,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "3f1ebcee41e254b8",
-        "type": "link in",
-        "z": "7b229efa69ac7866",
-        "name": "link in 2",
-        "links": [
-            "c6bb0fcea6db75aa"
-        ],
-        "x": 385,
-        "y": 360,
-        "wires": [
-            [
-                "527647417291ad6f"
-            ]
-        ]
-    },
-    {
-        "id": "926072810e121b35",
-        "type": "link out",
-        "z": "7b229efa69ac7866",
-        "name": "link out 3",
-        "mode": "link",
-        "links": [
-            "95a946ace8a5fdca"
-        ],
-        "x": 405,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "95a946ace8a5fdca",
-        "type": "link in",
-        "z": "7b229efa69ac7866",
-        "name": "link in 3",
-        "links": [
-            "926072810e121b35"
-        ],
-        "x": 325,
-        "y": 1160,
-        "wires": [
-            [
-                "12a58724ddade1e8"
-            ]
-        ]
     },
     {
         "id": "d60c399fc8adb2c7",
         "type": "function",
-        "z": "7b229efa69ac7866",
+        "z": "b21bd85f55499775",
         "name": "function 34",
         "func": "msg.payload = { \"PRequestId\": msg.payload}\nreturn msg;",
         "outputs": 1,
@@ -5232,8 +3003,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 470,
-        "y": 1240,
+        "x": 450,
+        "y": 700,
         "wires": [
             [
                 "e325eb1fef52d494"
@@ -5241,43 +3012,31 @@
         ]
     },
     {
-        "id": "e325eb1fef52d494",
-        "type": "mongodb out",
-        "z": "7b229efa69ac7866",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Delete ",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "delete",
-        "x": 630,
-        "y": 1240,
-        "wires": []
-    },
-    {
-        "id": "24ea2502f7362e25",
-        "type": "link out",
-        "z": "7b229efa69ac7866",
-        "name": "link out 4",
-        "mode": "link",
+        "id": "95a946ace8a5fdca",
+        "type": "link in",
+        "z": "b21bd85f55499775",
+        "name": "link in 3",
         "links": [
-            "f6415885ca6b290a"
+            "926072810e121b35"
         ],
-        "x": 405,
-        "y": 860,
-        "wires": []
+        "x": 305,
+        "y": 620,
+        "wires": [
+            [
+                "12a58724ddade1e8"
+            ]
+        ]
     },
     {
         "id": "f6415885ca6b290a",
         "type": "link in",
-        "z": "7b229efa69ac7866",
+        "z": "b21bd85f55499775",
         "name": "link in 4",
         "links": [
             "24ea2502f7362e25"
         ],
-        "x": 325,
-        "y": 1240,
+        "x": 305,
+        "y": 700,
         "wires": [
             [
                 "d60c399fc8adb2c7"
@@ -5285,97 +3044,15 @@
         ]
     },
     {
-        "id": "ca16a37db5227346",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "function 35",
-        "func": "msg.payload = { \"rRequestId\": msg.payload }\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 1300,
-        "wires": [
-            [
-                "9c71686891dc73db"
-            ]
-        ]
-    },
-    {
-        "id": "a755d98a29858474",
-        "type": "mongodb out",
-        "z": "7b229efa69ac7866",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Update",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "update",
-        "x": 960,
-        "y": 1300,
-        "wires": []
-    },
-    {
-        "id": "7c95d675bc9d596e",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "function 36",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\n\nmsg.payload.status = 2\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 790,
-        "y": 1300,
-        "wires": [
-            [
-                "a755d98a29858474"
-            ]
-        ]
-    },
-    {
-        "id": "9c71686891dc73db",
-        "type": "mongodb in",
-        "z": "7b229efa69ac7866",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 630,
-        "y": 1300,
-        "wires": [
-            [
-                "7c95d675bc9d596e"
-            ]
-        ]
-    },
-    {
-        "id": "1db70c93e855a135",
-        "type": "link out",
-        "z": "7b229efa69ac7866",
-        "name": "link out 5",
-        "mode": "link",
-        "links": [
-            "1b6e432bd20c4993"
-        ],
-        "x": 395,
-        "y": 660,
-        "wires": []
-    },
-    {
         "id": "1b6e432bd20c4993",
         "type": "link in",
-        "z": "7b229efa69ac7866",
+        "z": "b21bd85f55499775",
         "name": "link in 5",
         "links": [
             "1db70c93e855a135"
         ],
-        "x": 325,
-        "y": 1300,
+        "x": 305,
+        "y": 760,
         "wires": [
             [
                 "ca16a37db5227346"
@@ -5383,397 +3060,135 @@
         ]
     },
     {
-        "id": "e94e8d20096db21a",
-        "type": "inject",
+        "id": "ca16a37db5227346",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 35",
+        "func": "msg.payload = { \"rRequestId\": msg.payload }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 760,
+        "wires": [
+            [
+                "9c71686891dc73db"
+            ]
+        ]
+    },
+    {
+        "id": "9c71686891dc73db",
+        "type": "mongodb in",
+        "z": "b21bd85f55499775",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 610,
+        "y": 760,
+        "wires": [
+            [
+                "7c95d675bc9d596e"
+            ]
+        ]
+    },
+    {
+        "id": "e325eb1fef52d494",
+        "type": "mongodb out",
+        "z": "b21bd85f55499775",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Delete ",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 610,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "7c95d675bc9d596e",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 36",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\n\nmsg.payload.status = 2\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 760,
+        "wires": [
+            [
+                "a755d98a29858474"
+            ]
+        ]
+    },
+    {
+        "id": "a755d98a29858474",
+        "type": "mongodb out",
+        "z": "b21bd85f55499775",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 940,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "527647417291ad6f",
+        "type": "azureiothub",
         "z": "7b229efa69ac7866",
-        "name": "Manual rReqest ack",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1Xg85E40-264w-07G0-Ip5C-j311694820M6",
-        "payloadType": "str",
+        "name": "Azure IoT Hub",
+        "protocol": "amqp",
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "5ad4195533fa1608"
+            ]
+        ]
+    },
+    {
+        "id": "5ad4195533fa1608",
+        "type": "subflow:abf459b12a58a7d6",
+        "z": "7b229efa69ac7866",
+        "name": "Write Database",
+        "x": 720,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "174abfca7c1eff91",
+        "type": "subflow:168ce6884d330b26",
+        "z": "7b229efa69ac7866",
+        "name": "Azure status and other functions ",
         "x": 250,
-        "y": 580,
+        "y": 120,
         "wires": [
             [
-                "c593c96a94a695b5",
-                "1db70c93e855a135",
-                "7dfe1b0d862f6960"
+                "527647417291ad6f"
             ]
         ]
     },
     {
-        "id": "203c06785a6c32dc",
-        "type": "inject",
+        "id": "af70719ce96f10fb",
+        "type": "subflow:b21bd85f55499775",
         "z": "7b229efa69ac7866",
-        "name": "Manual sReqest ack",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "922k9kRu-tP54-7RQ4-47H2-s8n74EZwvHB0",
-        "payloadType": "str",
-        "x": 230,
-        "y": 680,
-        "wires": [
-            [
-                "eed806a91dd01b8c",
-                "926072810e121b35",
-                "d00dc15cf41ed2af"
-            ]
-        ]
-    },
-    {
-        "id": "10b71124a63bef9a",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "Manual pReqest ack",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "5f8d4709-9f08-4929-b375-569b2234ab37",
-        "payloadType": "str",
-        "x": 230,
-        "y": 780,
-        "wires": [
-            [
-                "e5da2a3c75866743",
-                "fd0aab21a3f963f0",
-                "24ea2502f7362e25"
-            ]
-        ]
-    },
-    {
-        "id": "53fc0c0ff1f5e12a",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "MoverID[1].idle",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 340,
-        "y": 1460,
-        "wires": [
-            [
-                "28ca2b9c7f4fc5f3"
-            ]
-        ]
-    },
-    {
-        "id": "7de2586e4f6dc4d4",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "MoverID[2].idle",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 340,
-        "y": 1540,
-        "wires": [
-            [
-                "d541ee68cce84725"
-            ]
-        ]
-    },
-    {
-        "id": "63ea0209c23e24ee",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "MoverID[3].idle",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 340,
-        "y": 1620,
-        "wires": [
-            [
-                "8b081909d4051811"
-            ]
-        ]
-    },
-    {
-        "id": "fa3b40a967f172ed",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "MoverID[4].idle",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 340,
-        "y": 1700,
-        "wires": [
-            [
-                "f327d5f5cb1c195b"
-            ]
-        ]
-    },
-    {
-        "id": "28ca2b9c7f4fc5f3",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Set Global Variable moverid1 ",
-        "func": "context.global.moverid1 = msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 1460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d541ee68cce84725",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Set Global Variable moverid2",
-        "func": "context.global.moverid2 = msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 1540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8b081909d4051811",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Set Global Variable moverid3",
-        "func": "context.global.moverid3 = msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 1620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f327d5f5cb1c195b",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Set Global Variable moverid4",
-        "func": "context.global.moverid4 = msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 1700,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "728192ff2178e311",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "Max no.of bots",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 340,
-        "y": 1380,
-        "wires": [
-            [
-                "e8f39dbbdb122271"
-            ]
-        ]
-    },
-    {
-        "id": "e8f39dbbdb122271",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Set Global Variable maxbot",
-        "func": "context.global.maxbot = msg.payload;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 1380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b960358a77a0b711",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "Function ",
-        "func": "msg.payload = 0;\nif(context.global.maxbot==1)\n{\n    if (context.global.moverid1 == 1)\n      msg.payload=1;\n}\n\nelse if (context.global.maxbot == 2) \n{\n    if (context.global.moverid1 == 1 || context.global.moverid2 == 1)\n        msg.payload = 1;\n}\nelse if (context.global.maxbot == 3) \n{\n    if (context.global.moverid1 == 1 || context.global.moverid2 == 1 || context.global.moverid3 == 1)\n        msg.payload = 1;\n}\nelse if (context.global.maxbot == 4) \n{\n    if (context.global.moverid1 == 1 || context.global.moverid2 == 1 || context.global.moverid3 == 1 || context.global.moverid4 == 1)\n        msg.payload = 1;\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 440,
-        "y": 1860,
-        "wires": [
-            [
-                "1ec0a8852f900a83"
-            ]
-        ]
-    },
-    {
-        "id": "de504077c8903da7",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Max_No_of_Bot",
-        "program": "",
         "name": "",
-        "x": 340,
-        "y": 1420,
+        "x": 270,
+        "y": 80,
         "wires": [
             [
-                "e8f39dbbdb122271"
-            ]
-        ]
-    },
-    {
-        "id": "4439396c9a9bb596",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "MoverID[1].idle",
-        "program": "",
-        "name": "",
-        "x": 340,
-        "y": 1500,
-        "wires": [
-            [
-                "28ca2b9c7f4fc5f3"
-            ]
-        ]
-    },
-    {
-        "id": "cc1c5e35b2e3e1dd",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "MoverID[2].idle",
-        "program": "",
-        "name": "",
-        "x": 340,
-        "y": 1580,
-        "wires": [
-            [
-                "d541ee68cce84725"
-            ]
-        ]
-    },
-    {
-        "id": "f381f6cc859d1987",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "MoverID[3].idle",
-        "program": "",
-        "name": "",
-        "x": 340,
-        "y": 1660,
-        "wires": [
-            [
-                "8b081909d4051811"
-            ]
-        ]
-    },
-    {
-        "id": "fa4719809dbc7ca8",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "MoverID[4].idle",
-        "program": "",
-        "name": "",
-        "x": 340,
-        "y": 1740,
-        "wires": [
-            [
-                "f327d5f5cb1c195b"
+                "527647417291ad6f"
             ]
         ]
     },
@@ -5786,46 +3201,11 @@
         "variable": "Enable_Task",
         "program": "",
         "name": "",
-        "x": 110,
-        "y": 1860,
+        "x": 90,
+        "y": 200,
         "wires": [
             [
                 "92f20ca703d3a24b"
-            ]
-        ]
-    },
-    {
-        "id": "c18c342f7541c4bb",
-        "type": "subflow:a27b931a44c8fb3e",
-        "z": "7b229efa69ac7866",
-        "g": "1b15535d340a8bc5",
-        "name": "Read DB and send data to PLC",
-        "x": 850,
-        "y": 1860,
-        "wires": []
-    },
-    {
-        "id": "1ec0a8852f900a83",
-        "type": "switch",
-        "z": "7b229efa69ac7866",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 590,
-        "y": 1860,
-        "wires": [
-            [
-                "c18c342f7541c4bb"
             ]
         ]
     },
@@ -5846,8 +3226,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 280,
-        "y": 1860,
+        "x": 260,
+        "y": 200,
         "wires": [
             [
                 "b960358a77a0b711"
@@ -5855,27 +3235,225 @@
         ]
     },
     {
-        "id": "54fd813969a925a7",
-        "type": "inject",
+        "id": "b960358a77a0b711",
+        "type": "function",
         "z": "7b229efa69ac7866",
-        "name": "Enable_task",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "1",
-        "payloadType": "num",
-        "x": 110,
-        "y": 1820,
+        "name": "Function ",
+        "func": "msg.payload = 0;\nif(context.global.maxbot==1)\n{\n    if (context.global.moverid1 == 1)\n      msg.payload=1;\n}\n\nelse if (context.global.maxbot == 2) \n{\n    if (context.global.moverid1 == 1 || context.global.moverid2 == 1)\n        msg.payload = 1;\n}\nelse if (context.global.maxbot == 3) \n{\n    if (context.global.moverid1 == 1 || context.global.moverid2 == 1 || context.global.moverid3 == 1)\n        msg.payload = 1;\n}\nelse if (context.global.maxbot == 4) \n{\n    if (context.global.moverid1 == 1 || context.global.moverid2 == 1 || context.global.moverid3 == 1 || context.global.moverid4 == 1)\n        msg.payload = 1;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 200,
         "wires": [
             [
-                "92f20ca703d3a24b"
+                "1ec0a8852f900a83"
+            ]
+        ]
+    },
+    {
+        "id": "1ec0a8852f900a83",
+        "type": "switch",
+        "z": "7b229efa69ac7866",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 200,
+        "wires": [
+            [
+                "c18c342f7541c4bb"
+            ]
+        ]
+    },
+    {
+        "id": "c18c342f7541c4bb",
+        "type": "subflow:a27b931a44c8fb3e",
+        "z": "7b229efa69ac7866",
+        "name": "Read DB and send data to PLC",
+        "x": 790,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "28ca2b9c7f4fc5f3",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "Set Global Variable moverid1 ",
+        "func": "context.global.moverid1 = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d541ee68cce84725",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "Set Global Variable moverid2",
+        "func": "context.global.moverid2 = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b081909d4051811",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "Set Global Variable moverid3",
+        "func": "context.global.moverid3 = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f327d5f5cb1c195b",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "Set Global Variable moverid4",
+        "func": "context.global.moverid4 = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e8f39dbbdb122271",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "Set Global Variable maxbot",
+        "func": "context.global.maxbot = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de504077c8903da7",
+        "type": "eth-ip in",
+        "z": "7b229efa69ac7866",
+        "endpoint": "773333850a653945",
+        "mode": "single",
+        "variable": "Max_No_of_Bot",
+        "program": "",
+        "name": "",
+        "x": 280,
+        "y": 280,
+        "wires": [
+            [
+                "e8f39dbbdb122271"
+            ]
+        ]
+    },
+    {
+        "id": "4439396c9a9bb596",
+        "type": "eth-ip in",
+        "z": "7b229efa69ac7866",
+        "endpoint": "773333850a653945",
+        "mode": "single",
+        "variable": "MoverID[1].idle",
+        "program": "",
+        "name": "",
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "28ca2b9c7f4fc5f3"
+            ]
+        ]
+    },
+    {
+        "id": "cc1c5e35b2e3e1dd",
+        "type": "eth-ip in",
+        "z": "7b229efa69ac7866",
+        "endpoint": "773333850a653945",
+        "mode": "single",
+        "variable": "MoverID[2].idle",
+        "program": "",
+        "name": "",
+        "x": 280,
+        "y": 360,
+        "wires": [
+            [
+                "d541ee68cce84725"
+            ]
+        ]
+    },
+    {
+        "id": "f381f6cc859d1987",
+        "type": "eth-ip in",
+        "z": "7b229efa69ac7866",
+        "endpoint": "773333850a653945",
+        "mode": "single",
+        "variable": "MoverID[3].idle",
+        "program": "",
+        "name": "",
+        "x": 280,
+        "y": 400,
+        "wires": [
+            [
+                "8b081909d4051811"
+            ]
+        ]
+    },
+    {
+        "id": "fa4719809dbc7ca8",
+        "type": "eth-ip in",
+        "z": "7b229efa69ac7866",
+        "endpoint": "773333850a653945",
+        "mode": "single",
+        "variable": "MoverID[4].idle",
+        "program": "",
+        "name": "",
+        "x": 280,
+        "y": 440,
+        "wires": [
+            [
+                "f327d5f5cb1c195b"
             ]
         ]
     }
