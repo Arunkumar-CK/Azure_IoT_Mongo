@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "b03484837d29b388",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "168ce6884d330b26",
         "type": "subflow",
         "name": "Azure status and other functions",
@@ -227,6 +235,12 @@
                 },
                 "Enable_Task": {
                     "type": ""
+                },
+                "Bot1_Storage_Error": {
+                    "type": ""
+                },
+                "Bot2_Storage_Error": {
+                    "type": ""
                 }
             }
         }
@@ -417,6 +431,14 @@
         "type": "sqlitedb",
         "db": "C:\\Users\\DELL\\Desktop\\PTL-Python\\SQLite.db",
         "mode": "RWC"
+    },
+    {
+        "id": "2e14670c.5d4c98",
+        "type": "mongodb",
+        "hostname": "localhost",
+        "port": "27017",
+        "db": "test",
+        "name": ""
     },
     {
         "id": "c35329e490967af3",
@@ -3183,7 +3205,7 @@
         "id": "af70719ce96f10fb",
         "type": "subflow:b21bd85f55499775",
         "z": "7b229efa69ac7866",
-        "name": "",
+        "name": "Acknowlegement from PLC",
         "x": 270,
         "y": 80,
         "wires": [
@@ -3454,6 +3476,307 @@
         "wires": [
             [
                 "f327d5f5cb1c195b"
+            ]
+        ]
+    },
+    {
+        "id": "b10e65e85401653e",
+        "type": "exec",
+        "z": "7b229efa69ac7866",
+        "command": "python Server4.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 390,
+        "y": 580,
+        "wires": [
+            [
+                "a2a0ada07508847d"
+            ],
+            [
+                "60b68ed9b4075e38"
+            ],
+            [
+                "3442a41d7b5792c6"
+            ]
+        ]
+    },
+    {
+        "id": "a2a0ada07508847d",
+        "type": "debug",
+        "z": "7b229efa69ac7866",
+        "name": "Output",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "60b68ed9b4075e38",
+        "type": "debug",
+        "z": "7b229efa69ac7866",
+        "name": "Error",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "3442a41d7b5792c6",
+        "type": "debug",
+        "z": "7b229efa69ac7866",
+        "name": "Exit Code",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "1b9d1d0173e7ba76",
+        "type": "inject",
+        "z": "7b229efa69ac7866",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 580,
+        "wires": [
+            [
+                "b10e65e85401653e"
+            ]
+        ]
+    },
+    {
+        "id": "7b286156.e665e4",
+        "type": "inject",
+        "z": "b03484837d29b388",
+        "name": "Check Connectivity",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "num",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "cb82d4db.685c08"
+            ]
+        ]
+    },
+    {
+        "id": "cb82d4db.685c08",
+        "type": "mongodb in",
+        "z": "b03484837d29b388",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Check MongoDB",
+        "collection": "table",
+        "operation": "count",
+        "x": 390,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d93e6d914d9fca0e",
+        "type": "delay",
+        "z": "b03484837d29b388",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 440,
+        "y": 340,
+        "wires": [
+            [
+                "e3e7ec81bd98edc2"
+            ]
+        ]
+    },
+    {
+        "id": "58df8b12a4223de3",
+        "type": "inject",
+        "z": "b03484837d29b388",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 340,
+        "wires": [
+            [
+                "d93e6d914d9fca0e"
+            ]
+        ]
+    },
+    {
+        "id": "e3e7ec81bd98edc2",
+        "type": "debug",
+        "z": "b03484837d29b388",
+        "name": "debug 41",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "77fdaa6a.875428",
+        "type": "inject",
+        "z": "b03484837d29b388",
+        "name": "Start Delay",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 400,
+        "wires": [
+            [
+                "3bfc0b08.40d0b"
+            ]
+        ]
+    },
+    {
+        "id": "3bfc0b08.40d0b",
+        "type": "delay",
+        "z": "b03484837d29b388",
+        "name": "",
+        "pauseType": "delayv",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 440,
+        "y": 400,
+        "wires": [
+            [
+                "d550e369.286f58"
+            ]
+        ]
+    },
+    {
+        "id": "d550e369.286f58",
+        "type": "debug",
+        "z": "b03484837d29b388",
+        "name": "Delayed Message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7b287156.e665e4",
+        "type": "inject",
+        "z": "b03484837d29b388",
+        "name": "Reset Delay",
+        "props": [
+            {
+                "p": "delay",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 480,
+        "wires": [
+            [
+                "3bfc0b08.40d0b"
             ]
         ]
     }
