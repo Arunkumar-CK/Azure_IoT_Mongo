@@ -3608,8 +3608,8 @@
         "name": "Check MongoDB",
         "collection": "table",
         "operation": "count",
-        "x": 390,
-        "y": 220,
+        "x": 470,
+        "y": 200,
         "wires": [
             []
         ]
