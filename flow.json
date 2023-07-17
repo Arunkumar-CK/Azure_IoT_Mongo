@@ -8,14 +8,6 @@
         "env": []
     },
     {
-        "id": "b03484837d29b388",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "168ce6884d330b26",
         "type": "subflow",
         "name": "Azure status and other functions",
@@ -127,6 +119,24 @@
         "env": [],
         "meta": {},
         "color": "#DDAA99"
+    },
+    {
+        "id": "6f83c91d76863734",
+        "type": "subflow",
+        "name": "Subflow 1",
+        "info": "",
+        "in": [
+            {
+                "x": 20,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "68b6079c200f2625"
+                    }
+                ]
+            }
+        ],
+        "out": []
     },
     {
         "id": "f4ebc30243c09416",
@@ -3166,6 +3176,188 @@
         "wires": []
     },
     {
+        "id": "3442a41d7b5792c6",
+        "type": "debug",
+        "z": "6f83c91d76863734",
+        "name": "Exit Code",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b10e65e85401653e",
+        "type": "exec",
+        "z": "6f83c91d76863734",
+        "command": "python Server4.py",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 830,
+        "y": 140,
+        "wires": [
+            [
+                "a2a0ada07508847d"
+            ],
+            [
+                "60b68ed9b4075e38"
+            ],
+            [
+                "3442a41d7b5792c6"
+            ]
+        ]
+    },
+    {
+        "id": "f0c5f67574ab023f",
+        "type": "trigger",
+        "z": "6f83c91d76863734",
+        "name": "Delay Trigger",
+        "op1": "",
+        "op2": "Restarted MongoDB",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "2",
+        "bytopic": "topic",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [],
+            [
+                "b10e65e85401653e",
+                "9665401b46f5888d"
+            ]
+        ]
+    },
+    {
+        "id": "a2a0ada07508847d",
+        "type": "debug",
+        "z": "6f83c91d76863734",
+        "name": "Output",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "60b68ed9b4075e38",
+        "type": "debug",
+        "z": "6f83c91d76863734",
+        "name": "Error",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6b683742e6338e51",
+        "type": "inject",
+        "z": "6f83c91d76863734",
+        "name": "Trigger",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "f0c5f67574ab023f"
+            ]
+        ]
+    },
+    {
+        "id": "b59a88fba112cc37",
+        "type": "change",
+        "z": "6f83c91d76863734",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "f0c5f67574ab023f"
+            ]
+        ]
+    },
+    {
+        "id": "68b6079c200f2625",
+        "type": "mongodb in",
+        "z": "6f83c91d76863734",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Check MongoDB",
+        "collection": "table",
+        "operation": "count",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "b59a88fba112cc37"
+            ]
+        ]
+    },
+    {
+        "id": "9665401b46f5888d",
+        "type": "debug",
+        "z": "6f83c91d76863734",
+        "name": "debug 41",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 220,
+        "wires": []
+    },
+    {
         "id": "527647417291ad6f",
         "type": "azureiothub",
         "z": "7b229efa69ac7866",
@@ -3480,304 +3672,37 @@
         ]
     },
     {
-        "id": "b10e65e85401653e",
-        "type": "exec",
-        "z": "7b229efa69ac7866",
-        "command": "python Server4.py",
-        "addpay": false,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 390,
-        "y": 580,
-        "wires": [
-            [
-                "a2a0ada07508847d"
-            ],
-            [
-                "60b68ed9b4075e38"
-            ],
-            [
-                "3442a41d7b5792c6"
-            ]
-        ]
-    },
-    {
-        "id": "a2a0ada07508847d",
-        "type": "debug",
-        "z": "7b229efa69ac7866",
-        "name": "Output",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "60b68ed9b4075e38",
-        "type": "debug",
-        "z": "7b229efa69ac7866",
-        "name": "Error",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "3442a41d7b5792c6",
-        "type": "debug",
-        "z": "7b229efa69ac7866",
-        "name": "Exit Code",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "1b9d1d0173e7ba76",
+        "id": "6ee9ae42c3440a70",
         "type": "inject",
         "z": "7b229efa69ac7866",
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 170,
-        "y": 580,
-        "wires": [
-            [
-                "b10e65e85401653e"
-            ]
-        ]
-    },
-    {
-        "id": "7b286156.e665e4",
-        "type": "inject",
-        "z": "b03484837d29b388",
-        "name": "Check Connectivity",
+        "name": "Trigger every 2 sec",
         "props": [
             {
                 "p": "payload"
             }
         ],
-        "repeat": "",
+        "repeat": "2",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "0.1",
         "topic": "",
-        "payload": "",
-        "payloadType": "num",
-        "x": 170,
-        "y": 220,
+        "payload": "0",
+        "payloadType": "str",
+        "x": 340,
+        "y": 540,
         "wires": [
             [
-                "cb82d4db.685c08"
+                "2f0a8e1e8a805387"
             ]
         ]
     },
     {
-        "id": "cb82d4db.685c08",
-        "type": "mongodb in",
-        "z": "b03484837d29b388",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Check MongoDB",
-        "collection": "table",
-        "operation": "count",
-        "x": 470,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d93e6d914d9fca0e",
-        "type": "delay",
-        "z": "b03484837d29b388",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 440,
-        "y": 340,
-        "wires": [
-            [
-                "e3e7ec81bd98edc2"
-            ]
-        ]
-    },
-    {
-        "id": "58df8b12a4223de3",
-        "type": "inject",
-        "z": "b03484837d29b388",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 240,
-        "y": 340,
-        "wires": [
-            [
-                "d93e6d914d9fca0e"
-            ]
-        ]
-    },
-    {
-        "id": "e3e7ec81bd98edc2",
-        "type": "debug",
-        "z": "b03484837d29b388",
-        "name": "debug 41",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 660,
-        "y": 340,
+        "id": "2f0a8e1e8a805387",
+        "type": "subflow:6f83c91d76863734",
+        "z": "7b229efa69ac7866",
+        "name": "Check Mongo connectivity and fix",
+        "x": 620,
+        "y": 540,
         "wires": []
-    },
-    {
-        "id": "77fdaa6a.875428",
-        "type": "inject",
-        "z": "b03484837d29b388",
-        "name": "Start Delay",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 240,
-        "y": 400,
-        "wires": [
-            [
-                "3bfc0b08.40d0b"
-            ]
-        ]
-    },
-    {
-        "id": "3bfc0b08.40d0b",
-        "type": "delay",
-        "z": "b03484837d29b388",
-        "name": "",
-        "pauseType": "delayv",
-        "timeout": "5",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 440,
-        "y": 400,
-        "wires": [
-            [
-                "d550e369.286f58"
-            ]
-        ]
-    },
-    {
-        "id": "d550e369.286f58",
-        "type": "debug",
-        "z": "b03484837d29b388",
-        "name": "Delayed Message",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 680,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "7b287156.e665e4",
-        "type": "inject",
-        "z": "b03484837d29b388",
-        "name": "Reset Delay",
-        "props": [
-            {
-                "p": "delay",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 240,
-        "y": 480,
-        "wires": [
-            [
-                "3bfc0b08.40d0b"
-            ]
-        ]
     }
 ]
