@@ -451,6 +451,138 @@
         "name": ""
     },
     {
+        "id": "507905e135e26e8d",
+        "type": "mongodb",
+        "hostname": "127.0.0.1",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "database",
+        "name": ""
+    },
+    {
+        "id": "1dc8f3e6fa36769b",
+        "type": "eth-ip endpoint",
+        "address": "192.168.2.252",
+        "slot": "0",
+        "cycletime": "100",
+        "timeout": "3000000",
+        "name": "AB PLC",
+        "connectedMess": true,
+        "vartable": {
+            "": {
+                "WMS_To_Plc_Msg.CommandType": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromX": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromY": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromZ": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.rRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.ToX": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.ToY": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.ToZ": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.sRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.BinId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.pRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.SkuId": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.PickQty": {
+                    "type": "DINT"
+                },
+                "Plc_To_WMS_Msg.rRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_WMS_Msg.sRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_WMS_Msg.pRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_Gateway_Msg_Id": {
+                    "type": "DINT"
+                },
+                "Gateway_To_Plc_Msg_Id": {
+                    "type": "DINT"
+                },
+                "Gateway_To_Plc_rRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Gateway_To_Plc_sRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Gateway_To_Plc_pRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Bot1_Storage_Error": {
+                    "type": "BOOL"
+                },
+                "Bot2_Storage_Error": {
+                    "type": "BOOL"
+                },
+                "Machine_Reset_ON": {
+                    "type": "BOOL"
+                },
+                "Enable_Task_Handling": {
+                    "type": "BOOL"
+                },
+                "FlushFIFO_Data": {
+                    "type": "BOOL"
+                },
+                "Cmnd_Startup": {
+                    "type": "BOOL"
+                },
+                "StartUp_Sequence_Number": {
+                    "type": "INT"
+                },
+                "Mover_ID[1].Mover_Running_Seq": {
+                    "type": "DINT"
+                },
+                "Mover_ID[2].Mover_Running_Seq": {
+                    "type": "DINT"
+                },
+                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
+                    "type": "BOOL"
+                },
+                "GatewayMessageSequence_Number": {
+                    "type": "INT"
+                },
+                "Enable_Queue": {
+                    "type": "BOOL"
+                }
+            }
+        }
+    },
+    {
         "id": "c35329e490967af3",
         "type": "function",
         "z": "168ce6884d330b26",
@@ -702,18 +834,12 @@
         "type": "inject",
         "z": "168ce6884d330b26",
         "name": "connect first scan",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": "1",
         "topic": "",
-        "payload": "{\"deviceId\":\"ckplctest\",\"key\":\"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\"protocol\":\"amqp\",\"data\":\"\"}",
-        "payloadType": "json",
         "x": 750,
         "y": 120,
         "wires": [
@@ -727,18 +853,12 @@
         "type": "inject",
         "z": "168ce6884d330b26",
         "name": "disconnect manually",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": "1",
         "topic": "",
-        "payload": "{\"deviceId\":\"ckplctest\",\"key\":\"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\"protocol\":\"amqp\",\"data\":\"\"}",
-        "payloadType": "json",
         "x": 750,
         "y": 160,
         "wires": [
@@ -752,9 +872,9 @@
         "type": "trigger",
         "z": "168ce6884d330b26",
         "name": "",
-        "op1": "{\"deviceId\":\"ckplctest\",\"key\":\"MpTyH4LgFeIucyiXktw9/PmaPJsz4FX2W2qJEoYNrMs=\",\"protocol\":\"amqp\",\"data\":\"\"}",
+        "op1": "",
         "op2": "0",
-        "op1type": "json",
+        "op1type": "nul",
         "op2type": "str",
         "duration": "-5",
         "extend": false,
@@ -1195,7 +1315,7 @@
         "type": "function",
         "z": "168ce6884d330b26",
         "name": "function 29",
-        "func": "msg.payload=msg.payload\nreturn msg;",
+        "func": "\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1245,6 +1365,7 @@
         "id": "c13f89b5a9f77de8",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
+        "d": true,
         "endpoint": "773333850a653945",
         "variable": "Gateway_To_Plc_Msg_Id",
         "program": "",
@@ -1257,6 +1378,7 @@
         "id": "291330fa96143469",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
+        "d": true,
         "endpoint": "773333850a653945",
         "variable": "Gateway_To_Plc_rRequest_Id_Ack",
         "program": "",
@@ -1269,6 +1391,7 @@
         "id": "ac33b1cfb1d8f8ab",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
+        "d": true,
         "endpoint": "773333850a653945",
         "variable": "Gateway_To_Plc_sRequest_Id_Ack",
         "program": "",
@@ -1281,6 +1404,7 @@
         "id": "e38f5f7a2d039940",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
+        "d": true,
         "endpoint": "773333850a653945",
         "variable": "Gateway_To_Plc_pRequest_Id_Ack",
         "program": "",
@@ -3358,20 +3482,6 @@
         "wires": []
     },
     {
-        "id": "527647417291ad6f",
-        "type": "azureiothub",
-        "z": "7b229efa69ac7866",
-        "name": "Azure IoT Hub",
-        "protocol": "amqp",
-        "x": 520,
-        "y": 100,
-        "wires": [
-            [
-                "5ad4195533fa1608"
-            ]
-        ]
-    },
-    {
         "id": "5ad4195533fa1608",
         "type": "subflow:abf459b12a58a7d6",
         "z": "7b229efa69ac7866",
@@ -3389,7 +3499,7 @@
         "y": 120,
         "wires": [
             [
-                "527647417291ad6f"
+                "dcf4aba0b4f3e532"
             ]
         ]
     },
@@ -3402,7 +3512,7 @@
         "y": 80,
         "wires": [
             [
-                "527647417291ad6f"
+                "dcf4aba0b4f3e532"
             ]
         ]
     },
@@ -3704,5 +3814,19 @@
         "x": 620,
         "y": 540,
         "wires": []
+    },
+    {
+        "id": "dcf4aba0b4f3e532",
+        "type": "azureiothub",
+        "z": "7b229efa69ac7866",
+        "name": "Azure IoT Hub",
+        "protocol": "amqp",
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "5ad4195533fa1608"
+            ]
+        ]
     }
 ]
