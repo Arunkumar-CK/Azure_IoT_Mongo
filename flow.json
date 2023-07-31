@@ -1965,7 +1965,7 @@
         "type": "function",
         "z": "a27b931a44c8fb3e",
         "name": "function 31",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\n\nmsg.payload.status = \"Sent to PLC\"\n\nreturn msg;",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nmsg.payload.ran_num = global.get(\"plctrigger\");\nmsg.payload.status = \"Sent to PLC\"\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2416,7 +2416,7 @@
         "program": "",
         "name": "",
         "x": 860,
-        "y": 220,
+        "y": 240,
         "wires": []
     },
     {
@@ -2524,7 +2524,8 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
         "x": 1010,
@@ -3538,6 +3539,7 @@
         "id": "174abfca7c1eff91",
         "type": "subflow:168ce6884d330b26",
         "z": "7b229efa69ac7866",
+        "d": true,
         "name": "Azure status and other functions ",
         "x": 250,
         "y": 120,
@@ -3567,7 +3569,7 @@
         "z": "7b229efa69ac7866",
         "name": "Read DB and send data to PLC",
         "x": 570,
-        "y": 240,
+        "y": 200,
         "wires": []
     },
     {
@@ -3607,13 +3609,13 @@
         "z": "7b229efa69ac7866",
         "name": "Manual trigger ",
         "props": [],
-        "repeat": "0.5",
+        "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 320,
-        "y": 240,
+        "x": 310,
+        "y": 180,
         "wires": [
             [
                 "c18c342f7541c4bb"
@@ -3631,8 +3633,8 @@
         "upsert": false,
         "multi": false,
         "operation": "delete",
-        "x": 490,
-        "y": 320,
+        "x": 510,
+        "y": 380,
         "wires": []
     },
     {
@@ -3646,12 +3648,62 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 310,
-        "y": 320,
+        "x": 330,
+        "y": 380,
         "wires": [
             [
                 "a5eff9b386b1b84d"
             ]
+        ]
+    },
+    {
+        "id": "38d76d82a36dcc1d",
+        "type": "eth-ip in",
+        "z": "7b229efa69ac7866",
+        "endpoint": "773333850a653945",
+        "mode": "single",
+        "variable": "Plc_To_Gateway_Msg_Id",
+        "program": "",
+        "name": "",
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [
+                "c18c342f7541c4bb"
+            ]
+        ]
+    },
+    {
+        "id": "3547d063221849c1",
+        "type": "status",
+        "z": "7b229efa69ac7866",
+        "name": "",
+        "scope": [
+            "38d76d82a36dcc1d"
+        ],
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "7bd9b25eb8c0b5bd"
+            ]
+        ]
+    },
+    {
+        "id": "7bd9b25eb8c0b5bd",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "",
+        "func": "global.set(\"plctrigger\",msg.status.text);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 300,
+        "wires": [
+            []
         ]
     }
 ]
