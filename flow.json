@@ -1472,6 +1472,7 @@
         "id": "d123c5dd50c6f2e9",
         "type": "ui_switch",
         "z": "168ce6884d330b26",
+        "d": true,
         "name": "",
         "label": "switch",
         "tooltip": "",
@@ -1493,6 +1494,7 @@
         "officon": "",
         "offcolor": "",
         "animate": false,
+        "className": "",
         "x": 930,
         "y": 480,
         "wires": [
@@ -3747,7 +3749,7 @@
         "wires": [
             [
                 "f1f9c48b0c914625",
-                "efb7f21f3155c075"
+                "490ba1ec2490e935"
             ]
         ]
     },
@@ -4223,25 +4225,6 @@
         "wires": []
     },
     {
-        "id": "efb7f21f3155c075",
-        "type": "function",
-        "z": "197be159bc54b2ae",
-        "name": "function 69",
-        "func": "const payload = msg.payload;\nvar numberOfObjects;\nvar text=\" \";\nif (Array.isArray(payload)) \n{\n numberOfObjects = payload.length;\n} \nelse \n{\n    numberOfObjects = 0;\n}\n\nfor (var i = 0; i < numberOfObjects;i++)\n{\n    text = text + \"-------{Sreq:\" + msg.payload[i].sRequestId + \"To X,y,Z: \" + msg.payload[i].toX + \",\" + msg.payload[i].toY + \",\" + msg.payload[i].toZ + \",  From X,y,Z: \" + msg.payload[i].fromX + \",\" + msg.payload[i].fromY + \",\" + msg.payload[i].fromZ + \"}\"\n}\n\nmsg.payload=text;\nreturn msg;\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 220,
-        "wires": [
-            [
-                "fb25ffcadccef949"
-            ]
-        ]
-    },
-    {
         "id": "fb25ffcadccef949",
         "type": "ui_text",
         "z": "197be159bc54b2ae",
@@ -4261,6 +4244,25 @@
         "x": 650,
         "y": 220,
         "wires": []
+    },
+    {
+        "id": "490ba1ec2490e935",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 70",
+        "func": "const payload = msg.payload;\nvar numberOfObjects;\nvar text=\" \";\nif (Array.isArray(payload)) \n{\n numberOfObjects = payload.length;\n} \nelse \n{\n    numberOfObjects = 0;\n    text = \"Nil\";\n}\n\nfor (var i = 0; i < numberOfObjects;i++)\n{\n    text = text + \"-------{Sreq:\" + msg.payload[i].sRequestId + \"To X,y,Z: \" + msg.payload[i].toX + \",\" + msg.payload[i].toY + \",\" + msg.payload[i].toZ + \",  From X,y,Z: \" + msg.payload[i].fromX + \",\" + msg.payload[i].fromY + \",\" + msg.payload[i].fromZ + \"}\"\n}\n\nif (text == \" \")\n{\n    text= \"Nil\"\n}\nmsg.payload = text;\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 220,
+        "wires": [
+            [
+                "fb25ffcadccef949"
+            ]
+        ]
     },
     {
         "id": "5ad4195533fa1608",
