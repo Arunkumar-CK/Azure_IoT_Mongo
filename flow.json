@@ -889,6 +889,7 @@
         "id": "c35329e490967af3",
         "type": "function",
         "z": "168ce6884d330b26",
+        "d": true,
         "name": "",
         "func": "var Randomnumber = global.get(\"sequenceId\");\nmsg.payload = Randomnumber;\nreturn msg;",
         "outputs": 1,
@@ -908,6 +909,7 @@
         "id": "1ae4a5de4fe181c8",
         "type": "inject",
         "z": "168ce6884d330b26",
+        "d": true,
         "name": "Task2",
         "props": [
             {
@@ -928,9 +930,7 @@
         "x": 1700,
         "y": 400,
         "wires": [
-            [
-                "c35329e490967af3"
-            ]
+            []
         ]
     },
     {
@@ -1670,6 +1670,7 @@
         "id": "c13f89b5a9f77de8",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
+        "d": true,
         "endpoint": "773333850a653945",
         "variable": "Gateway_To_Plc_Msg_Id",
         "program": "",
@@ -2707,23 +2708,6 @@
         "wires": []
     },
     {
-        "id": "179f50c860b90853",
-        "type": "debug",
-        "z": "a27b931a44c8fb3e",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1010,
-        "y": 860,
-        "wires": []
-    },
-    {
         "id": "a29c58d18ee8e1f6",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
@@ -2811,7 +2795,7 @@
         "type": "function",
         "z": "a27b931a44c8fb3e",
         "name": "generate random number for msg id to plc",
-        "func": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload = {\n    \"timestamp\": msg.payload,\n    \"seq\": seq\n}\nreturn msg;",
+        "func": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload =  seq;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2821,7 +2805,7 @@
         "y": 860,
         "wires": [
             [
-                "179f50c860b90853"
+                "e103fb6b65bfc65d"
             ]
         ]
     },
@@ -2849,6 +2833,18 @@
                 "9e8c32e4c953f752"
             ]
         ]
+    },
+    {
+        "id": "e103fb6b65bfc65d",
+        "type": "eth-ip out",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "773333850a653945",
+        "variable": "Gateway_To_Plc_Msg_Id",
+        "program": "",
+        "name": "",
+        "x": 1050,
+        "y": 860,
+        "wires": []
     },
     {
         "id": "9aa8473e67afb64f",
@@ -4306,7 +4302,7 @@
         "z": "7b229efa69ac7866",
         "name": "Read DB and send data to PLC",
         "x": 570,
-        "y": 200,
+        "y": 180,
         "wires": []
     },
     {
@@ -4346,12 +4342,12 @@
         "z": "7b229efa69ac7866",
         "name": "Manual trigger ",
         "props": [],
-        "repeat": "",
+        "repeat": "0.5",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 310,
+        "x": 320,
         "y": 180,
         "wires": [
             [
@@ -4403,10 +4399,10 @@
         "program": "",
         "name": "",
         "x": 270,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
-                "c18c342f7541c4bb"
+                "4a0198d4b61755c1"
             ]
         ]
     },
@@ -4469,6 +4465,22 @@
         "name": "",
         "x": 540,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4a0198d4b61755c1",
+        "type": "debug",
+        "z": "7b229efa69ac7866",
+        "name": "debug 41",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 240,
         "wires": []
     }
 ]
