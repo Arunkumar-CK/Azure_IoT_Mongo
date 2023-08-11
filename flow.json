@@ -31,29 +31,6 @@
         "color": "#DDAA99"
     },
     {
-        "id": "20d2b7582d7ddefa",
-        "type": "subflow",
-        "name": "Read request from PLC",
-        "info": "",
-        "category": "",
-        "in": [],
-        "out": [
-            {
-                "x": 1240,
-                "y": 480,
-                "wires": [
-                    {
-                        "id": "7693a10b7bf49208",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
         "id": "a27b931a44c8fb3e",
         "type": "subflow",
         "name": "Read DB and send data to PLC",
@@ -61,8 +38,8 @@
         "category": "",
         "in": [
             {
-                "x": 60,
-                "y": 60,
+                "x": 200,
+                "y": 940,
                 "wires": [
                     {
                         "id": "7d0cb4005397cfab"
@@ -88,11 +65,25 @@
                 "wires": [
                     {
                         "id": "9aa8473e67afb64f"
+                    },
+                    {
+                        "id": "b729dfe725034c7b"
                     }
                 ]
             }
         ],
-        "out": [],
+        "out": [
+            {
+                "x": 860,
+                "y": 320,
+                "wires": [
+                    {
+                        "id": "82e9f41fec712857",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
         "env": [],
         "meta": {},
         "color": "#DDAA99"
@@ -119,14 +110,6 @@
         "env": [],
         "meta": {},
         "color": "#DDAA99"
-    },
-    {
-        "id": "1a2adb57ddeb7e11",
-        "type": "subflow",
-        "name": "Subflow 1",
-        "info": "",
-        "in": [],
-        "out": []
     },
     {
         "id": "197be159bc54b2ae",
@@ -186,180 +169,6 @@
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
-    },
-    {
-        "id": "773333850a653945",
-        "type": "eth-ip endpoint",
-        "address": "192.168.1.10",
-        "slot": "0",
-        "cycletime": "100",
-        "name": "AB PLC",
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": ""
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": ""
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": ""
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": ""
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": ""
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": ""
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": ""
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": ""
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": ""
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": ""
-                },
-                "MoverID[1].idle": {
-                    "type": ""
-                },
-                "MoverID[2].idle": {
-                    "type": ""
-                },
-                "MoverID[3].idle": {
-                    "type": ""
-                },
-                "MoverID[4].idle": {
-                    "type": ""
-                },
-                "Max_No_of_Bot": {
-                    "type": ""
-                },
-                "Enable_Task": {
-                    "type": ""
-                },
-                "Bot1_Storage_Error": {
-                    "type": ""
-                },
-                "Bot2_Storage_Error": {
-                    "type": ""
-                }
-            }
-        }
-    },
-    {
-        "id": "ad467d4fd7932147",
-        "type": "eth-ip endpoint",
-        "address": "192.168.1.10",
-        "slot": "0",
-        "cycletime": "100",
-        "name": "AB PLC",
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": null
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": null
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": null
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": null
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": null
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": null
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": null
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": null
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": null
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": null
-                }
-            }
-        }
     },
     {
         "id": "8bdab089b2660f17",
@@ -625,205 +434,6 @@
         "name": ""
     },
     {
-        "id": "78f5dbc37f11cb46",
-        "type": "eth-ip endpoint",
-        "address": "192.168.2.252",
-        "slot": "0",
-        "cycletime": "100",
-        "timeout": "3000000",
-        "name": "AB PLC",
-        "connectedMess": true,
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Bot1_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Bot2_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Machine_Reset_ON": {
-                    "type": "BOOL"
-                },
-                "Enable_Task_Handling": {
-                    "type": "BOOL"
-                },
-                "FlushFIFO_Data": {
-                    "type": "BOOL"
-                },
-                "Cmnd_Startup": {
-                    "type": "BOOL"
-                },
-                "StartUp_Sequence_Number": {
-                    "type": "INT"
-                },
-                "Mover_ID[1].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[2].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "GatewayMessageSequence_Number": {
-                    "type": "INT"
-                },
-                "Enable_Queue": {
-                    "type": "BOOL"
-                }
-            }
-        }
-    },
-    {
-        "id": "f4cf08050e338d7b",
-        "type": "eth-ip endpoint",
-        "address": "192.168.1.10",
-        "slot": "0",
-        "cycletime": "100",
-        "timeout": "3000000",
-        "name": "AB PLC",
-        "connectedMess": true,
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": "STRING"
-                }
-            }
-        }
-    },
-    {
         "id": "c73c6e8830fe35d9",
         "type": "ui_group",
         "name": "Audio Switch",
@@ -884,54 +494,6 @@
         "width": "6",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "c35329e490967af3",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "d": true,
-        "name": "",
-        "func": "var Randomnumber = global.get(\"sequenceId\");\nmsg.payload = Randomnumber;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 400,
-        "wires": [
-            [
-                "c13f89b5a9f77de8"
-            ]
-        ]
-    },
-    {
-        "id": "1ae4a5de4fe181c8",
-        "type": "inject",
-        "z": "168ce6884d330b26",
-        "d": true,
-        "name": "Task2",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "0.5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1700,
-        "y": 400,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "5b0c921e515d49d7",
@@ -1636,7 +1198,7 @@
         "id": "5c4b2afac6e86f44",
         "type": "eth-ip in",
         "z": "168ce6884d330b26",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "mode": "single",
         "variable": "Bot1_Storage_Error",
         "program": "",
@@ -1653,7 +1215,7 @@
         "id": "2fc8432112c78d28",
         "type": "eth-ip in",
         "z": "168ce6884d330b26",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "mode": "single",
         "variable": "Bot2_Storage_Error",
         "program": "",
@@ -1667,27 +1229,14 @@
         ]
     },
     {
-        "id": "c13f89b5a9f77de8",
-        "type": "eth-ip out",
-        "z": "168ce6884d330b26",
-        "d": true,
-        "endpoint": "773333850a653945",
-        "variable": "Gateway_To_Plc_Msg_Id",
-        "program": "",
-        "name": "",
-        "x": 2190,
-        "y": 400,
-        "wires": []
-    },
-    {
         "id": "291330fa96143469",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "Gateway_To_Plc_rRequest_Id_Ack",
         "program": "",
         "name": "",
-        "x": 2220,
+        "x": 2300,
         "y": 480,
         "wires": []
     },
@@ -1695,11 +1244,11 @@
         "id": "ac33b1cfb1d8f8ab",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "Gateway_To_Plc_sRequest_Id_Ack",
         "program": "",
         "name": "",
-        "x": 2220,
+        "x": 2300,
         "y": 520,
         "wires": []
     },
@@ -1707,435 +1256,13 @@
         "id": "e38f5f7a2d039940",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "Gateway_To_Plc_pRequest_Id_Ack",
         "program": "",
         "name": "",
-        "x": 2220,
+        "x": 2300,
         "y": 560,
         "wires": []
-    },
-    {
-        "id": "7693a10b7bf49208",
-        "type": "switch",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "property": "msg.payload.deviceId",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "ckplce3d",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1110,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "161f76d5e535a9bd",
-        "type": "function",
-        "z": "20d2b7582d7ddefa",
-        "name": "Queue Count Capture",
-        "func": "var count =msg._queueCount;\nglobal.set(\"reqqueuecounter\", count);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1160,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e95d82b63661ffda",
-        "type": "simple-queue",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "firstMessageBypass": true,
-        "bypassInterval": "0",
-        "x": 930,
-        "y": 440,
-        "wires": [
-            [
-                "161f76d5e535a9bd",
-                "7693a10b7bf49208"
-            ]
-        ]
-    },
-    {
-        "id": "a1af0365a39c91c0",
-        "type": "change",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "queueCount",
-                "pt": "msg",
-                "to": "1",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 580,
-        "y": 620,
-        "wires": [
-            [
-                "e95d82b63661ffda"
-            ]
-        ]
-    },
-    {
-        "id": "e7b970081118bc21",
-        "type": "change",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "trigger",
-                "pt": "msg",
-                "to": "1",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 680,
-        "y": 560,
-        "wires": [
-            [
-                "e95d82b63661ffda"
-            ]
-        ]
-    },
-    {
-        "id": "bb61a2904fa300c4",
-        "type": "switch",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "property": "Azure1Status",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Error",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Disconnected",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 450,
-        "y": 560,
-        "wires": [
-            [],
-            [],
-            [
-                "e7b970081118bc21"
-            ]
-        ]
-    },
-    {
-        "id": "b6c5117fe07636da",
-        "type": "function",
-        "z": "20d2b7582d7ddefa",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n  \"deviceId\": \"ck-edge-test\",// \"ckplcprod\",\n  \"key\": \"4rmR7vjz0pMy85535C6SXbUubfHRjfrmEa996TANMCY=\",\n  \"protocol\": \"amqp\",\n  \"data\": {\n    \"requestId\": msg.payload\n  }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 480,
-        "wires": [
-            [
-                "e95d82b63661ffda"
-            ]
-        ]
-    },
-    {
-        "id": "73041e2730d81413",
-        "type": "file",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "filename": "C:\\Datalog\\pRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 660,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8a70adbc60eba39d",
-        "type": "function",
-        "z": "20d2b7582d7ddefa",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n    \"deviceId\": \"ck-edge-test\",// \"ckplcprod\",\n    \"key\": \"4rmR7vjz0pMy85535C6SXbUubfHRjfrmEa996TANMCY=\",\n    \"protocol\": \"amqp\",\n    \"data\": {\n        \"requestId\": msg.payload\n    }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 380,
-        "wires": [
-            [
-                "e95d82b63661ffda"
-            ]
-        ]
-    },
-    {
-        "id": "4d19052849a81e28",
-        "type": "file",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "filename": "C:\\Datalog\\rRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 680,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5f7db48c3ca62d95",
-        "type": "function",
-        "z": "20d2b7582d7ddefa",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n\n  \"deviceId\": \"ck-edge-test\",// \"ckplcprod\",\n  \"key\": \"4rmR7vjz0pMy85535C6SXbUubfHRjfrmEa996TANMCY=\",\n  \"protocol\": \"amqp\",\n  \"data\": {\n    \"requestId\": msg.payload\n  }\n}\nreturn msg;\n//carteplus-iothub-prod.azure-devices.net",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 280,
-        "wires": [
-            [
-                "e95d82b63661ffda"
-            ]
-        ]
-    },
-    {
-        "id": "77785c5479a32594",
-        "type": "file",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "filename": "C:\\Datalog\\sRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 660,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2fa22258378f78b4",
-        "type": "function",
-        "z": "20d2b7582d7ddefa",
-        "name": "sRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_sRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 320,
-        "wires": [
-            [
-                "77785c5479a32594"
-            ]
-        ]
-    },
-    {
-        "id": "3ae7a229cbfde3ca",
-        "type": "function",
-        "z": "20d2b7582d7ddefa",
-        "name": "rRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_rRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 220,
-        "wires": [
-            [
-                "4d19052849a81e28"
-            ]
-        ]
-    },
-    {
-        "id": "8a866b332eb44192",
-        "type": "function",
-        "z": "20d2b7582d7ddefa",
-        "name": "pRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_pRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 420,
-        "wires": [
-            [
-                "73041e2730d81413"
-            ]
-        ]
-    },
-    {
-        "id": "7393c355ad20985c",
-        "type": "inject",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "2",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 190,
-        "y": 560,
-        "wires": [
-            [
-                "bb61a2904fa300c4"
-            ]
-        ]
-    },
-    {
-        "id": "3d5bc94910c2b281",
-        "type": "inject",
-        "z": "20d2b7582d7ddefa",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "0.1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 350,
-        "y": 640,
-        "wires": [
-            [
-                "a1af0365a39c91c0"
-            ]
-        ]
-    },
-    {
-        "id": "3d9557233b69f97c",
-        "type": "eth-ip in",
-        "z": "20d2b7582d7ddefa",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.rRequestId",
-        "program": "",
-        "name": "",
-        "x": 190,
-        "y": 220,
-        "wires": [
-            [
-                "3ae7a229cbfde3ca",
-                "5f7db48c3ca62d95"
-            ]
-        ]
-    },
-    {
-        "id": "083ebdb87977063c",
-        "type": "eth-ip in",
-        "z": "20d2b7582d7ddefa",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.sRequestId",
-        "program": "",
-        "name": "",
-        "x": 190,
-        "y": 320,
-        "wires": [
-            [
-                "2fa22258378f78b4",
-                "8a70adbc60eba39d"
-            ]
-        ]
-    },
-    {
-        "id": "693fe02024e72646",
-        "type": "eth-ip in",
-        "z": "20d2b7582d7ddefa",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.pRequestId",
-        "program": "",
-        "name": "",
-        "x": 190,
-        "y": 420,
-        "wires": [
-            [
-                "8a866b332eb44192",
-                "b6c5117fe07636da"
-            ]
-        ]
     },
     {
         "id": "04db87075c2dc32a",
@@ -2148,8 +1275,8 @@
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 840,
-        "y": 60,
+        "x": 980,
+        "y": 980,
         "wires": []
     },
     {
@@ -2163,8 +1290,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 60,
+        "x": 790,
+        "y": 980,
         "wires": [
             [
                 "04db87075c2dc32a",
@@ -2180,8 +1307,8 @@
         "name": "read",
         "collection": "table",
         "operation": "find",
-        "x": 350,
-        "y": 60,
+        "x": 490,
+        "y": 980,
         "wires": [
             [
                 "e426270bc9c054d7"
@@ -2199,8 +1326,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 190,
-        "y": 60,
+        "x": 330,
+        "y": 980,
         "wires": [
             [
                 "4b230ef305221d80"
@@ -2216,15 +1343,15 @@
         "links": [
             "2ddfbeabf9c20d7c"
         ],
-        "x": 795,
-        "y": 100,
+        "x": 935,
+        "y": 1020,
         "wires": []
     },
     {
         "id": "d0f30ea23840756b",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.FromY",
         "program": "",
         "name": "",
@@ -2603,7 +1730,7 @@
         "id": "5d49c8b9a40cb62e",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.CommandType",
         "program": "",
         "name": "",
@@ -2615,7 +1742,7 @@
         "id": "700950aa7917fe62",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.BinId",
         "program": "",
         "name": "",
@@ -2627,7 +1754,7 @@
         "id": "60f9d0af5119bf7f",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.FromX",
         "program": "",
         "name": "",
@@ -2639,7 +1766,7 @@
         "id": "1702b6742423ba80",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.FromZ",
         "program": "",
         "name": "",
@@ -2651,7 +1778,7 @@
         "id": "d511083cb31c8256",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.rRequestId",
         "program": "",
         "name": "",
@@ -2663,7 +1790,7 @@
         "id": "a740b5b7c6eed77e",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.ToX",
         "program": "",
         "name": "",
@@ -2675,7 +1802,7 @@
         "id": "ae6b4705327fd6ac",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.ToY",
         "program": "",
         "name": "",
@@ -2687,7 +1814,7 @@
         "id": "4332c8c3f18a3ba9",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.ToZ",
         "program": "",
         "name": "",
@@ -2699,7 +1826,7 @@
         "id": "f0c9608b9435acc7",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.sRequestId",
         "program": "",
         "name": "",
@@ -2711,7 +1838,7 @@
         "id": "a29c58d18ee8e1f6",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.SkuId",
         "program": "",
         "name": "",
@@ -2723,7 +1850,7 @@
         "id": "c33aad591171d6db",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.PickQty",
         "program": "",
         "name": "",
@@ -2735,7 +1862,7 @@
         "id": "cd00977dfc86db92",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.pRequestId",
         "program": "",
         "name": "",
@@ -2747,7 +1874,7 @@
         "id": "4cdacc2041215b66",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.CommandType",
         "program": "",
         "name": "",
@@ -2759,7 +1886,7 @@
         "id": "c37844af36f37abd",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "ad467d4fd7932147",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "WMS_To_Plc_Msg.BinId",
         "program": "",
         "name": "",
@@ -2782,8 +1909,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 490,
-        "y": 60,
+        "x": 630,
+        "y": 980,
         "wires": [
             [
                 "a4f36c4de9f991e5"
@@ -2805,7 +1932,8 @@
         "y": 860,
         "wires": [
             [
-                "e103fb6b65bfc65d"
+                "e103fb6b65bfc65d",
+                "cfbc805b0d0b1124"
             ]
         ]
     },
@@ -2838,13 +1966,86 @@
         "id": "e103fb6b65bfc65d",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "variable": "Gateway_To_Plc_Msg_Id",
         "program": "",
         "name": "",
         "x": 1050,
         "y": 860,
         "wires": []
+    },
+    {
+        "id": "38d76d82a36dcc1d",
+        "type": "eth-ip in",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "1dc8f3e6fa36769b",
+        "mode": "single",
+        "variable": "Plc_To_Gateway_Msg_Id",
+        "program": "",
+        "name": "",
+        "x": 110,
+        "y": 980,
+        "wires": [
+            [
+                "7d0cb4005397cfab",
+                "4a82e2fbf07da45b"
+            ]
+        ]
+    },
+    {
+        "id": "4a82e2fbf07da45b",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "func": "var time = new Date();\nmsg.payload ={\n\"randomRead\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 940,
+        "wires": [
+            [
+                "1d256f8a31c13a82"
+            ]
+        ]
+    },
+    {
+        "id": "1d256f8a31c13a82",
+        "type": "file",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "filename": "C:\\Datalog\\random.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 540,
+        "y": 920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cfbc805b0d0b1124",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "func": "var time = new Date();\nmsg.payload ={\n\"randomWrite\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 900,
+        "wires": [
+            [
+                "1d256f8a31c13a82"
+            ]
+        ]
     },
     {
         "id": "9aa8473e67afb64f",
@@ -2997,10 +2198,91 @@
         ]
     },
     {
+        "id": "e0f79e699cec0570",
+        "type": "switch",
+        "z": "abf459b12a58a7d6",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 320,
+        "wires": [
+            [
+                "82e9f41fec712857"
+            ]
+        ]
+    },
+    {
+        "id": "b729dfe725034c7b",
+        "type": "function",
+        "z": "abf459b12a58a7d6",
+        "name": "function 71",
+        "func": "msg.payload = { \"status\": \"Recieved from cloud\" }\nmsg.limit = 1\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "c613b65eb546b2ee"
+            ]
+        ]
+    },
+    {
+        "id": "c613b65eb546b2ee",
+        "type": "mongodb in",
+        "z": "abf459b12a58a7d6",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 450,
+        "y": 320,
+        "wires": [
+            [
+                "e0f79e699cec0570"
+            ]
+        ]
+    },
+    {
+        "id": "82e9f41fec712857",
+        "type": "delay",
+        "z": "abf459b12a58a7d6",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "bc7e839c7307e51c",
         "type": "eth-ip in",
         "z": "b21bd85f55499775",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "mode": "single",
         "variable": "Plc_To_WMS_Msg.sRequestId",
         "program": "",
@@ -3297,7 +2579,7 @@
         "id": "c457d1ed87fa5308",
         "type": "eth-ip in",
         "z": "b21bd85f55499775",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "mode": "single",
         "variable": "Plc_To_WMS_Msg.pRequestId",
         "program": "",
@@ -3316,7 +2598,7 @@
         "id": "d196634cf360d7ad",
         "type": "eth-ip in",
         "z": "b21bd85f55499775",
-        "endpoint": "773333850a653945",
+        "endpoint": "1dc8f3e6fa36769b",
         "mode": "single",
         "variable": "Plc_To_WMS_Msg.rRequestId",
         "program": "",
@@ -4267,7 +3549,11 @@
         "name": "Write Database",
         "x": 720,
         "y": 100,
-        "wires": []
+        "wires": [
+            [
+                "c18c342f7541c4bb"
+            ]
+        ]
     },
     {
         "id": "174abfca7c1eff91",
@@ -4301,8 +3587,8 @@
         "type": "subflow:a27b931a44c8fb3e",
         "z": "7b229efa69ac7866",
         "name": "Read DB and send data to PLC",
-        "x": 570,
-        "y": 180,
+        "x": 970,
+        "y": 100,
         "wires": []
     },
     {
@@ -4337,25 +3623,6 @@
         ]
     },
     {
-        "id": "b0310dadd6ba326b",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "Manual trigger ",
-        "props": [],
-        "repeat": "0.5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 320,
-        "y": 180,
-        "wires": [
-            [
-                "c18c342f7541c4bb"
-            ]
-        ]
-    },
-    {
         "id": "a5eff9b386b1b84d",
         "type": "mongodb out",
         "z": "7b229efa69ac7866",
@@ -4386,23 +3653,6 @@
         "wires": [
             [
                 "a5eff9b386b1b84d"
-            ]
-        ]
-    },
-    {
-        "id": "38d76d82a36dcc1d",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "773333850a653945",
-        "mode": "single",
-        "variable": "Plc_To_Gateway_Msg_Id",
-        "program": "",
-        "name": "",
-        "x": 270,
-        "y": 240,
-        "wires": [
-            [
-                "4a0198d4b61755c1"
             ]
         ]
     },
@@ -4465,22 +3715,6 @@
         "name": "",
         "x": 540,
         "y": 340,
-        "wires": []
-    },
-    {
-        "id": "4a0198d4b61755c1",
-        "type": "debug",
-        "z": "7b229efa69ac7866",
-        "name": "debug 41",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 460,
-        "y": 240,
         "wires": []
     }
 ]
