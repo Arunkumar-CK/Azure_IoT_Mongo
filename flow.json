@@ -8,6 +8,30 @@
         "env": []
     },
     {
+        "id": "8145849ac655a040",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef35a94e74a28aa9",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e4d7a9a5f6fa6302",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "168ce6884d330b26",
         "type": "subflow",
         "name": "Azure status and other functions",
@@ -1713,15 +1737,19 @@
         "type": "function",
         "z": "a27b931a44c8fb3e",
         "name": "generate random number for msg id to plc",
-        "func": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\n//msg.payload =  seq;\n//return msg;",
-        "outputs": 0,
+        "func": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload =  seq;\nreturn msg;",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
+        "x": 1040,
         "y": 860,
-        "wires": []
+        "wires": [
+            [
+                "ffd96c15bedbb489"
+            ]
+        ]
     },
     {
         "id": "7934c2ca4ef2aa37",
@@ -1902,7 +1930,7 @@
                 "f0c9608b9435acc7"
             ],
             [
-                "9e8c32e4c953f752"
+                "f403b45544711bd7"
             ]
         ]
     },
@@ -1936,9 +1964,46 @@
                 "cd00977dfc86db92"
             ],
             [
+                "f403b45544711bd7"
+            ]
+        ]
+    },
+    {
+        "id": "f403b45544711bd7",
+        "type": "delay",
+        "z": "a27b931a44c8fb3e",
+        "name": "Safety Delay",
+        "pauseType": "delay",
+        "timeout": "250",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 860,
+        "wires": [
+            [
                 "9e8c32e4c953f752"
             ]
         ]
+    },
+    {
+        "id": "ffd96c15bedbb489",
+        "type": "eth-ip out",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "1dc8f3e6fa36769b",
+        "variable": "Gateway_To_Plc_Msg_Id",
+        "program": "",
+        "name": "",
+        "x": 1330,
+        "y": 860,
+        "wires": []
     },
     {
         "id": "9aa8473e67afb64f",
@@ -2113,7 +2178,7 @@
         "id": "eed806a91dd01b8c",
         "type": "function",
         "z": "b21bd85f55499775",
-        "name": "sRequsetId",
+        "name": "sRequestId",
         "func": "global.set(\"Gateway_To_Plc_sRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
         "outputs": 1,
         "noerr": 0,
@@ -2460,7 +2525,7 @@
         "id": "e5da2a3c75866743",
         "type": "function",
         "z": "b21bd85f55499775",
-        "name": "pRequsetId",
+        "name": "pRequestId",
         "func": "global.set(\"Gateway_To_Plc_pRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
         "outputs": 1,
         "noerr": 0,
@@ -2492,7 +2557,7 @@
         "id": "c593c96a94a695b5",
         "type": "function",
         "z": "b21bd85f55499775",
-        "name": "rRequsetId",
+        "name": "rRequestId",
         "func": "global.set(\"Gateway_To_Plc_rRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
         "outputs": 1,
         "noerr": 0,
@@ -4299,5 +4364,1465 @@
                 "72765ba38fc4a002"
             ]
         ]
+    },
+    {
+        "id": "deee33940331118c",
+        "type": "simple-queue",
+        "z": "8145849ac655a040",
+        "name": "",
+        "firstMessageBypass": true,
+        "bypassInterval": "0",
+        "x": 470,
+        "y": 340,
+        "wires": [
+            [
+                "0eb13951407232a4"
+            ]
+        ]
+    },
+    {
+        "id": "51bd9bae51f3a09c",
+        "type": "inject",
+        "z": "8145849ac655a040",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 320,
+        "wires": [
+            [
+                "deee33940331118c"
+            ]
+        ]
+    },
+    {
+        "id": "a4e1cf82c98518a1",
+        "type": "inject",
+        "z": "8145849ac655a040",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "trigger",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "deee33940331118c"
+            ]
+        ]
+    },
+    {
+        "id": "0eb13951407232a4",
+        "type": "debug",
+        "z": "8145849ac655a040",
+        "name": "debug 92",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1dd7741844f65a38",
+        "type": "mongodb out",
+        "z": "8145849ac655a040",
+        "mongodb": "156920f453365021",
+        "name": "Delete",
+        "collection": "Table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 770,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8bc1f46b50cb91fe",
+        "type": "inject",
+        "z": "8145849ac655a040",
+        "name": "",
+        "props": [
+            {
+                "p": "trigger",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "a0a5135c18d084bd"
+            ]
+        ]
+    },
+    {
+        "id": "a0a5135c18d084bd",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "function 85",
+        "func": "msg.payload = {};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 260,
+        "wires": [
+            [
+                "1dd7741844f65a38"
+            ]
+        ]
+    },
+    {
+        "id": "456cf5486e62ad2b",
+        "type": "inject",
+        "z": "8145849ac655a040",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "9c8321bab7fa3470"
+            ]
+        ]
+    },
+    {
+        "id": "9c8321bab7fa3470",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "function 97",
+        "func": "msg.payload = { \"status\": \"Recieved from cloud\" }\nmsg.limit = 1\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 600,
+        "wires": [
+            [
+                "a52145dd9a504bcc"
+            ]
+        ]
+    },
+    {
+        "id": "a52145dd9a504bcc",
+        "type": "mongodb in",
+        "z": "8145849ac655a040",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 610,
+        "y": 600,
+        "wires": [
+            [
+                "dfe0dde2df02f41c"
+            ]
+        ]
+    },
+    {
+        "id": "dfe0dde2df02f41c",
+        "type": "debug",
+        "z": "8145849ac655a040",
+        "name": "debug 97",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "eefc855b106b0bec",
+        "type": "mongodb out",
+        "z": "8145849ac655a040",
+        "mongodb": "63b7f9e1d917f433",
+        "name": "Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1040,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "5fc71f481110181c",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "function 99",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nif (msg.payload.status == \"rRequest recieved from PLC\" || msg.payload.status == \"rRequest and sRequest recieved from PLC\") \n{\n    msg.payload.status = \"rRequest and sRequest recieved from PLC\"\n}\nelse\n{ \n    msg.payload.status = \"Error: sRequest recieved and rRequest missing from PLC\" \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 520,
+        "wires": [
+            [
+                "eefc855b106b0bec"
+            ]
+        ]
+    },
+    {
+        "id": "db51febbe2bacc84",
+        "type": "mongodb in",
+        "z": "8145849ac655a040",
+        "mongodb": "63b7f9e1d917f433",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "53a5af0c8de5c722"
+            ]
+        ]
+    },
+    {
+        "id": "7b2179d20ab7084b",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "function 100",
+        "func": "msg.payload = { \"sRequestId\": msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "db51febbe2bacc84"
+            ]
+        ]
+    },
+    {
+        "id": "11d1b8df01fb0e5c",
+        "type": "inject",
+        "z": "8145849ac655a040",
+        "name": "Sreq",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "T7571S7r-41t2-481T-11i3-dP48DlE7y869",
+        "payloadType": "str",
+        "x": 250,
+        "y": 520,
+        "wires": [
+            [
+                "7b2179d20ab7084b"
+            ]
+        ]
+    },
+    {
+        "id": "79a09190127210e5",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "Trigger",
+        "func": "global.set(\"trigger\", 1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 880,
+        "wires": [
+            [
+                "b165e9fcda75cf2b"
+            ]
+        ]
+    },
+    {
+        "id": "b165e9fcda75cf2b",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "function 101",
+        "func": "msg.payload = { \"status\": \"Recieved from cloud\" }\nmsg.limit = 1\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 880,
+        "wires": [
+            [
+                "efc2c3139b7b8d23"
+            ]
+        ]
+    },
+    {
+        "id": "efc2c3139b7b8d23",
+        "type": "mongodb in",
+        "z": "8145849ac655a040",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 590,
+        "y": 880,
+        "wires": [
+            [
+                "e5b0f75045330ae5",
+                "4ab60915ac25d1f6"
+            ]
+        ]
+    },
+    {
+        "id": "7203950ea7b30642",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "Updated Trigger",
+        "func": "global.set(\"trigger\", 0);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5b0f75045330ae5",
+        "type": "switch",
+        "z": "8145849ac655a040",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 760,
+        "wires": [
+            [
+                "0e5ba87796ffa7d5"
+            ],
+            [
+                "7203950ea7b30642"
+            ]
+        ]
+    },
+    {
+        "id": "0e5ba87796ffa7d5",
+        "type": "delay",
+        "z": "8145849ac655a040",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 740,
+        "wires": [
+            [
+                "732111123341309d"
+            ]
+        ]
+    },
+    {
+        "id": "732111123341309d",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "Checks trigger state",
+        "func": "msg.payload = global.get(\"trigger\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 740,
+        "wires": [
+            [
+                "d9ea9986a9901ecc"
+            ]
+        ]
+    },
+    {
+        "id": "d9ea9986a9901ecc",
+        "type": "switch",
+        "z": "8145849ac655a040",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 740,
+        "wires": [
+            [
+                "b165e9fcda75cf2b",
+                "5d96918c70549833"
+            ]
+        ]
+    },
+    {
+        "id": "322f5bc3c1f6fee1",
+        "type": "inject",
+        "z": "8145849ac655a040",
+        "name": "PLC trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "9z078LCB-e5g4-379Y-8150-22731FFVO7lA",
+        "payloadType": "str",
+        "x": 210,
+        "y": 940,
+        "wires": [
+            [
+                "79a09190127210e5"
+            ]
+        ]
+    },
+    {
+        "id": "36e5850c229bb6f8",
+        "type": "debug",
+        "z": "8145849ac655a040",
+        "name": "debug 98",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "4ab60915ac25d1f6",
+        "type": "switch",
+        "z": "8145849ac655a040",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 880,
+        "wires": [
+            [
+                "36e5850c229bb6f8",
+                "f42602b6dbc2d290"
+            ]
+        ]
+    },
+    {
+        "id": "f42602b6dbc2d290",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "function 102",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id};\nmsg.payload = msg.payload[0];\nmsg.payload.ran_num = global.get(\"plctrigger\");\nmsg.payload.status = \"Sent to PLC\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 880,
+        "wires": [
+            [
+                "7709d1e4826c2790"
+            ]
+        ]
+    },
+    {
+        "id": "7709d1e4826c2790",
+        "type": "mongodb out",
+        "z": "8145849ac655a040",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1060,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "fea13758fbfefc4b",
+        "type": "debug",
+        "z": "8145849ac655a040",
+        "name": "debug 99",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "66c9713200662fdf",
+        "type": "inject",
+        "z": "8145849ac655a040",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 350,
+        "y": 1040,
+        "wires": [
+            [
+                "610cef2def11eec7"
+            ]
+        ]
+    },
+    {
+        "id": "610cef2def11eec7",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "Checks trigger state",
+        "func": "msg.payload = global.get(\"trigger\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 1040,
+        "wires": [
+            [
+                "fea13758fbfefc4b"
+            ]
+        ]
+    },
+    {
+        "id": "5d96918c70549833",
+        "type": "debug",
+        "z": "8145849ac655a040",
+        "name": "debug 100",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "19fd4bb6fa4c1134",
+        "type": "mongodb out",
+        "z": "8145849ac655a040",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Insert",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 810,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "e56ebf5002548c16",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "function 98",
+        "func": "const now = new Date();\nconst hours = now.getHours().toString().padStart(2, '0');\nconst minutes = now.getMinutes().toString().padStart(2, '0');\nconst seconds = now.getSeconds().toString().padStart(2, '0');\nconst day = now.getDate().toString().padStart(2, '0');\nconst month = (now.getMonth() + 1).toString().padStart(2, '0'); // Note: months are 0-indexed\nconst year = now.getFullYear().toString().slice(-4); // Get last 2 digits of the year\nconst time = `${hours}.${minutes}.${seconds}, ${day}-${month}-${year}`;\nmsg.payload.time_recieved_from_cloud = time;\nmsg.payload.status = \"Recieved from cloud\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1120,
+        "wires": [
+            [
+                "19fd4bb6fa4c1134"
+            ]
+        ]
+    },
+    {
+        "id": "f12e4b61992b27b0",
+        "type": "function",
+        "z": "8145849ac655a040",
+        "name": "Prepare random data",
+        "func": "if (!flow.get('counter')) {\n    flow.set('counter', 0);\n}\n\nvar counter = flow.get('counter') + 1;\nflow.set('counter', counter);\n\nvar characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789012345678901234567890123456789012345678901234567890123456789';\nvar str5 = '', str1 = '', str2 = '', str3 = '', str4 = '', rrequest = '', srequest = '';\nvar binid ='BPTC02-37-0-1-3'\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nrrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\n\nstr1 = str2 = str3 = str4 = str5=''\n\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nsrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\nmsg.payload={ \n    \"binId\": \"TOTE0101010\" + counter, \n    \"commandType\": 1, \n    \"rRequestId\": rrequest, \n    \"sRequestId\": srequest, \n    \"toX\": 1, \"toY\": 1, \"toZ\": 1, \n    \"fromX\": 12, \"fromY\": 4, \"fromZ\": 1 \n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1120,
+        "wires": [
+            [
+                "e56ebf5002548c16"
+            ]
+        ]
+    },
+    {
+        "id": "aaefef24f5ef0f80",
+        "type": "inject",
+        "z": "8145849ac655a040",
+        "name": "Generate and Inject Data",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 1120,
+        "wires": [
+            [
+                "f12e4b61992b27b0"
+            ]
+        ]
+    },
+    {
+        "id": "53a5af0c8de5c722",
+        "type": "switch",
+        "z": "8145849ac655a040",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 520,
+        "wires": [
+            [
+                "5fc71f481110181c"
+            ]
+        ]
+    },
+    {
+        "id": "cef730830d07d420",
+        "type": "debug",
+        "z": "ef35a94e74a28aa9",
+        "name": "debug 102",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "944ff05944299e04",
+        "type": "function",
+        "z": "ef35a94e74a28aa9",
+        "name": "Checks trigger state",
+        "func": "if (msg.payload == \"\" && global.get(\"trigger\"))\n{\n       return msg;\n}\nelse\n{\n    global.set(\"trigger\", 0);\n}\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "cef730830d07d420",
+                "05f1bcccb8762f89"
+            ]
+        ]
+    },
+    {
+        "id": "fb7953ada4c77106",
+        "type": "function",
+        "z": "ef35a94e74a28aa9",
+        "name": "function 104",
+        "func": "msg.payload = { \"status\": \"Recieved from cloud\" }\nmsg.limit = 1\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "1425543458ac7f9f"
+            ]
+        ]
+    },
+    {
+        "id": "1425543458ac7f9f",
+        "type": "mongodb in",
+        "z": "ef35a94e74a28aa9",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "0267132f433e036b",
+                "944ff05944299e04"
+            ]
+        ]
+    },
+    {
+        "id": "0267132f433e036b",
+        "type": "switch",
+        "z": "ef35a94e74a28aa9",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 280,
+        "wires": [
+            [
+                "88bfdc6a578bf2ed",
+                "e42a922981d5fa0d"
+            ]
+        ]
+    },
+    {
+        "id": "2864c0f72cf34427",
+        "type": "inject",
+        "z": "ef35a94e74a28aa9",
+        "name": "PLC trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "9z078LCB-e5g4-379Y-8150-22731FFVO7lA",
+        "payloadType": "str",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "034d42cd372276f8"
+            ]
+        ]
+    },
+    {
+        "id": "88bfdc6a578bf2ed",
+        "type": "debug",
+        "z": "ef35a94e74a28aa9",
+        "name": "debug 101",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e42a922981d5fa0d",
+        "type": "function",
+        "z": "ef35a94e74a28aa9",
+        "name": "function 103",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id};\nmsg.payload = msg.payload[0];\nmsg.payload.ran_num = global.get(\"plctrigger\");\nmsg.payload.status = \"Sent to PLC\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 280,
+        "wires": [
+            [
+                "c5abb36c9344d93f"
+            ]
+        ]
+    },
+    {
+        "id": "c5abb36c9344d93f",
+        "type": "mongodb out",
+        "z": "ef35a94e74a28aa9",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 920,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "034d42cd372276f8",
+        "type": "function",
+        "z": "ef35a94e74a28aa9",
+        "name": "Trigger",
+        "func": "global.set(\"trigger\", 1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "fb7953ada4c77106"
+            ]
+        ]
+    },
+    {
+        "id": "05f1bcccb8762f89",
+        "type": "delay",
+        "z": "ef35a94e74a28aa9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "fb7953ada4c77106"
+            ]
+        ]
+    },
+    {
+        "id": "395b7aada0a69c22",
+        "type": "debug",
+        "z": "ef35a94e74a28aa9",
+        "name": "debug 103",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "f12a11ac351166d4",
+        "type": "function",
+        "z": "ef35a94e74a28aa9",
+        "name": "Checks trigger state",
+        "func": "msg.payload = global.get(\"trigger\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "395b7aada0a69c22"
+            ]
+        ]
+    },
+    {
+        "id": "fa801be0525317b3",
+        "type": "inject",
+        "z": "ef35a94e74a28aa9",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 540,
+        "wires": [
+            [
+                "f12a11ac351166d4"
+            ]
+        ]
+    },
+    {
+        "id": "f962b355f8ab62cf",
+        "type": "mongodb out",
+        "z": "ef35a94e74a28aa9",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Insert",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 750,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f2096772c9e0fb0e",
+        "type": "function",
+        "z": "ef35a94e74a28aa9",
+        "name": "function 105",
+        "func": "const now = new Date();\nconst hours = now.getHours().toString().padStart(2, '0');\nconst minutes = now.getMinutes().toString().padStart(2, '0');\nconst seconds = now.getSeconds().toString().padStart(2, '0');\nconst day = now.getDate().toString().padStart(2, '0');\nconst month = (now.getMonth() + 1).toString().padStart(2, '0'); // Note: months are 0-indexed\nconst year = now.getFullYear().toString().slice(-4); // Get last 2 digits of the year\nconst time = `${hours}.${minutes}.${seconds}, ${day}-${month}-${year}`;\nmsg.payload.time_recieved_from_cloud = time;\nmsg.payload.status = \"Recieved from cloud\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 600,
+        "wires": [
+            [
+                "f962b355f8ab62cf"
+            ]
+        ]
+    },
+    {
+        "id": "5027759c947735e0",
+        "type": "function",
+        "z": "ef35a94e74a28aa9",
+        "name": "Prepare random data",
+        "func": "if (!flow.get('counter')) {\n    flow.set('counter', 0);\n}\n\nvar counter = flow.get('counter') + 1;\nflow.set('counter', counter);\n\nvar characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789012345678901234567890123456789012345678901234567890123456789';\nvar str5 = '', str1 = '', str2 = '', str3 = '', str4 = '', rrequest = '', srequest = '';\nvar binid ='BPTC02-37-0-1-3'\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nrrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\n\nstr1 = str2 = str3 = str4 = str5=''\n\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nsrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\nmsg.payload={ \n    \"binId\": \"TOTE0101010\" + counter, \n    \"commandType\": 1, \n    \"rRequestId\": rrequest, \n    \"sRequestId\": srequest, \n    \"toX\": 1, \"toY\": 1, \"toZ\": 1, \n    \"fromX\": 12, \"fromY\": 4, \"fromZ\": 1 \n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 600,
+        "wires": [
+            [
+                "f2096772c9e0fb0e"
+            ]
+        ]
+    },
+    {
+        "id": "92ad9a23d10071af",
+        "type": "inject",
+        "z": "ef35a94e74a28aa9",
+        "name": "Generate and Inject Data",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "5027759c947735e0"
+            ]
+        ]
+    },
+    {
+        "id": "6af42cd319b6fcfd",
+        "type": "function",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "function 77",
+        "func": "return [\n    { payload: msg.payload.commandType },\n    { payload: msg.payload.binId },\n    { payload: msg.payload.fromX },\n    { payload: msg.payload.fromY },\n    { payload: msg.payload.fromZ },\n    { payload: msg.payload.rRequestId },\n    { payload: msg.payload.toX },\n    { payload: msg.payload.toY },\n    { payload: msg.payload.toZ },\n    { payload: msg.payload.sRequestId },\n    { payload: \"Generate Random number\" },\n];\n\n",
+        "outputs": 11,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\n\n",
+        "libs": [],
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "2f604dd13289631c"
+            ],
+            [
+                "1b814d582e4e151d"
+            ],
+            [
+                "e775908cdffda6e3"
+            ],
+            [
+                "1372636f3f216dd4"
+            ],
+            [
+                "4ba904bdd46bf2eb"
+            ],
+            [
+                "b1855e7f42a31a84"
+            ],
+            [
+                "b3e7aedb40ebf79a"
+            ],
+            [
+                "8bc451f8e3a8cee8"
+            ],
+            [
+                "e34219be7992d9cb"
+            ],
+            [
+                "324097b75a19d743"
+            ],
+            [
+                "6ef0aa51410d283e"
+            ]
+        ]
+    },
+    {
+        "id": "2f604dd13289631c",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 81",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1b814d582e4e151d",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 82",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d5d8f9fbcce33231",
+        "type": "function",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "function 78",
+        "func": "msg.payload = { \"status\": \"Recieved from cloud\" }\nmsg.limit = 1\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "97d9d279789222af"
+            ]
+        ]
+    },
+    {
+        "id": "97d9d279789222af",
+        "type": "mongodb in",
+        "z": "e4d7a9a5f6fa6302",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "dfa142abdf5f23ed"
+            ]
+        ]
+    },
+    {
+        "id": "b13cd3166354098c",
+        "type": "inject",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "d5d8f9fbcce33231"
+            ]
+        ]
+    },
+    {
+        "id": "dfa142abdf5f23ed",
+        "type": "function",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "function 79",
+        "func": "msg.payload = msg.payload[0]; \n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "6af42cd319b6fcfd"
+            ]
+        ]
+    },
+    {
+        "id": "e775908cdffda6e3",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 83",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1372636f3f216dd4",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 84",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4ba904bdd46bf2eb",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 85",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b1855e7f42a31a84",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 86",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b3e7aedb40ebf79a",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 87",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8bc451f8e3a8cee8",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 88",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e34219be7992d9cb",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 89",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "324097b75a19d743",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 90",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "16102f2cfaab1976",
+        "type": "inject",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "Task2",
+        "props": [],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 320,
+        "y": 560,
+        "wires": [
+            [
+                "cbf17d95b6c6e0f9"
+            ]
+        ]
+    },
+    {
+        "id": "cbf17d95b6c6e0f9",
+        "type": "function",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "",
+        "func": "var Randomnumber = global.get(\"sequenceId\");\nmsg.payload = Randomnumber;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 560,
+        "wires": [
+            [
+                "c0fcba2d7cfb8f9a"
+            ]
+        ]
+    },
+    {
+        "id": "c0fcba2d7cfb8f9a",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "debug 91",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "b4303d5e9011eff0",
+        "type": "function",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "function 81",
+        "func": "var msg1 = { payload: msg.payload.commandType };\nvar msg2 = { payload: msg.payload.binId };\nvar msg3 = { payload: msg.payload.skuId};\nvar msg4 = { payload: msg.payload.pickQty };\nvar msg5 = { payload: msg.payload.pRequestId };\nvar msg6 = { payload: \"Trigger\" };\n\nreturn [msg1, msg2, msg3, msg4, msg5, msg6];\n\n",
+        "outputs": 6,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\n\n",
+        "libs": [],
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6ef0aa51410d283e",
+        "type": "debug",
+        "z": "e4d7a9a5f6fa6302",
+        "name": "Random number",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 500,
+        "wires": []
     }
 ]
