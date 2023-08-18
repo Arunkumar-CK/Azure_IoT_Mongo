@@ -1,0 +1,12 @@
+{
+    "name": "Azure_IOT_Mongo_E3D_Local",
+    "description": "Local E3D version of the main ck node red flows",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}
