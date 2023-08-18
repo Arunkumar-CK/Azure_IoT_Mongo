@@ -71,7 +71,7 @@
         "in": [
             {
                 "x": 340,
-                "y": 1060,
+                "y": 1000,
                 "wires": [
                     {
                         "id": "1fe20a883a926067"
@@ -784,7 +784,7 @@
     {
         "id": "d9574906dcbe7016",
         "type": "eth-ip endpoint",
-        "address": "192.168.1.10",
+        "address": "192.168.2.252",
         "slot": "0",
         "cycletime": "100",
         "timeout": "3000000",
@@ -1942,27 +1942,27 @@
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 1160,
-        "y": 980,
+        "x": 1120,
+        "y": 1220,
         "wires": []
     },
     {
         "id": "add9ff5539bcc7ed",
         "type": "function",
         "z": "656cafb0aab901fe",
-        "name": "function 31",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id};\nmsg.payload = msg.payload[0];\nmsg.payload.ran_num = msg.topic;\nmsg.payload.status = \"Sent to PLC\";\n\nreturn msg;",
+        "name": "checkSeqValidity",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length) {\n\n    msg.query = { \"_id\": msg.payload[0]._id};\n    msg.payload = msg.payload[0];\n    msg.payload.status = \"Acked from PLC\";\n\n    return msg;\n\n} else {\n    return null;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 970,
-        "y": 980,
+        "x": 870,
+        "y": 1220,
         "wires": [
             [
                 "64d6353e9241635e",
-                "5bffbd84d2fa3e58"
+                "08f2713678ef863c"
             ]
         ]
     },
@@ -1971,11 +1971,11 @@
         "type": "mongodb in",
         "z": "656cafb0aab901fe",
         "mongodb": "8bdab089b2660f17",
-        "name": "read",
+        "name": "findUnsent",
         "collection": "table",
         "operation": "find",
-        "x": 670,
-        "y": 980,
+        "x": 750,
+        "y": 1000,
         "wires": [
             [
                 "45bedf84fd472075"
@@ -1986,15 +1986,15 @@
         "id": "1fe20a883a926067",
         "type": "function",
         "z": "656cafb0aab901fe",
-        "name": "function 32",
-        "func": "msg.payload = { \"status\": \"Recieved from cloud\" };\nmsg.limit = 1;\n\nreturn msg;",
+        "name": "constructUnsentQuery",
+        "func": "msg.payload = { \"status\": \"Received from cloud\" };\nmsg.limit = 1;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 980,
+        "x": 540,
+        "y": 1000,
         "wires": [
             [
                 "d850c11e2e0cd782"
@@ -2011,14 +2011,14 @@
             "096f1cf6080977b5"
         ],
         "x": 1085,
-        "y": 1060,
+        "y": 1000,
         "wires": []
     },
     {
         "id": "6eee386eacad883d",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.FromY",
         "program": "",
         "name": "",
@@ -2409,7 +2409,7 @@
         "id": "41e7e290e1e494ba",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.BinId",
         "program": "",
         "name": "",
@@ -2421,7 +2421,7 @@
         "id": "3bae505eb6768f9b",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.FromX",
         "program": "",
         "name": "",
@@ -2433,7 +2433,7 @@
         "id": "6882a96c8db18a9f",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.FromZ",
         "program": "",
         "name": "",
@@ -2445,7 +2445,7 @@
         "id": "f42b46cd35c89843",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.rRequestId",
         "program": "",
         "name": "",
@@ -2457,7 +2457,7 @@
         "id": "1f97468617a33bb9",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.ToX",
         "program": "",
         "name": "",
@@ -2469,7 +2469,7 @@
         "id": "c061951a2374e16e",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.ToY",
         "program": "",
         "name": "",
@@ -2481,7 +2481,7 @@
         "id": "705bc7123559d8b2",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.ToZ",
         "program": "",
         "name": "",
@@ -2493,7 +2493,7 @@
         "id": "d5446984b4c0b3a6",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.sRequestId",
         "program": "",
         "name": "",
@@ -2505,7 +2505,7 @@
         "id": "4e7b0cdd3969f328",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.SkuId",
         "program": "",
         "name": "",
@@ -2517,7 +2517,7 @@
         "id": "f9d7d3140c5dbfe4",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.PickQty",
         "program": "",
         "name": "",
@@ -2529,7 +2529,7 @@
         "id": "fedfafd8cd08fb1a",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.pRequestId",
         "program": "",
         "name": "",
@@ -2541,7 +2541,7 @@
         "id": "e98599c9a5de4e6b",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.CommandType",
         "program": "",
         "name": "",
@@ -2553,7 +2553,7 @@
         "id": "6e210ebfcab9ddf7",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "WMS_To_Plc_Msg.BinId",
         "program": "",
         "name": "",
@@ -2576,31 +2576,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 810,
-        "y": 980,
+        "x": 930,
+        "y": 1000,
         "wires": [
             [
-                "add9ff5539bcc7ed"
-            ]
-        ]
-    },
-    {
-        "id": "fc4f84aa6f0cf316",
-        "type": "function",
-        "z": "656cafb0aab901fe",
-        "name": "generate random number for msg id to plc",
-        "func": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload =  seq;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 740,
-        "y": 860,
-        "wires": [
-            [
-                "ab11613594e5d97a",
-                "d6dd1329bc464b6c"
+                "5bffbd84d2fa3e58"
             ]
         ]
     },
@@ -2625,7 +2605,7 @@
         "y": 860,
         "wires": [
             [
-                "fc4f84aa6f0cf316"
+                "4445b40830cdd472"
             ]
         ]
     },
@@ -2633,11 +2613,11 @@
         "id": "ab11613594e5d97a",
         "type": "eth-ip out",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "variable": "Gateway_To_Plc_Msg_Id",
         "program": "",
         "name": "",
-        "x": 1050,
+        "x": 1010,
         "y": 860,
         "wires": []
     },
@@ -2645,17 +2625,17 @@
         "id": "6add84cc360ae206",
         "type": "eth-ip in",
         "z": "656cafb0aab901fe",
-        "endpoint": "4feae444c3cf8eb6",
+        "endpoint": "d9574906dcbe7016",
         "mode": "single",
         "variable": "Plc_To_Gateway_Msg_Id",
         "program": "",
         "name": "",
-        "x": 110,
-        "y": 980,
+        "x": 170,
+        "y": 1220,
         "wires": [
             [
                 "4a0323b686b6f27a",
-                "56a5f5ce75786c5b"
+                "cbe70c127e03c853"
             ]
         ]
     },
@@ -2715,18 +2695,78 @@
         ]
     },
     {
-        "id": "56a5f5ce75786c5b",
+        "id": "4445b40830cdd472",
         "type": "function",
         "z": "656cafb0aab901fe",
-        "name": "",
-        "func": "msg.topic = msg.payload;\nreturn msg;",
+        "name": "Read seq",
+        "func": "msg.payload = msg.payload.seq\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
-        "y": 980,
+        "x": 720,
+        "y": 860,
+        "wires": [
+            [
+                "ab11613594e5d97a"
+            ]
+        ]
+    },
+    {
+        "id": "39f4bfd9e5b3ba47",
+        "type": "mongodb in",
+        "z": "656cafb0aab901fe",
+        "mongodb": "8bdab089b2660f17",
+        "name": "findSeq",
+        "collection": "table",
+        "operation": "find",
+        "x": 660,
+        "y": 1220,
+        "wires": [
+            [
+                "add9ff5539bcc7ed"
+            ]
+        ]
+    },
+    {
+        "id": "cbe70c127e03c853",
+        "type": "function",
+        "z": "656cafb0aab901fe",
+        "name": "constructSeqQuery",
+        "func": "msg.payload = { \"seq\": msg.payload };\nmsg.limit = 1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1220,
+        "wires": [
+            [
+                "39f4bfd9e5b3ba47"
+            ]
+        ]
+    },
+    {
+        "id": "08f2713678ef863c",
+        "type": "delay",
+        "z": "656cafb0aab901fe",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 1100,
         "wires": [
             [
                 "1fe20a883a926067"
@@ -4252,7 +4292,7 @@
         "upsert": false,
         "multi": false,
         "operation": "insert",
-        "x": 770,
+        "x": 1130,
         "y": 120,
         "wires": []
     },
@@ -4260,18 +4300,18 @@
         "id": "46ec0fd128973f92",
         "type": "function",
         "z": "d4cc86e7c3fe7526",
-        "name": "function 30",
-        "func": "msg.payload.status = \"Recieved from cloud\"\n\nreturn msg;",
+        "name": "Set status and seq",
+        "func": "msg.payload.status = \"Received from cloud\";\n\nvar ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload.seq = seq;\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 580,
         "y": 120,
         "wires": [
             [
-                "61ad55f84e791fcc"
+                "e8db8625e80ff7e1"
             ]
         ]
     },
@@ -4450,6 +4490,31 @@
         "y": 320,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "e8db8625e80ff7e1",
+        "type": "delay",
+        "z": "d4cc86e7c3fe7526",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 810,
+        "y": 120,
+        "wires": [
+            [
+                "61ad55f84e791fcc"
+            ]
         ]
     },
     {
@@ -6186,7 +6251,7 @@
         "overwriteFile": "false",
         "encoding": "none",
         "x": 520,
-        "y": 60,
+        "y": 40,
         "wires": [
             []
         ]
@@ -6252,20 +6317,5 @@
         "x": 600,
         "y": 180,
         "wires": []
-    },
-    {
-        "id": "674dad363d03b172",
-        "type": "eth-ip in",
-        "z": "2fc3c1bb4c269089",
-        "endpoint": "d9574906dcbe7016",
-        "mode": "single",
-        "variable": "Plc_To_Gateway_Msg_Id",
-        "program": "",
-        "name": "",
-        "x": 290,
-        "y": 340,
-        "wires": [
-            []
-        ]
     }
 ]
