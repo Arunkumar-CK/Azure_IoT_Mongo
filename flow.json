@@ -38,8 +38,8 @@
         "category": "",
         "in": [
             {
-                "x": 200,
-                "y": 940,
+                "x": 380,
+                "y": 1040,
                 "wires": [
                     {
                         "id": "7d0cb4005397cfab"
@@ -499,6 +499,7 @@
         "id": "5b0c921e515d49d7",
         "type": "inject",
         "z": "168ce6884d330b26",
+        "d": true,
         "name": "send id to plc continously",
         "props": [
             {
@@ -1275,7 +1276,7 @@
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 980,
+        "x": 1160,
         "y": 980,
         "wires": []
     },
@@ -1284,13 +1285,13 @@
         "type": "function",
         "z": "a27b931a44c8fb3e",
         "name": "function 31",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nmsg.payload.ran_num = global.get(\"plctrigger\");\nmsg.payload.status = \"Sent to PLC\"\n\nreturn msg;",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id};\nmsg.payload = msg.payload[0];\nmsg.payload.ran_num = msg.topic;\nmsg.payload.status = \"Sent to PLC\";\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
+        "x": 970,
         "y": 980,
         "wires": [
             [
@@ -1307,7 +1308,7 @@
         "name": "read",
         "collection": "table",
         "operation": "find",
-        "x": 490,
+        "x": 670,
         "y": 980,
         "wires": [
             [
@@ -1320,13 +1321,13 @@
         "type": "function",
         "z": "a27b931a44c8fb3e",
         "name": "function 32",
-        "func": "msg.payload = { \"status\": \"Recieved from cloud\" }\nmsg.limit = 1\n\nreturn msg;",
+        "func": "msg.payload = { \"status\": \"Recieved from cloud\" };\nmsg.limit = 1;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 510,
         "y": 980,
         "wires": [
             [
@@ -1343,7 +1344,7 @@
         "links": [
             "2ddfbeabf9c20d7c"
         ],
-        "x": 935,
+        "x": 1115,
         "y": 1020,
         "wires": []
     },
@@ -1909,7 +1910,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 630,
+        "x": 810,
         "y": 980,
         "wires": [
             [
@@ -1987,8 +1988,8 @@
         "y": 980,
         "wires": [
             [
-                "7d0cb4005397cfab",
-                "4a82e2fbf07da45b"
+                "4a82e2fbf07da45b",
+                "43b9e88625e74d13"
             ]
         ]
     },
@@ -2044,6 +2045,25 @@
         "wires": [
             [
                 "1d256f8a31c13a82"
+            ]
+        ]
+    },
+    {
+        "id": "43b9e88625e74d13",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "func": "msg.topic = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 980,
+        "wires": [
+            [
+                "7d0cb4005397cfab"
             ]
         ]
     },
@@ -3633,8 +3653,8 @@
         "upsert": false,
         "multi": false,
         "operation": "delete",
-        "x": 490,
-        "y": 400,
+        "x": 550,
+        "y": 240,
         "wires": []
     },
     {
@@ -3648,45 +3668,12 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 310,
-        "y": 400,
+        "x": 370,
+        "y": 240,
         "wires": [
             [
                 "a5eff9b386b1b84d"
             ]
-        ]
-    },
-    {
-        "id": "3547d063221849c1",
-        "type": "status",
-        "z": "7b229efa69ac7866",
-        "name": "",
-        "scope": [
-            "38d76d82a36dcc1d"
-        ],
-        "x": 340,
-        "y": 280,
-        "wires": [
-            [
-                "7bd9b25eb8c0b5bd"
-            ]
-        ]
-    },
-    {
-        "id": "7bd9b25eb8c0b5bd",
-        "type": "function",
-        "z": "7b229efa69ac7866",
-        "name": "",
-        "func": "global.set(\"plctrigger\",msg.status.text);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 280,
-        "wires": [
-            []
         ]
     },
     {
@@ -3700,8 +3687,8 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 270,
-        "y": 340,
+        "x": 330,
+        "y": 180,
         "wires": [
             [
                 "72765ba38fc4a002"
@@ -3713,8 +3700,8 @@
         "type": "subflow:197be159bc54b2ae",
         "z": "7b229efa69ac7866",
         "name": "",
-        "x": 540,
-        "y": 340,
+        "x": 600,
+        "y": 180,
         "wires": []
     }
 ]
