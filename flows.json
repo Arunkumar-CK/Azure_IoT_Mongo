@@ -2681,7 +2681,7 @@
         "type": "function",
         "z": "656cafb0aab901fe",
         "name": "",
-        "func": "var time = new Date();\nmsg.payload ={\n\"randomWrite\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
+        "func": "var time = new Date();\nmsg.payload ={\n\"randomWrite\" :msg.payload,\n\"timestamp\" :time\n};\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
