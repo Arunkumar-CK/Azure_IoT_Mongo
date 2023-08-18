@@ -1978,7 +1978,8 @@
         "y": 1000,
         "wires": [
             [
-                "45bedf84fd472075"
+                "45bedf84fd472075",
+                "dabf07a7587f84a7"
             ]
         ]
     },
@@ -2669,7 +2670,7 @@
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 540,
+        "x": 600,
         "y": 920,
         "wires": [
             []
@@ -2709,7 +2710,8 @@
         "y": 860,
         "wires": [
             [
-                "ab11613594e5d97a"
+                "ab11613594e5d97a",
+                "d6dd1329bc464b6c"
             ]
         ]
     },
@@ -2725,7 +2727,8 @@
         "y": 1220,
         "wires": [
             [
-                "add9ff5539bcc7ed"
+                "add9ff5539bcc7ed",
+                "40ea8c9d8e674df9"
             ]
         ]
     },
@@ -2744,7 +2747,8 @@
         "y": 1220,
         "wires": [
             [
-                "39f4bfd9e5b3ba47"
+                "39f4bfd9e5b3ba47",
+                "e14cea286e28295c"
             ]
         ]
     },
@@ -2772,6 +2776,57 @@
                 "1fe20a883a926067"
             ]
         ]
+    },
+    {
+        "id": "40ea8c9d8e674df9",
+        "type": "debug",
+        "z": "656cafb0aab901fe",
+        "name": "debug 41",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "e14cea286e28295c",
+        "type": "debug",
+        "z": "656cafb0aab901fe",
+        "name": "debug 42",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "dabf07a7587f84a7",
+        "type": "debug",
+        "z": "656cafb0aab901fe",
+        "name": "debug 44",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 1080,
+        "wires": []
     },
     {
         "id": "e03fbf929d973b61",
@@ -4292,7 +4347,7 @@
         "upsert": false,
         "multi": false,
         "operation": "insert",
-        "x": 1130,
+        "x": 1030,
         "y": 120,
         "wires": []
     },
@@ -4300,14 +4355,14 @@
         "id": "46ec0fd128973f92",
         "type": "function",
         "z": "d4cc86e7c3fe7526",
-        "name": "Set status and seq",
+        "name": "Set status and gen seq",
         "func": "msg.payload.status = \"Received from cloud\";\n\nvar ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload.seq = seq;\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
+        "x": 590,
         "y": 120,
         "wires": [
             [
@@ -4401,11 +4456,12 @@
         "z": "d4cc86e7c3fe7526",
         "name": "",
         "filename": "C:\\Datalog\\cloudmessage.csv",
+        "filenameType": "str",
         "appendNewline": true,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 840,
+        "x": 910,
         "y": 220,
         "wires": [
             []
@@ -4439,7 +4495,7 @@
         "type": "function",
         "z": "d4cc86e7c3fe7526",
         "name": "function 71",
-        "func": "msg.payload = { \"status\": \"Recieved from cloud\" }\nmsg.limit = 1\n\nreturn msg;",
+        "func": "msg.payload = { \"status\": \"Received from cloud\" }\nmsg.limit = 1\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4465,7 +4521,8 @@
         "y": 320,
         "wires": [
             [
-                "ab261171d7fe2846"
+                "ab261171d7fe2846",
+                "5a30ea9a5e638d58"
             ]
         ]
     },
@@ -4498,7 +4555,7 @@
         "z": "d4cc86e7c3fe7526",
         "name": "",
         "pauseType": "delay",
-        "timeout": "100",
+        "timeout": "200",
         "timeoutUnits": "milliseconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -4516,6 +4573,22 @@
                 "61ad55f84e791fcc"
             ]
         ]
+    },
+    {
+        "id": "5a30ea9a5e638d58",
+        "type": "debug",
+        "z": "d4cc86e7c3fe7526",
+        "name": "debug 43",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 380,
+        "wires": []
     },
     {
         "id": "37bd146170cd16c0",
@@ -6221,7 +6294,7 @@
         "type": "subflow:656cafb0aab901fe",
         "z": "2fc3c1bb4c269089",
         "name": "Read DB and send data to PLC",
-        "x": 970,
+        "x": 990,
         "y": 100,
         "wires": []
     },
