@@ -38,11 +38,11 @@
         "category": "",
         "in": [
             {
-                "x": 380,
-                "y": 1040,
+                "x": 200,
+                "y": 1120,
                 "wires": [
                     {
-                        "id": "7d0cb4005397cfab"
+                        "id": "e8fd3c8a0e001539"
                     }
                 ]
             }
@@ -496,10 +496,299 @@
         "className": ""
     },
     {
+        "id": "3df8e910f8ec26b9",
+        "type": "ui_group",
+        "name": "Errors",
+        "tab": "a91f179c6c2c2418",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "efb54775cca118e6",
+        "type": "ui_group",
+        "name": "Task running ",
+        "tab": "a91f179c6c2c2418",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "97a56633e4fb91d4",
+        "type": "ui_group",
+        "name": "Cloud message",
+        "tab": "a91f179c6c2c2418",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f38b26fe4416bc8d",
+        "type": "ui_group",
+        "name": "Queue",
+        "tab": "a91f179c6c2c2418",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "05158419ff81133f",
+        "type": "mongodb",
+        "hostname": "127.0.0.1",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "database",
+        "name": ""
+    },
+    {
+        "id": "d2caaf17a1b76af7",
+        "type": "eth-ip endpoint",
+        "d": true,
+        "address": "192.168.2.252",
+        "slot": "0",
+        "cycletime": "100",
+        "timeout": "3000000",
+        "name": "AB PLC - Peets",
+        "connectedMess": true,
+        "vartable": {
+            "": {
+                "WMS_To_Plc_Msg.CommandType": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromX": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromY": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromZ": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.rRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.ToX": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.ToY": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.ToZ": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.sRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.BinId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.pRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.SkuId": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.PickQty": {
+                    "type": "DINT"
+                },
+                "Plc_To_WMS_Msg.rRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_WMS_Msg.sRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_WMS_Msg.pRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_Gateway_Msg_Id": {
+                    "type": "DINT"
+                },
+                "Gateway_To_Plc_Msg_Id": {
+                    "type": "DINT"
+                },
+                "Gateway_To_Plc_rRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Gateway_To_Plc_sRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Gateway_To_Plc_pRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Bot1_Storage_Error": {
+                    "type": "BOOL"
+                },
+                "Bot2_Storage_Error": {
+                    "type": "BOOL"
+                },
+                "Machine_Reset_ON": {
+                    "type": "BOOL"
+                },
+                "Enable_Task_Handling": {
+                    "type": "BOOL"
+                },
+                "FlushFIFO_Data": {
+                    "type": "BOOL"
+                },
+                "Cmnd_Startup": {
+                    "type": "BOOL"
+                },
+                "StartUp_Sequence_Number": {
+                    "type": "INT"
+                },
+                "Mover_ID[1].Mover_Running_Seq": {
+                    "type": "DINT"
+                },
+                "Mover_ID[2].Mover_Running_Seq": {
+                    "type": "DINT"
+                },
+                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
+                    "type": "BOOL"
+                },
+                "GatewayMessageSequence_Number": {
+                    "type": "INT"
+                },
+                "Enable_Queue": {
+                    "type": "BOOL"
+                }
+            }
+        }
+    },
+    {
+        "id": "101ca770f43ae779",
+        "type": "eth-ip endpoint",
+        "address": "192.168.2.252",
+        "slot": "0",
+        "cycletime": "100",
+        "timeout": "3000000",
+        "name": "AB PLC-Shastha",
+        "connectedMess": true,
+        "vartable": {
+            "": {
+                "WMS_To_Plc_Msg.CommandType": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromX": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromY": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromZ": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.rRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.ToX": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.ToY": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.ToZ": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.sRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.BinId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.pRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.SkuId": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.PickQty": {
+                    "type": "DINT"
+                },
+                "Plc_To_WMS_Msg.rRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_WMS_Msg.sRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_WMS_Msg.pRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_Gateway_Msg_Id": {
+                    "type": "DINT"
+                },
+                "Gateway_To_Plc_Msg_Id": {
+                    "type": "DINT"
+                },
+                "Gateway_To_Plc_rRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Gateway_To_Plc_sRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Gateway_To_Plc_pRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Machine_Reset_ON": {
+                    "type": "BOOL"
+                },
+                "Enable_Task_Handling": {
+                    "type": "BOOL"
+                },
+                "FlushFIFO_Data": {
+                    "type": "BOOL"
+                },
+                "StartUp_Sequence_Number": {
+                    "type": "INT"
+                },
+                "Mover_ID[1].Mover_Running_Seq": {
+                    "type": "DINT"
+                },
+                "Mover_ID[2].Mover_Running_Seq": {
+                    "type": "DINT"
+                },
+                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
+                    "type": "BOOL"
+                },
+                "GatewayMessageSequence_Number": {
+                    "type": "INT"
+                },
+                "Enable_Queue": {
+                    "type": "BOOL"
+                }
+            }
+        }
+    },
+    {
         "id": "5b0c921e515d49d7",
         "type": "inject",
         "z": "168ce6884d330b26",
-        "d": true,
         "name": "send id to plc continously",
         "props": [
             {
@@ -1276,7 +1565,7 @@
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 1160,
+        "x": 920,
         "y": 980,
         "wires": []
     },
@@ -1284,19 +1573,19 @@
         "id": "a4f36c4de9f991e5",
         "type": "function",
         "z": "a27b931a44c8fb3e",
-        "name": "function 31",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id};\nmsg.payload = msg.payload[0];\nmsg.payload.ran_num = msg.topic;\nmsg.payload.status = \"Sent to PLC\";\n\nreturn msg;",
+        "name": "checkSeqValidity",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length) {\n\n    msg.query = { \"_id\": msg.payload[0]._id };\n    msg.payload = msg.payload[0];\n    msg.payload.status = \"Acked from PLC\";\n\n    return msg;\n\n} else {\n    return null;\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 970,
+        "x": 730,
         "y": 980,
         "wires": [
             [
                 "04db87075c2dc32a",
-                "4eceaefe693f31c7"
+                "a97b2311ffa69191"
             ]
         ]
     },
@@ -1305,14 +1594,14 @@
         "type": "mongodb in",
         "z": "a27b931a44c8fb3e",
         "mongodb": "8bdab089b2660f17",
-        "name": "read",
+        "name": "findSeq",
         "collection": "table",
         "operation": "find",
-        "x": 670,
+        "x": 540,
         "y": 980,
         "wires": [
             [
-                "e426270bc9c054d7"
+                "a4f36c4de9f991e5"
             ]
         ]
     },
@@ -1320,14 +1609,14 @@
         "id": "7d0cb4005397cfab",
         "type": "function",
         "z": "a27b931a44c8fb3e",
-        "name": "function 32",
-        "func": "msg.payload = { \"status\": \"Recieved from cloud\" };\nmsg.limit = 1;\n\nreturn msg;",
+        "name": "constructSeqQuery",
+        "func": "msg.payload = { \"seq\": msg.payload };\nmsg.limit = 1;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
+        "x": 350,
         "y": 980,
         "wires": [
             [
@@ -1344,8 +1633,8 @@
         "links": [
             "2ddfbeabf9c20d7c"
         ],
-        "x": 1115,
-        "y": 1020,
+        "x": 1025,
+        "y": 1080,
         "wires": []
     },
     {
@@ -1896,40 +2185,17 @@
         "wires": []
     },
     {
-        "id": "e426270bc9c054d7",
-        "type": "switch",
-        "z": "a27b931a44c8fb3e",
-        "name": "",
-        "property": "msg.payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nempty"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 810,
-        "y": 980,
-        "wires": [
-            [
-                "a4f36c4de9f991e5"
-            ]
-        ]
-    },
-    {
         "id": "9e8c32e4c953f752",
         "type": "function",
         "z": "a27b931a44c8fb3e",
-        "name": "generate random number for msg id to plc",
-        "func": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload =  seq;\nreturn msg;",
+        "name": "Read seq",
+        "func": "msg.payload = msg.payload.seq;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 740,
+        "x": 640,
         "y": 860,
         "wires": [
             [
@@ -1971,7 +2237,7 @@
         "variable": "Gateway_To_Plc_Msg_Id",
         "program": "",
         "name": "",
-        "x": 1050,
+        "x": 870,
         "y": 860,
         "wires": []
     },
@@ -1989,7 +2255,7 @@
         "wires": [
             [
                 "4a82e2fbf07da45b",
-                "43b9e88625e74d13"
+                "7d0cb4005397cfab"
             ]
         ]
     },
@@ -2049,21 +2315,104 @@
         ]
     },
     {
-        "id": "43b9e88625e74d13",
+        "id": "e8fd3c8a0e001539",
         "type": "function",
         "z": "a27b931a44c8fb3e",
-        "name": "",
-        "func": "msg.topic = msg.payload;\nreturn msg;",
+        "name": "constructUnsentQuery",
+        "func": "msg.payload = { \"status\": \"Received from cloud\" };\nmsg.limit = 1;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
-        "y": 980,
+        "x": 360,
+        "y": 1080,
         "wires": [
             [
-                "7d0cb4005397cfab"
+                "86a85c753c93bf6e"
+            ]
+        ]
+    },
+    {
+        "id": "86a85c753c93bf6e",
+        "type": "mongodb in",
+        "z": "a27b931a44c8fb3e",
+        "mongodb": "8bdab089b2660f17",
+        "name": "findUnsent",
+        "collection": "table",
+        "operation": "find",
+        "x": 570,
+        "y": 1080,
+        "wires": [
+            [
+                "8bda8b23ccbac41a"
+            ]
+        ]
+    },
+    {
+        "id": "8bda8b23ccbac41a",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "function 73",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length) {\n    msg.payload = msg.payload[0];\n    return msg;\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 1080,
+        "wires": [
+            [
+                "a5a7b4f24ffaacc5"
+            ]
+        ]
+    },
+    {
+        "id": "a5a7b4f24ffaacc5",
+        "type": "switch",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 910,
+        "y": 1080,
+        "wires": [
+            [
+                "4eceaefe693f31c7"
+            ]
+        ]
+    },
+    {
+        "id": "a97b2311ffa69191",
+        "type": "delay",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 150,
+        "y": 1040,
+        "wires": [
+            [
+                "e8fd3c8a0e001539"
             ]
         ]
     },
@@ -2098,7 +2447,7 @@
         "upsert": false,
         "multi": false,
         "operation": "insert",
-        "x": 770,
+        "x": 930,
         "y": 120,
         "wires": []
     },
@@ -2106,18 +2455,18 @@
         "id": "a5c0beb60a335eb4",
         "type": "function",
         "z": "abf459b12a58a7d6",
-        "name": "function 30",
-        "func": "msg.payload.status = \"Recieved from cloud\"\n\nreturn msg;",
+        "name": "Set status and gen seq",
+        "func": "msg.payload.status = \"Received from cloud\";\n\nvar ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload.seq = seq;\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
+        "x": 580,
         "y": 120,
         "wires": [
             [
-                "89f9675ed297ef66"
+                "6c8d4451d9339152"
             ]
         ]
     },
@@ -2296,6 +2645,31 @@
         "y": 320,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "6c8d4451d9339152",
+        "type": "delay",
+        "z": "abf459b12a58a7d6",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 120,
+        "wires": [
+            [
+                "89f9675ed297ef66"
+            ]
         ]
     },
     {
@@ -3096,7 +3470,7 @@
         "type": "function",
         "z": "197be159bc54b2ae",
         "name": "function 58",
-        "func": "msg.payload = { \"status\": \"Sent to PLC\" }\n\n\nreturn msg;",
+        "func": "msg.payload = { \"status\": \"Acked from PLC\" }\n\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
