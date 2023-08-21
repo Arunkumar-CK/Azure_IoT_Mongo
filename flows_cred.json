@@ -1,6 +1,6 @@
 {
     "5d7a994fe14490b1": {},
     "62659240d49d9809": {
-        "connectionstring": "HostName=carteplus-iothub-nred.azure-devices.net;DeviceId=ckplcnred;SharedAccessKey=yE+SgpaLcuXFlNRy745eX/1pSOiw4jGro4sDCRoj/Tc="
+        "connectionstring": "HostName=carteplus-iothub-e3d.azure-devices.net;DeviceId=ckplce3d;SharedAccessKey=EMJL1Nn0OCVHSl7JTGPZE+5GtsD2DbkBdX7SOMuVgEI="
     }
 }
