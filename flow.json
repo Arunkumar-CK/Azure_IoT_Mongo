@@ -152,92 +152,6 @@
         "color": "#DDAA99"
     },
     {
-        "id": "f181434bdf09b53e",
-        "type": "subflow",
-        "name": "Checks DB and update Dashboard  (2)",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 40,
-                "y": 440,
-                "wires": [
-                    {
-                        "id": "f896549b2b378acc"
-                    },
-                    {
-                        "id": "9c95b25a48150dad"
-                    },
-                    {
-                        "id": "a0b3116c2452c41e"
-                    },
-                    {
-                        "id": "3a56f983a49a6e9d"
-                    },
-                    {
-                        "id": "ab74b57b93e1efdd"
-                    },
-                    {
-                        "id": "27f242cb7902eb68"
-                    },
-                    {
-                        "id": "7dbb35c324d3fc76"
-                    }
-                ]
-            }
-        ],
-        "out": [],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "3d3550573119bf08",
-        "type": "subflow",
-        "name": "Acknowlegement from PLC (2)",
-        "info": "",
-        "category": "",
-        "in": [],
-        "out": [
-            {
-                "x": 1260,
-                "y": 340,
-                "wires": [
-                    {
-                        "id": "80e7ba223502b373",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
-        "id": "d26f0393db9c2f99",
-        "type": "subflow",
-        "name": "Azure status and other functions (2)",
-        "info": "",
-        "category": "",
-        "in": [],
-        "out": [
-            {
-                "x": 1120,
-                "y": 160,
-                "wires": [
-                    {
-                        "id": "fc85d0353c08107b",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99"
-    },
-    {
         "id": "f4ebc30243c09416",
         "type": "ui_group",
         "name": "Task completed",
@@ -390,7 +304,8 @@
     {
         "id": "1dc8f3e6fa36769b",
         "type": "eth-ip endpoint",
-        "address": "192.168.2.252",
+        "d": true,
+        "address": "192.168.1.10",
         "slot": "0",
         "cycletime": "100",
         "timeout": "3000000",
@@ -636,132 +551,9 @@
         "name": ""
     },
     {
-        "id": "d2caaf17a1b76af7",
-        "type": "eth-ip endpoint",
-        "d": true,
-        "address": "192.168.2.252",
-        "slot": "0",
-        "cycletime": "100",
-        "timeout": "3000000",
-        "name": "AB PLC - Peets",
-        "connectedMess": true,
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Bot1_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Bot2_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Machine_Reset_ON": {
-                    "type": "BOOL"
-                },
-                "Enable_Task_Handling": {
-                    "type": "BOOL"
-                },
-                "FlushFIFO_Data": {
-                    "type": "BOOL"
-                },
-                "Cmnd_Startup": {
-                    "type": "BOOL"
-                },
-                "StartUp_Sequence_Number": {
-                    "type": "INT"
-                },
-                "Mover_ID[1].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[2].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "GatewayMessageSequence_Number": {
-                    "type": "INT"
-                },
-                "Enable_Queue": {
-                    "type": "BOOL"
-                }
-            }
-        }
-    },
-    {
         "id": "101ca770f43ae779",
         "type": "eth-ip endpoint",
-        "address": "192.168.2.252",
+        "address": "192.168.1.10",
         "slot": "0",
         "cycletime": "100",
         "timeout": "3000000",
@@ -926,242 +718,6 @@
         "name": ""
     },
     {
-        "id": "af6d69bf3c1a3b85",
-        "type": "eth-ip endpoint",
-        "d": true,
-        "address": "192.168.2.252",
-        "slot": "0",
-        "cycletime": "100",
-        "timeout": "3000000",
-        "name": "AB PLC - Peets",
-        "connectedMess": true,
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Bot1_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Bot2_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Machine_Reset_ON": {
-                    "type": "BOOL"
-                },
-                "Enable_Task_Handling": {
-                    "type": "BOOL"
-                },
-                "FlushFIFO_Data": {
-                    "type": "BOOL"
-                },
-                "Cmnd_Startup": {
-                    "type": "BOOL"
-                },
-                "StartUp_Sequence_Number": {
-                    "type": "INT"
-                },
-                "Mover_ID[1].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[2].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "GatewayMessageSequence_Number": {
-                    "type": "INT"
-                },
-                "Enable_Queue": {
-                    "type": "BOOL"
-                }
-            }
-        }
-    },
-    {
-        "id": "0f03bafb66dd7d71",
-        "type": "eth-ip endpoint",
-        "address": "192.168.2.252",
-        "slot": "0",
-        "cycletime": "100",
-        "timeout": "3000000",
-        "name": "AB PLC-Shastha",
-        "connectedMess": true,
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Machine_Reset_ON": {
-                    "type": "BOOL"
-                },
-                "Enable_Task_Handling": {
-                    "type": "BOOL"
-                },
-                "FlushFIFO_Data": {
-                    "type": "BOOL"
-                },
-                "StartUp_Sequence_Number": {
-                    "type": "INT"
-                },
-                "Mover_ID[1].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[2].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "GatewayMessageSequence_Number": {
-                    "type": "INT"
-                },
-                "Enable_Queue": {
-                    "type": "BOOL"
-                }
-            }
-        }
-    },
-    {
         "id": "dae63d56f1acaa6e",
         "type": "ui_group",
         "name": "PLC controls",
@@ -1171,128 +727,6 @@
         "width": "6",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "95cb5a23b38cbeb1",
-        "type": "eth-ip endpoint",
-        "address": "192.168.2.252",
-        "slot": "0",
-        "cycletime": "100",
-        "timeout": "3000000",
-        "name": "AB PLC",
-        "connectedMess": true,
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Bot1_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Bot2_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Machine_Reset_ON": {
-                    "type": "BOOL"
-                },
-                "Enable_Task_Handling": {
-                    "type": "BOOL"
-                },
-                "FlushFIFO_Data": {
-                    "type": "BOOL"
-                },
-                "Cmnd_Startup": {
-                    "type": "BOOL"
-                },
-                "StartUp_Sequence_Number": {
-                    "type": "INT"
-                },
-                "Mover_ID[1].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[2].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "GatewayMessageSequence_Number": {
-                    "type": "INT"
-                },
-                "Enable_Queue": {
-                    "type": "BOOL"
-                }
-            }
-        }
     },
     {
         "id": "b78191313e775a37",
@@ -1347,242 +781,6 @@
         "port": "27017",
         "db": "database",
         "name": ""
-    },
-    {
-        "id": "481e380974044c8d",
-        "type": "eth-ip endpoint",
-        "d": true,
-        "address": "192.168.2.252",
-        "slot": "0",
-        "cycletime": "100",
-        "timeout": "3000000",
-        "name": "AB PLC - Peets",
-        "connectedMess": true,
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Bot1_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Bot2_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Machine_Reset_ON": {
-                    "type": "BOOL"
-                },
-                "Enable_Task_Handling": {
-                    "type": "BOOL"
-                },
-                "FlushFIFO_Data": {
-                    "type": "BOOL"
-                },
-                "Cmnd_Startup": {
-                    "type": "BOOL"
-                },
-                "StartUp_Sequence_Number": {
-                    "type": "INT"
-                },
-                "Mover_ID[1].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[2].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "GatewayMessageSequence_Number": {
-                    "type": "INT"
-                },
-                "Enable_Queue": {
-                    "type": "BOOL"
-                }
-            }
-        }
-    },
-    {
-        "id": "d87425555881f3f2",
-        "type": "eth-ip endpoint",
-        "address": "192.168.2.252",
-        "slot": "0",
-        "cycletime": "100",
-        "timeout": "3000000",
-        "name": "AB PLC-Shastha",
-        "connectedMess": true,
-        "vartable": {
-            "": {
-                "WMS_To_Plc_Msg.CommandType": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.FromZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.ToX": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToY": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.ToZ": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.BinId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "WMS_To_Plc_Msg.SkuId": {
-                    "type": "DINT"
-                },
-                "WMS_To_Plc_Msg.PickQty": {
-                    "type": "DINT"
-                },
-                "Plc_To_WMS_Msg.rRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.sRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_WMS_Msg.pRequestId": {
-                    "type": "STRING"
-                },
-                "Plc_To_Gateway_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_Msg_Id": {
-                    "type": "DINT"
-                },
-                "Gateway_To_Plc_rRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_sRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Gateway_To_Plc_pRequest_Id_Ack": {
-                    "type": "STRING"
-                },
-                "Machine_Reset_ON": {
-                    "type": "BOOL"
-                },
-                "Enable_Task_Handling": {
-                    "type": "BOOL"
-                },
-                "FlushFIFO_Data": {
-                    "type": "BOOL"
-                },
-                "StartUp_Sequence_Number": {
-                    "type": "INT"
-                },
-                "Mover_ID[1].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[2].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "GatewayMessageSequence_Number": {
-                    "type": "INT"
-                },
-                "Enable_Queue": {
-                    "type": "BOOL"
-                }
-            }
-        }
     },
     {
         "id": "5b0c921e515d49d7",
@@ -2287,12 +1485,13 @@
         "id": "5c4b2afac6e86f44",
         "type": "eth-ip in",
         "z": "168ce6884d330b26",
-        "endpoint": "1dc8f3e6fa36769b",
+        "d": true,
+        "endpoint": "101ca770f43ae779",
         "mode": "single",
-        "variable": "Bot1_Storage_Error",
+        "variable": "",
         "program": "",
         "name": "",
-        "x": 910,
+        "x": 900,
         "y": 580,
         "wires": [
             [
@@ -2304,12 +1503,13 @@
         "id": "2fc8432112c78d28",
         "type": "eth-ip in",
         "z": "168ce6884d330b26",
-        "endpoint": "1dc8f3e6fa36769b",
+        "d": true,
+        "endpoint": "101ca770f43ae779",
         "mode": "single",
-        "variable": "Bot2_Storage_Error",
+        "variable": "",
         "program": "",
         "name": "",
-        "x": 910,
+        "x": 900,
         "y": 620,
         "wires": [
             [
@@ -2321,7 +1521,7 @@
         "id": "291330fa96143469",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "Gateway_To_Plc_rRequest_Id_Ack",
         "program": "",
         "name": "",
@@ -2333,7 +1533,7 @@
         "id": "ac33b1cfb1d8f8ab",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "Gateway_To_Plc_sRequest_Id_Ack",
         "program": "",
         "name": "",
@@ -2345,7 +1545,7 @@
         "id": "e38f5f7a2d039940",
         "type": "eth-ip out",
         "z": "168ce6884d330b26",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "Gateway_To_Plc_pRequest_Id_Ack",
         "program": "",
         "name": "",
@@ -2440,7 +1640,7 @@
         "id": "d0f30ea23840756b",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.FromY",
         "program": "",
         "name": "",
@@ -2449,41 +1649,17 @@
         "wires": []
     },
     {
-        "id": "bdcd9d01e79f56ad",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data fromY",
-        "func": "msg.payload = msg.payload.fromY\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 360,
-        "wires": [
-            [
-                "d0f30ea23840756b"
-            ]
-        ]
-    },
-    {
         "id": "05615c6ffb8c76ca",
         "type": "switch",
         "z": "a27b931a44c8fb3e",
-        "name": "",
+        "name": "Check command type",
         "property": "msg.payload.commandType",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "lte",
-                "v": "4",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
                 "v": "5",
-                "vt": "num"
+                "vt": "str"
             },
             {
                 "t": "eq",
@@ -2493,43 +1669,15 @@
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 3,
-        "x": 130,
-        "y": 440,
+        "outputs": 2,
+        "x": 260,
+        "y": 580,
         "wires": [
             [
-                "e57d164c46eba292",
-                "b9a25fe1f727f7c5",
-                "f20e2c0d052a2ef7",
-                "bdcd9d01e79f56ad",
-                "2f6bc208ae7e8771",
-                "f12a4c37bbf81c04",
-                "cc5b087158440bc7",
-                "8a91fc859efbcf44",
-                "7d116d59875298dd",
-                "351091b8b66a4d78",
-                "8cd7c7ef3aaaf16b"
+                "1b9fbf530ce73766"
             ],
             [
-                "0dc9d5836e29e327",
-                "d086390531b92a19",
-                "4c71685ca697e9c3",
-                "9e872ebec5c231ea",
-                "da26367ea45c0dd0",
-                "8cd7c7ef3aaaf16b"
-            ],
-            [
-                "e57d164c46eba292",
-                "b9a25fe1f727f7c5",
-                "f20e2c0d052a2ef7",
-                "bdcd9d01e79f56ad",
-                "2f6bc208ae7e8771",
-                "f12a4c37bbf81c04",
-                "cc5b087158440bc7",
-                "8a91fc859efbcf44",
-                "7d116d59875298dd",
-                "351091b8b66a4d78",
-                "8cd7c7ef3aaaf16b"
+                "0d9d9a6b7b2367c0"
             ]
         ]
     },
@@ -2541,8 +1689,8 @@
         "links": [
             "4eceaefe693f31c7"
         ],
-        "x": 35,
-        "y": 440,
+        "x": 115,
+        "y": 580,
         "wires": [
             [
                 "05615c6ffb8c76ca"
@@ -2550,276 +1698,10 @@
         ]
     },
     {
-        "id": "e57d164c46eba292",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read commandType",
-        "func": "msg.payload = msg.payload.commandType\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 240,
-        "wires": [
-            [
-                "5d49c8b9a40cb62e"
-            ]
-        ]
-    },
-    {
-        "id": "b9a25fe1f727f7c5",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data binId",
-        "func": "msg.payload = msg.payload.binId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 280,
-        "wires": [
-            [
-                "700950aa7917fe62"
-            ]
-        ]
-    },
-    {
-        "id": "f20e2c0d052a2ef7",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data fromX",
-        "func": "msg.payload = msg.payload.fromX\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 320,
-        "wires": [
-            [
-                "60f9d0af5119bf7f"
-            ]
-        ]
-    },
-    {
-        "id": "2f6bc208ae7e8771",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data fromZ",
-        "func": "msg.payload = msg.payload.fromZ\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 400,
-        "wires": [
-            [
-                "1702b6742423ba80"
-            ]
-        ]
-    },
-    {
-        "id": "f12a4c37bbf81c04",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data rRequestId",
-        "func": "msg.payload = msg.payload.rRequestId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 440,
-        "wires": [
-            [
-                "d511083cb31c8256"
-            ]
-        ]
-    },
-    {
-        "id": "cc5b087158440bc7",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data toX",
-        "func": "msg.payload = msg.payload.toX\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 480,
-        "wires": [
-            [
-                "a740b5b7c6eed77e"
-            ]
-        ]
-    },
-    {
-        "id": "8a91fc859efbcf44",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data toY",
-        "func": "msg.payload = msg.payload.toY\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 520,
-        "wires": [
-            [
-                "ae6b4705327fd6ac"
-            ]
-        ]
-    },
-    {
-        "id": "7d116d59875298dd",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data toZ",
-        "func": "msg.payload = msg.payload.toZ\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 560,
-        "wires": [
-            [
-                "4332c8c3f18a3ba9"
-            ]
-        ]
-    },
-    {
-        "id": "351091b8b66a4d78",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data Column sRequestId",
-        "func": "msg.payload = msg.payload.sRequestId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 600,
-        "wires": [
-            [
-                "f0c9608b9435acc7"
-            ]
-        ]
-    },
-    {
-        "id": "0dc9d5836e29e327",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data skuId",
-        "func": "msg.payload = msg.payload.skuId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 740,
-        "wires": [
-            [
-                "a29c58d18ee8e1f6"
-            ]
-        ]
-    },
-    {
-        "id": "d086390531b92a19",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data pickQty",
-        "func": "msg.payload = msg.payload.pickQty\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 780,
-        "wires": [
-            [
-                "c33aad591171d6db"
-            ]
-        ]
-    },
-    {
-        "id": "4c71685ca697e9c3",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data Column pRequestId",
-        "func": "msg.payload = msg.payload.pRequestId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 550,
-        "y": 820,
-        "wires": [
-            [
-                "cd00977dfc86db92"
-            ]
-        ]
-    },
-    {
-        "id": "9e872ebec5c231ea",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read commandType",
-        "func": "msg.payload = msg.payload.commandType\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 660,
-        "wires": [
-            [
-                "4cdacc2041215b66"
-            ]
-        ]
-    },
-    {
-        "id": "da26367ea45c0dd0",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read Data binId",
-        "func": "msg.payload = msg.payload.binId\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 700,
-        "wires": [
-            [
-                "c37844af36f37abd"
-            ]
-        ]
-    },
-    {
         "id": "5d49c8b9a40cb62e",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.CommandType",
         "program": "",
         "name": "",
@@ -2831,7 +1713,7 @@
         "id": "700950aa7917fe62",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.BinId",
         "program": "",
         "name": "",
@@ -2843,7 +1725,7 @@
         "id": "60f9d0af5119bf7f",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.FromX",
         "program": "",
         "name": "",
@@ -2855,7 +1737,7 @@
         "id": "1702b6742423ba80",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.FromZ",
         "program": "",
         "name": "",
@@ -2867,7 +1749,7 @@
         "id": "d511083cb31c8256",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.rRequestId",
         "program": "",
         "name": "",
@@ -2879,7 +1761,7 @@
         "id": "a740b5b7c6eed77e",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.ToX",
         "program": "",
         "name": "",
@@ -2891,7 +1773,7 @@
         "id": "ae6b4705327fd6ac",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.ToY",
         "program": "",
         "name": "",
@@ -2903,7 +1785,7 @@
         "id": "4332c8c3f18a3ba9",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.ToZ",
         "program": "",
         "name": "",
@@ -2915,7 +1797,7 @@
         "id": "f0c9608b9435acc7",
         "type": "eth-ip out",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "variable": "WMS_To_Plc_Msg.sRequestId",
         "program": "",
         "name": "",
@@ -2924,127 +1806,10 @@
         "wires": []
     },
     {
-        "id": "a29c58d18ee8e1f6",
-        "type": "eth-ip out",
-        "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
-        "variable": "WMS_To_Plc_Msg.SkuId",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "c33aad591171d6db",
-        "type": "eth-ip out",
-        "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
-        "variable": "WMS_To_Plc_Msg.PickQty",
-        "program": "",
-        "name": "",
-        "x": 840,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "cd00977dfc86db92",
-        "type": "eth-ip out",
-        "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
-        "variable": "WMS_To_Plc_Msg.pRequestId",
-        "program": "",
-        "name": "",
-        "x": 850,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "4cdacc2041215b66",
-        "type": "eth-ip out",
-        "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
-        "variable": "WMS_To_Plc_Msg.CommandType",
-        "program": "",
-        "name": "",
-        "x": 860,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "c37844af36f37abd",
-        "type": "eth-ip out",
-        "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
-        "variable": "WMS_To_Plc_Msg.BinId",
-        "program": "",
-        "name": "",
-        "x": 830,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "9e8c32e4c953f752",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "Read seq",
-        "func": "msg.payload = msg.payload.seq;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 640,
-        "y": 860,
-        "wires": [
-            [
-                "e103fb6b65bfc65d",
-                "cfbc805b0d0b1124"
-            ]
-        ]
-    },
-    {
-        "id": "8cd7c7ef3aaaf16b",
-        "type": "delay",
-        "z": "a27b931a44c8fb3e",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "250",
-        "timeoutUnits": "milliseconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 490,
-        "y": 860,
-        "wires": [
-            [
-                "9e8c32e4c953f752"
-            ]
-        ]
-    },
-    {
-        "id": "e103fb6b65bfc65d",
-        "type": "eth-ip out",
-        "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
-        "variable": "Gateway_To_Plc_Msg_Id",
-        "program": "",
-        "name": "",
-        "x": 870,
-        "y": 860,
-        "wires": []
-    },
-    {
         "id": "38d76d82a36dcc1d",
         "type": "eth-ip in",
         "z": "a27b931a44c8fb3e",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "mode": "single",
         "variable": "Plc_To_Gateway_Msg_Id",
         "program": "",
@@ -3212,6 +1977,187 @@
         "wires": [
             [
                 "e8fd3c8a0e001539"
+            ]
+        ]
+    },
+    {
+        "id": "1b9fbf530ce73766",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "Message spliter",
+        "func": "var msg1 = { payload: msg.payload.commandType };\nvar msg2 = { payload: msg.payload.binId };\nvar msg3 = { payload: msg.payload.fromX};\nvar msg4 = { payload: msg.payload.fromY };\nvar msg5 = { payload: msg.payload.fromZ };\nvar msg6 = { payload: msg.payload.rRequestId };\nvar msg7 = { payload: msg.payload.toX };\nvar msg8 = { payload: msg.payload.toY };\nvar msg9 = { payload: msg.payload.toZ };\nvar msg10 = { payload: msg.payload.sRequestId };\nvar msg11 = { payload: msg.payload.seq };\nreturn [msg1, msg2, msg3, msg4, msg5, msg6, msg7, msg8, msg9, msg10, msg11];\n\n",
+        "outputs": 11,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\n\n",
+        "libs": [],
+        "x": 520,
+        "y": 420,
+        "wires": [
+            [
+                "5d49c8b9a40cb62e"
+            ],
+            [
+                "700950aa7917fe62"
+            ],
+            [
+                "60f9d0af5119bf7f"
+            ],
+            [
+                "d0f30ea23840756b"
+            ],
+            [
+                "1702b6742423ba80"
+            ],
+            [
+                "d511083cb31c8256"
+            ],
+            [
+                "a740b5b7c6eed77e"
+            ],
+            [
+                "ae6b4705327fd6ac"
+            ],
+            [
+                "4332c8c3f18a3ba9"
+            ],
+            [
+                "f0c9608b9435acc7"
+            ],
+            [
+                "8cd7c7ef3aaaf16b"
+            ]
+        ]
+    },
+    {
+        "id": "a29c58d18ee8e1f6",
+        "type": "eth-ip out",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "101ca770f43ae779",
+        "variable": "WMS_To_Plc_Msg.SkuId",
+        "program": "",
+        "name": "",
+        "x": 830,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "c33aad591171d6db",
+        "type": "eth-ip out",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "101ca770f43ae779",
+        "variable": "WMS_To_Plc_Msg.PickQty",
+        "program": "",
+        "name": "",
+        "x": 840,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "cd00977dfc86db92",
+        "type": "eth-ip out",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "101ca770f43ae779",
+        "variable": "WMS_To_Plc_Msg.pRequestId",
+        "program": "",
+        "name": "",
+        "x": 850,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "4cdacc2041215b66",
+        "type": "eth-ip out",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "101ca770f43ae779",
+        "variable": "WMS_To_Plc_Msg.CommandType",
+        "program": "",
+        "name": "",
+        "x": 860,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "c37844af36f37abd",
+        "type": "eth-ip out",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "101ca770f43ae779",
+        "variable": "WMS_To_Plc_Msg.BinId",
+        "program": "",
+        "name": "",
+        "x": 830,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "e103fb6b65bfc65d",
+        "type": "eth-ip out",
+        "z": "a27b931a44c8fb3e",
+        "endpoint": "101ca770f43ae779",
+        "variable": "Gateway_To_Plc_Msg_Id",
+        "program": "",
+        "name": "",
+        "x": 1010,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "8cd7c7ef3aaaf16b",
+        "type": "delay",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "250",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 860,
+        "wires": [
+            [
+                "e103fb6b65bfc65d",
+                "cfbc805b0d0b1124"
+            ]
+        ]
+    },
+    {
+        "id": "0d9d9a6b7b2367c0",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "Message spliter",
+        "func": "var msg1 = { payload: msg.payload.commandType };\nvar msg2 = { payload: msg.payload.binId };\nvar msg3 = { payload: msg.payload.skuId};\nvar msg4 = { payload: msg.payload.pickQty };\nvar msg5 = { payload: msg.payload.pRequestId };\nvar msg6 = { payload: msg.payload.seq};\n\nreturn [msg1, msg2, msg3, msg4, msg5, msg6];\n\n",
+        "outputs": 6,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "var ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\n\n",
+        "libs": [],
+        "x": 520,
+        "y": 740,
+        "wires": [
+            [
+                "4cdacc2041215b66"
+            ],
+            [
+                "c37844af36f37abd"
+            ],
+            [
+                "a29c58d18ee8e1f6"
+            ],
+            [
+                "c33aad591171d6db"
+            ],
+            [
+                "cd00977dfc86db92"
+            ],
+            [
+                "8cd7c7ef3aaaf16b"
             ]
         ]
     },
@@ -3420,8 +2366,7 @@
         "y": 360,
         "wires": [
             [
-                "f7588cfc2828efe3",
-                "672ba420c3647901"
+                "f7588cfc2828efe3"
             ]
         ]
     },
@@ -3474,26 +2419,10 @@
         ]
     },
     {
-        "id": "672ba420c3647901",
-        "type": "debug",
-        "z": "abf459b12a58a7d6",
-        "name": "debug 44",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 620,
-        "y": 420,
-        "wires": []
-    },
-    {
         "id": "bc7e839c7307e51c",
         "type": "eth-ip in",
         "z": "b21bd85f55499775",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "mode": "single",
         "variable": "Plc_To_WMS_Msg.sRequestId",
         "program": "",
@@ -3790,7 +2719,7 @@
         "id": "c457d1ed87fa5308",
         "type": "eth-ip in",
         "z": "b21bd85f55499775",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "mode": "single",
         "variable": "Plc_To_WMS_Msg.pRequestId",
         "program": "",
@@ -3809,7 +2738,7 @@
         "id": "d196634cf360d7ad",
         "type": "eth-ip in",
         "z": "b21bd85f55499775",
-        "endpoint": "1dc8f3e6fa36769b",
+        "endpoint": "101ca770f43ae779",
         "mode": "single",
         "variable": "Plc_To_WMS_Msg.rRequestId",
         "program": "",
@@ -4869,8 +3798,8 @@
         "id": "25bd4056a98c15d7",
         "type": "eth-ip out",
         "z": "197be159bc54b2ae",
-        "endpoint": "95cb5a23b38cbeb1",
-        "variable": "Cmnd_Startup",
+        "endpoint": "101ca770f43ae779",
+        "variable": "",
         "program": "",
         "name": "Command Startup",
         "x": 510,
@@ -4881,7 +3810,7 @@
         "id": "0a148a51cdb7ee74",
         "type": "eth-ip out",
         "z": "197be159bc54b2ae",
-        "endpoint": "95cb5a23b38cbeb1",
+        "endpoint": "101ca770f43ae779",
         "variable": "FlushFIFO_Data",
         "program": "",
         "name": "Flush FIFO",
@@ -4893,7 +3822,7 @@
         "id": "caf97a4e95b2066a",
         "type": "eth-ip out",
         "z": "197be159bc54b2ae",
-        "endpoint": "95cb5a23b38cbeb1",
+        "endpoint": "101ca770f43ae779",
         "variable": "Enable_Task_Handling",
         "program": "",
         "name": "Enable Task Handling",
@@ -4905,2047 +3834,12 @@
         "id": "41c53da584d5586f",
         "type": "eth-ip out",
         "z": "197be159bc54b2ae",
-        "endpoint": "95cb5a23b38cbeb1",
+        "endpoint": "101ca770f43ae779",
         "variable": "Machine_Reset_ON",
         "program": "",
         "name": "Machine RESET ON",
         "x": 520,
         "y": 700,
-        "wires": []
-    },
-    {
-        "id": "f896549b2b378acc",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 56",
-        "func": "msg.payload = { \"status\": \"Error: sRequest recieved and rRequest missing from PLC\" }\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 260,
-        "wires": [
-            [
-                "290f562ba77f286f"
-            ]
-        ]
-    },
-    {
-        "id": "290f562ba77f286f",
-        "type": "mongodb in",
-        "z": "f181434bdf09b53e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 260,
-        "wires": [
-            [
-                "658263df696f7db2",
-                "8dbb24c21d8c8f75"
-            ]
-        ]
-    },
-    {
-        "id": "658263df696f7db2",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 57",
-        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 260,
-        "wires": [
-            [
-                "773aebff9b053784"
-            ]
-        ]
-    },
-    {
-        "id": "773aebff9b053784",
-        "type": "ui_text",
-        "z": "f181434bdf09b53e",
-        "group": "b78191313e775a37",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "sRequest received and PLC failed to send rRequest",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": true,
-        "font": "",
-        "fontSize": 16,
-        "color": "#f20707",
-        "x": 770,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "9c95b25a48150dad",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 58",
-        "func": "msg.payload = { \"status\": \"Sent to PLC\" }\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 320,
-        "wires": [
-            [
-                "da85612948b91c48"
-            ]
-        ]
-    },
-    {
-        "id": "da85612948b91c48",
-        "type": "mongodb in",
-        "z": "f181434bdf09b53e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 320,
-        "wires": [
-            [
-                "e228c46d68c6e452"
-            ]
-        ]
-    },
-    {
-        "id": "e228c46d68c6e452",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 59",
-        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 320,
-        "wires": [
-            [
-                "642a86158e872c37"
-            ]
-        ]
-    },
-    {
-        "id": "642a86158e872c37",
-        "type": "ui_text",
-        "z": "f181434bdf09b53e",
-        "group": "0dc8a413951e0857",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Both rRequest and sRequest not recieved ",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": true,
-        "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": 16,
-        "color": "#ff7300",
-        "x": 740,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "a0b3116c2452c41e",
-        "type": "mongodb in",
-        "z": "f181434bdf09b53e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 380,
-        "wires": [
-            [
-                "485fb888a916130c"
-            ]
-        ]
-    },
-    {
-        "id": "485fb888a916130c",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 60",
-        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 380,
-        "wires": [
-            [
-                "741331a93011c50e"
-            ]
-        ]
-    },
-    {
-        "id": "741331a93011c50e",
-        "type": "ui_text",
-        "z": "f181434bdf09b53e",
-        "group": "26fb20d57af2a41f",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Total messages received from cloud",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 720,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "3a56f983a49a6e9d",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 61",
-        "func": "msg.payload = { \"status\": \"Recieved from cloud\" }\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 440,
-        "wires": [
-            [
-                "5c9135fb592ec8a2"
-            ]
-        ]
-    },
-    {
-        "id": "5c9135fb592ec8a2",
-        "type": "mongodb in",
-        "z": "f181434bdf09b53e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 440,
-        "wires": [
-            [
-                "ea055cc083672b1b"
-            ]
-        ]
-    },
-    {
-        "id": "ea055cc083672b1b",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 62",
-        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 440,
-        "wires": [
-            [
-                "18e3f9b483b38554"
-            ]
-        ]
-    },
-    {
-        "id": "18e3f9b483b38554",
-        "type": "ui_text",
-        "z": "f181434bdf09b53e",
-        "group": "10dd9d1d1cffe3a4",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Queue count in MongoDB",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 690,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "ab74b57b93e1efdd",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 63",
-        "func": "msg.payload = { \"status\": \"rRequest recieved from PLC\" }\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 500,
-        "wires": [
-            [
-                "7c7950b68ba99bc4"
-            ]
-        ]
-    },
-    {
-        "id": "7c7950b68ba99bc4",
-        "type": "mongodb in",
-        "z": "f181434bdf09b53e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 500,
-        "wires": [
-            [
-                "97086c7f38f86c5e"
-            ]
-        ]
-    },
-    {
-        "id": "97086c7f38f86c5e",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 64",
-        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 500,
-        "wires": [
-            [
-                "722e781c583d56b9"
-            ]
-        ]
-    },
-    {
-        "id": "722e781c583d56b9",
-        "type": "ui_text",
-        "z": "f181434bdf09b53e",
-        "group": "0dc8a413951e0857",
-        "order": 2,
-        "width": "0",
-        "height": "0",
-        "name": "",
-        "label": "rRequest received from PLC",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": true,
-        "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": 16,
-        "color": "#ff7300",
-        "x": 700,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "27f242cb7902eb68",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 65",
-        "func": "msg.payload = { \"status\": \"rRequest and sRequest recieved from PLC\" }\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 560,
-        "wires": [
-            [
-                "2e51f1ebe7b83656"
-            ]
-        ]
-    },
-    {
-        "id": "2e51f1ebe7b83656",
-        "type": "mongodb in",
-        "z": "f181434bdf09b53e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 560,
-        "wires": [
-            [
-                "9d01aae09091a9a7"
-            ]
-        ]
-    },
-    {
-        "id": "9d01aae09091a9a7",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 66",
-        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 560,
-        "wires": [
-            [
-                "50b11adea897242b"
-            ]
-        ]
-    },
-    {
-        "id": "50b11adea897242b",
-        "type": "ui_text",
-        "z": "f181434bdf09b53e",
-        "group": "f4ebc30243c09416",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "rRequest and sRequest received from PLC",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": true,
-        "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": 16,
-        "color": "#16ca2b",
-        "x": 750,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "7dbb35c324d3fc76",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 67",
-        "func": "msg.payload = { \"status\": \"pRequest recieved from PLC\" }\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 620,
-        "wires": [
-            [
-                "16d02130c4f640f8"
-            ]
-        ]
-    },
-    {
-        "id": "16d02130c4f640f8",
-        "type": "mongodb in",
-        "z": "f181434bdf09b53e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 620,
-        "wires": [
-            [
-                "bd70d537080d3698"
-            ]
-        ]
-    },
-    {
-        "id": "bd70d537080d3698",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 68",
-        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 620,
-        "wires": [
-            [
-                "8371882398916dec"
-            ]
-        ]
-    },
-    {
-        "id": "8371882398916dec",
-        "type": "ui_text",
-        "z": "f181434bdf09b53e",
-        "group": "f4ebc30243c09416",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "pRequest received from PLC",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": true,
-        "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": 16,
-        "color": "#16ca2b",
-        "x": 700,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "c236e6237801e51f",
-        "type": "ui_text",
-        "z": "f181434bdf09b53e",
-        "group": "b78191313e775a37",
-        "order": 2,
-        "width": "6",
-        "height": "6",
-        "name": "",
-        "label": "Error orders",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "style": true,
-        "font": "",
-        "fontSize": 16,
-        "color": "#f20707",
-        "x": 650,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "8dbb24c21d8c8f75",
-        "type": "function",
-        "z": "f181434bdf09b53e",
-        "name": "function 70",
-        "func": "const payload = msg.payload;\nvar numberOfObjects;\nvar text=\" \";\nif (Array.isArray(payload)) \n{\n numberOfObjects = payload.length;\n} \nelse \n{\n    numberOfObjects = 0;\n    text = \"Nil\";\n}\n\nfor (var i = 0; i < numberOfObjects;i++)\n{\n    text = text + \"-------{Sreq:\" + msg.payload[i].sRequestId + \"To X,y,Z: \" + msg.payload[i].toX + \",\" + msg.payload[i].toY + \",\" + msg.payload[i].toZ + \",  From X,y,Z: \" + msg.payload[i].fromX + \",\" + msg.payload[i].fromY + \",\" + msg.payload[i].fromZ + \"}\"\n}\n\nif (text == \" \")\n{\n    text= \"Nil\"\n}\nmsg.payload = text;\nreturn msg;\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 220,
-        "wires": [
-            [
-                "c236e6237801e51f"
-            ]
-        ]
-    },
-    {
-        "id": "6b53734f9344c2ac",
-        "type": "eth-ip in",
-        "z": "3d3550573119bf08",
-        "endpoint": "d87425555881f3f2",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.sRequestId",
-        "program": "",
-        "name": "",
-        "x": 210,
-        "y": 180,
-        "wires": [
-            [
-                "b953946d9be0a8e5",
-                "d2ef8ff0c1ac33cf",
-                "fcb5b4a235b48195"
-            ]
-        ]
-    },
-    {
-        "id": "b953946d9be0a8e5",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "sRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_sRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 180,
-        "wires": [
-            [
-                "d1d03e58aafa8550"
-            ]
-        ]
-    },
-    {
-        "id": "d2ef8ff0c1ac33cf",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n    \"requestId\": msg.payload\n}\n\nmsg.payload = JSON.stringify(msg.payload)\n\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 710,
-        "y": 240,
-        "wires": [
-            [
-                "1157e96c7f26801e"
-            ]
-        ]
-    },
-    {
-        "id": "fcb5b4a235b48195",
-        "type": "link out",
-        "z": "3d3550573119bf08",
-        "name": "link out 3",
-        "mode": "link",
-        "links": [
-            "e12ab20ad611894b"
-        ],
-        "x": 385,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "d1d03e58aafa8550",
-        "type": "file",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "filename": "C:\\Datalog\\sRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 680,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1157e96c7f26801e",
-        "type": "simple-queue",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "firstMessageBypass": true,
-        "bypassInterval": "0",
-        "x": 950,
-        "y": 300,
-        "wires": [
-            [
-                "a15c1916bd083e1e",
-                "80e7ba223502b373"
-            ]
-        ]
-    },
-    {
-        "id": "84b8731a65d7073b",
-        "type": "change",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "queueCount",
-                "pt": "msg",
-                "to": "1",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 480,
-        "wires": [
-            [
-                "1157e96c7f26801e"
-            ]
-        ]
-    },
-    {
-        "id": "9d79d207d537bea2",
-        "type": "change",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "trigger",
-                "pt": "msg",
-                "to": "1",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 700,
-        "y": 420,
-        "wires": [
-            [
-                "1157e96c7f26801e"
-            ]
-        ]
-    },
-    {
-        "id": "a1b9d4f75519d0ef",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n  \"requestId\": msg.payload\n}\n\nmsg.payload = JSON.stringify(msg.payload)\n\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 340,
-        "wires": [
-            [
-                "1157e96c7f26801e"
-            ]
-        ]
-    },
-    {
-        "id": "93526b35f16394a2",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "Writedatatoazure",
-        "func": "msg.payload = {\n  \"requestId\": msg.payload\n}\n\nmsg.payload = JSON.stringify(msg.payload)\n\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 710,
-        "y": 140,
-        "wires": [
-            [
-                "1157e96c7f26801e"
-            ]
-        ]
-    },
-    {
-        "id": "a15c1916bd083e1e",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "Queue Count Capture",
-        "func": "var count =msg._queueCount;\nglobal.set(\"reqqueuecounter\", count);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1180,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "80e7ba223502b373",
-        "type": "switch",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "property": "msg.payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nempty"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1130,
-        "y": 340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b09495ef2ba0bf8a",
-        "type": "inject",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "0.1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 370,
-        "y": 500,
-        "wires": [
-            [
-                "84b8731a65d7073b"
-            ]
-        ]
-    },
-    {
-        "id": "517a457b8fd93608",
-        "type": "switch",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "property": "Azure1Status",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Error",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Disconnected",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 470,
-        "y": 420,
-        "wires": [
-            [],
-            [],
-            [
-                "9d79d207d537bea2"
-            ]
-        ]
-    },
-    {
-        "id": "9649bc37013adc58",
-        "type": "eth-ip in",
-        "z": "3d3550573119bf08",
-        "endpoint": "d87425555881f3f2",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.pRequestId",
-        "program": "",
-        "name": "",
-        "x": 210,
-        "y": 280,
-        "wires": [
-            [
-                "0beebaf79272c429",
-                "a1b9d4f75519d0ef",
-                "cea5d865fcb39d62"
-            ]
-        ]
-    },
-    {
-        "id": "76e904ff983b0c08",
-        "type": "eth-ip in",
-        "z": "3d3550573119bf08",
-        "endpoint": "d87425555881f3f2",
-        "mode": "single",
-        "variable": "Plc_To_WMS_Msg.rRequestId",
-        "program": "",
-        "name": "",
-        "x": 190,
-        "y": 80,
-        "wires": [
-            [
-                "a9555c5ce6d9b3e7",
-                "93526b35f16394a2",
-                "722cc5e4777112b8"
-            ]
-        ]
-    },
-    {
-        "id": "9f8226e790356e28",
-        "type": "inject",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1.5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "2",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 210,
-        "y": 420,
-        "wires": [
-            [
-                "517a457b8fd93608"
-            ]
-        ]
-    },
-    {
-        "id": "0beebaf79272c429",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "pRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_pRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 470,
-        "y": 280,
-        "wires": [
-            [
-                "5262c781d38910e8"
-            ]
-        ]
-    },
-    {
-        "id": "cea5d865fcb39d62",
-        "type": "link out",
-        "z": "3d3550573119bf08",
-        "name": "link out 4",
-        "mode": "link",
-        "links": [
-            "228cfa81a634d28c"
-        ],
-        "x": 385,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "a9555c5ce6d9b3e7",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "rRequsetId",
-        "func": "global.set(\"Gateway_To_Plc_rRequest_Id_Ack\",msg.payload);\nvar time = new Date();\nmsg.payload ={\n\"RequestId\" :msg.payload,\n\"timestamp\" :time\n}\nreturn msg\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 80,
-        "wires": [
-            [
-                "e1e109023f4d983a"
-            ]
-        ]
-    },
-    {
-        "id": "722cc5e4777112b8",
-        "type": "link out",
-        "z": "3d3550573119bf08",
-        "name": "link out 5",
-        "mode": "link",
-        "links": [
-            "f9269eb2e1dcb47c"
-        ],
-        "x": 375,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "5262c781d38910e8",
-        "type": "file",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "filename": "C:\\Datalog\\pRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 680,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e1e109023f4d983a",
-        "type": "file",
-        "z": "3d3550573119bf08",
-        "name": "",
-        "filename": "C:\\Datalog\\rRequestIds.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": true,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 700,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b0a8bae6d82683b0",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "function 33",
-        "func": "msg.payload = { \"sRequestId\": msg.payload}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 620,
-        "wires": [
-            [
-                "e99fed169fdbdc86"
-            ]
-        ]
-    },
-    {
-        "id": "23e552ce9553d64e",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "function 34",
-        "func": "msg.payload = { \"PRequestId\": msg.payload}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 700,
-        "wires": [
-            [
-                "32a66bbe2bf7dbf7"
-            ]
-        ]
-    },
-    {
-        "id": "e12ab20ad611894b",
-        "type": "link in",
-        "z": "3d3550573119bf08",
-        "name": "link in 3",
-        "links": [
-            "fcb5b4a235b48195"
-        ],
-        "x": 305,
-        "y": 620,
-        "wires": [
-            [
-                "b0a8bae6d82683b0"
-            ]
-        ]
-    },
-    {
-        "id": "228cfa81a634d28c",
-        "type": "link in",
-        "z": "3d3550573119bf08",
-        "name": "link in 4",
-        "links": [
-            "cea5d865fcb39d62"
-        ],
-        "x": 305,
-        "y": 700,
-        "wires": [
-            [
-                "23e552ce9553d64e"
-            ]
-        ]
-    },
-    {
-        "id": "f9269eb2e1dcb47c",
-        "type": "link in",
-        "z": "3d3550573119bf08",
-        "name": "link in 5",
-        "links": [
-            "722cc5e4777112b8"
-        ],
-        "x": 305,
-        "y": 760,
-        "wires": [
-            [
-                "43e0b00e408d1385"
-            ]
-        ]
-    },
-    {
-        "id": "43e0b00e408d1385",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "function 35",
-        "func": "msg.payload = { \"rRequestId\": msg.payload }\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 760,
-        "wires": [
-            [
-                "712d4c2881ce276f"
-            ]
-        ]
-    },
-    {
-        "id": "712d4c2881ce276f",
-        "type": "mongodb in",
-        "z": "3d3550573119bf08",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 610,
-        "y": 760,
-        "wires": [
-            [
-                "fd3e386b7f7bcec2"
-            ]
-        ]
-    },
-    {
-        "id": "fd3e386b7f7bcec2",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "function 36",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id }\nmsg.payload = msg.payload[0]\n\nmsg.payload.status = \"rRequest recieved from PLC\"\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 760,
-        "wires": [
-            [
-                "fe36c0fe552a17ac"
-            ]
-        ]
-    },
-    {
-        "id": "fe36c0fe552a17ac",
-        "type": "mongodb out",
-        "z": "3d3550573119bf08",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Update",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "update",
-        "x": 940,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "e99fed169fdbdc86",
-        "type": "mongodb in",
-        "z": "3d3550573119bf08",
-        "mongodb": "4b666155457decef",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 610,
-        "y": 620,
-        "wires": [
-            [
-                "b0567ac510bc5d12"
-            ]
-        ]
-    },
-    {
-        "id": "b0567ac510bc5d12",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "function 40",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nif (msg.payload.status == \"rRequest recieved from PLC\") \n{\n    msg.payload.status = \"rRequest and sRequest recieved from PLC\"\n}\nelse\n{ \n    msg.payload.status = \"Error: sRequest recieved and rRequest missing from PLC\" \n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 620,
-        "wires": [
-            [
-                "b2565e3aa9fe3614"
-            ]
-        ]
-    },
-    {
-        "id": "b2565e3aa9fe3614",
-        "type": "mongodb out",
-        "z": "3d3550573119bf08",
-        "mongodb": "4b666155457decef",
-        "name": "Update",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "update",
-        "x": 940,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "854aeab329cd141c",
-        "type": "mongodb out",
-        "z": "3d3550573119bf08",
-        "mongodb": "4b666155457decef",
-        "name": "Update",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "update",
-        "x": 940,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "2cef774bd2214a92",
-        "type": "function",
-        "z": "3d3550573119bf08",
-        "name": "function 41",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\n\nmsg.payload.status = \"pRequest recieved from PLC\"\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 770,
-        "y": 700,
-        "wires": [
-            [
-                "854aeab329cd141c"
-            ]
-        ]
-    },
-    {
-        "id": "32a66bbe2bf7dbf7",
-        "type": "mongodb in",
-        "z": "3d3550573119bf08",
-        "mongodb": "4b666155457decef",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 610,
-        "y": 700,
-        "wires": [
-            [
-                "2cef774bd2214a92"
-            ]
-        ]
-    },
-    {
-        "id": "c1b8ed3e86ff125b",
-        "type": "inject",
-        "z": "d26f0393db9c2f99",
-        "name": "send id to plc continously",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "0.5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 1700,
-        "y": 520,
-        "wires": [
-            [
-                "f46c3e7db78feb9c",
-                "7885daec090e6c05",
-                "7adab079ee8897d5"
-            ]
-        ]
-    },
-    {
-        "id": "f46c3e7db78feb9c",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "func": "msg.payload  = global.get (\"Gateway_To_Plc_rRequest_Id_Ack\");\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 480,
-        "wires": [
-            [
-                "0da456dcdf15754d"
-            ]
-        ]
-    },
-    {
-        "id": "7885daec090e6c05",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "func": "msg.payload  = global.get (\"Gateway_To_Plc_sRequest_Id_Ack\");\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 520,
-        "wires": [
-            [
-                "effcca02510c842d"
-            ]
-        ]
-    },
-    {
-        "id": "7adab079ee8897d5",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "func": "msg.payload  = global.get (\"Gateway_To_Plc_pRequest_Id_Ack\");\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1980,
-        "y": 560,
-        "wires": [
-            [
-                "dd1b95b74c81fe4c"
-            ]
-        ]
-    },
-    {
-        "id": "cf935742cea74d0b",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "function 22",
-        "func": "global.set(\"countercopied\", 0);\nglobal.set(\"queuecounter\", 0);\nglobal.set(\"reqcountercopied\", 0);\nglobal.set(\"reqqueuecounter\", 0);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "60d166cf68582327",
-        "type": "inject",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 590,
-        "y": 740,
-        "wires": [
-            [
-                "cf935742cea74d0b"
-            ]
-        ]
-    },
-    {
-        "id": "ec6204cc32cb0043",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "buffer to String",
-        "func": "//var b=Buffer.from(msg.payload);\n//var s=b.toString();\nvar type = typeof msg.payload\nif (type == \"object\")\n{\n    msg.payload = JSON.parse(msg.payload)\n    return msg\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1060,
-        "y": 1060,
-        "wires": [
-            [
-                "eabfce98baa5ec85"
-            ]
-        ]
-    },
-    {
-        "id": "aa68ad66410afce1",
-        "type": "inject",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"properties\":{\"propertyList\":[]},\"messageId\":\"\",\"to\":\"\",\"expiryTimeUtc\":null,\"lockToken\":\"\",\"correlationId\":\"\",\"userId\":\"\",\"payload\":{\"type\":\"Buffer\",\"data\":[123,10,32,32,34,98,105,110,73,100,34,58,32,34,66,80,84,67,48,50,45,51,55,45,49,45,50,45,49,34,44,10,32,32,34,99,111,109,109,97,110,100,84,121,112,101,34,58,32,53,44,10,32,32,34,112,82,101,113,117,101,115,116,73,100,34,58,32,34,57,97,54,48,55,102,51,51,45,51,53,55,53,45,52,97,49,102,45,57,51,98,54,45,100,51,55,48,100,101,99,102,101,53,55,51,34,44,10,32,32,34,112,105,99,107,81,116,121,34,58,32,49,44,10,32,32,34,115,107,117,73,100,34,58,32,34,70,67,66,49,48,48,54,48,34,10,125]}}",
-        "payloadType": "json",
-        "x": 790,
-        "y": 1080,
-        "wires": [
-            [
-                "ec6204cc32cb0043"
-            ]
-        ]
-    },
-    {
-        "id": "eabfce98baa5ec85",
-        "type": "debug",
-        "z": "d26f0393db9c2f99",
-        "name": "debug 40",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1340,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "55191daa27edd963",
-        "type": "inject",
-        "z": "d26f0393db9c2f99",
-        "name": "connect first scan",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "x": 750,
-        "y": 120,
-        "wires": [
-            [
-                "fc85d0353c08107b"
-            ]
-        ]
-    },
-    {
-        "id": "ea333c54b28d3351",
-        "type": "inject",
-        "z": "d26f0393db9c2f99",
-        "name": "disconnect manually",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "1",
-        "topic": "",
-        "x": 750,
-        "y": 160,
-        "wires": [
-            [
-                "fc85d0353c08107b"
-            ]
-        ]
-    },
-    {
-        "id": "ae3bab8e67c41b9e",
-        "type": "trigger",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "op1": "",
-        "op2": "0",
-        "op1type": "nul",
-        "op2type": "str",
-        "duration": "-5",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 760,
-        "y": 200,
-        "wires": [
-            [
-                "fc85d0353c08107b"
-            ]
-        ]
-    },
-    {
-        "id": "746668f58ecb1c55",
-        "type": "switch",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "property": "payload.status",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "Disconnected",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "Error",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 530,
-        "y": 280,
-        "wires": [
-            [
-                "ae3bab8e67c41b9e",
-                "90e4392c8da04507"
-            ],
-            [
-                "ae3bab8e67c41b9e",
-                "90e4392c8da04507"
-            ],
-            [
-                "de7b8876b44a9cc1"
-            ]
-        ]
-    },
-    {
-        "id": "de7b8876b44a9cc1",
-        "type": "change",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "reset",
-                "pt": "msg",
-                "to": "1",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 260,
-        "wires": [
-            [
-                "ae3bab8e67c41b9e"
-            ]
-        ]
-    },
-    {
-        "id": "4a9d2ad7557aae78",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "func": "global.set(\"Azure1Status\",msg.status.text);\nmsg.payload={\n    \"status\":msg.status.text\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 200,
-        "wires": [
-            [
-                "746668f58ecb1c55",
-                "12d9f5cb8ff2c814"
-            ]
-        ]
-    },
-    {
-        "id": "90e4392c8da04507",
-        "type": "trigger",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "op1": "true",
-        "op2": "0",
-        "op1type": "bool",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 910,
-        "y": 520,
-        "wires": [
-            [
-                "f06bce9bf27c42e9"
-            ]
-        ]
-    },
-    {
-        "id": "526aa5b7f10925bf",
-        "type": "status",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "scope": [
-            "842966e89dcb8992"
-        ],
-        "x": 200,
-        "y": 200,
-        "wires": [
-            [
-                "4a9d2ad7557aae78"
-            ]
-        ]
-    },
-    {
-        "id": "12d9f5cb8ff2c814",
-        "type": "debug",
-        "z": "d26f0393db9c2f99",
-        "name": "connection status Azure",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "f06bce9bf27c42e9",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "function 21",
-        "func": "var input =msg.payload\nvar text1 = \"hello \"\nvar text2 = \"Azure Connectivity Error\"\nif (input == true)\n{\nmsg.payload = text1.concat(text2);\n}\nelse\n{\n   msg.payload= \"Azure Connectivity done\"; \n}\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 520,
-        "wires": [
-            [
-                "97e964cd785727f9"
-            ]
-        ]
-    },
-    {
-        "id": "97e964cd785727f9",
-        "type": "ui_audio",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "group": "f4ebc30243c09416",
-        "voice": "Google UK English Female",
-        "always": false,
-        "x": 1400,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "9e0f6dc0107fc8d7",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "function 19",
-        "func": "var sw=msg.payload;\nif (sw == true) \n{\nmsg.payload=\"alarm Enabled \";\n}\nelse \n{\nmsg.payload=\"alarm disabled \";\n}\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1100,
-        "y": 480,
-        "wires": [
-            [
-                "97e964cd785727f9"
-            ]
-        ]
-    },
-    {
-        "id": "91a56643c74a5e59",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "function 20",
-        "func": "msg.payload = \"Task Request Queue Unload Stopped\";\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1190,
-        "y": 860,
-        "wires": [
-            [
-                "97e964cd785727f9",
-                "584526c588994530"
-            ]
-        ]
-    },
-    {
-        "id": "14d896038482d16d",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "function 24",
-        "func": "if (msg.payload == true) {\n    msg.payload = \"Bot 1 Emulate3d Error\";\n    return msg;\n}\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 580,
-        "wires": [
-            [
-                "97e964cd785727f9"
-            ]
-        ]
-    },
-    {
-        "id": "baf96b645dd0c954",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "function 25",
-        "func": "msg.payload = \"Acknowledgement Request Queue Unload Stopped\";\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1170,
-        "y": 800,
-        "wires": [
-            [
-                "97e964cd785727f9"
-            ]
-        ]
-    },
-    {
-        "id": "f985562cea428355",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "function 26",
-        "func": "if(msg.payload == true){\nmsg.payload = \"Bot 2 Emulate3d Error\";\nreturn msg;\n}\n\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1110,
-        "y": 620,
-        "wires": [
-            [
-                "97e964cd785727f9"
-            ]
-        ]
-    },
-    {
-        "id": "d604f4a8dca8231f",
-        "type": "ui_switch",
-        "z": "d26f0393db9c2f99",
-        "d": true,
-        "name": "",
-        "label": "switch",
-        "tooltip": "",
-        "group": "f4ebc30243c09416",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 930,
-        "y": 480,
-        "wires": [
-            [
-                "9e0f6dc0107fc8d7"
-            ]
-        ]
-    },
-    {
-        "id": "055d6a44330245dd",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "Task QUeue Stopped",
-        "func": "var counter=global.get(\"queuecounter\");\nvar ccopied = global.get(\"countercopied\");\nif (counter==ccopied && counter!=0){\n    msg.payload =\"Queue Failure\";\n    return msg;\n}\nelse{\n   // msg.payload =\"Queue Okay\"\nglobal.set(\"countercopied\", counter);\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 880,
-        "y": 860,
-        "wires": [
-            [
-                "91a56643c74a5e59"
-            ]
-        ]
-    },
-    {
-        "id": "584526c588994530",
-        "type": "debug",
-        "z": "d26f0393db9c2f99",
-        "name": "debug 39",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1460,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "7d304f42ba2d03b0",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "Task Request QUeue Stopped",
-        "func": "var counter=global.get(\"reqqueuecounter\");\nvar ccopied = global.get(\"reqcountercopied\");\nif (counter==ccopied && counter!=0){\n    msg.payload =\"Queue Failure\";\n    return msg;\n}\nelse{\n   // msg.payload =\"Queue Okay\"\nglobal.set(\"reqcountercopied\", counter);\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 800,
-        "wires": [
-            [
-                "baf96b645dd0c954"
-            ]
-        ]
-    },
-    {
-        "id": "0b66d28f33b98f38",
-        "type": "inject",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 590,
-        "y": 860,
-        "wires": [
-            [
-                "055d6a44330245dd"
-            ]
-        ]
-    },
-    {
-        "id": "8fad36742a3e7de9",
-        "type": "inject",
-        "z": "d26f0393db9c2f99",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 590,
-        "y": 800,
-        "wires": [
-            [
-                "7d304f42ba2d03b0"
-            ]
-        ]
-    },
-    {
-        "id": "fc85d0353c08107b",
-        "type": "function",
-        "z": "d26f0393db9c2f99",
-        "name": "function 29",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 970,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0b1feea4d6a8a2c8",
-        "type": "eth-ip in",
-        "z": "d26f0393db9c2f99",
-        "d": true,
-        "endpoint": "481e380974044c8d",
-        "mode": "single",
-        "variable": "",
-        "program": "",
-        "name": "",
-        "x": 900,
-        "y": 580,
-        "wires": [
-            [
-                "14d896038482d16d"
-            ]
-        ]
-    },
-    {
-        "id": "57088837cda8c2bf",
-        "type": "eth-ip in",
-        "z": "d26f0393db9c2f99",
-        "d": true,
-        "endpoint": "481e380974044c8d",
-        "mode": "single",
-        "variable": "Bot2_Storage_Error",
-        "program": "",
-        "name": "",
-        "x": 910,
-        "y": 620,
-        "wires": [
-            [
-                "f985562cea428355"
-            ]
-        ]
-    },
-    {
-        "id": "0da456dcdf15754d",
-        "type": "eth-ip out",
-        "z": "d26f0393db9c2f99",
-        "endpoint": "d87425555881f3f2",
-        "variable": "Gateway_To_Plc_rRequest_Id_Ack",
-        "program": "",
-        "name": "",
-        "x": 2300,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "effcca02510c842d",
-        "type": "eth-ip out",
-        "z": "d26f0393db9c2f99",
-        "endpoint": "d87425555881f3f2",
-        "variable": "Gateway_To_Plc_sRequest_Id_Ack",
-        "program": "",
-        "name": "",
-        "x": 2300,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "dd1b95b74c81fe4c",
-        "type": "eth-ip out",
-        "z": "d26f0393db9c2f99",
-        "endpoint": "d87425555881f3f2",
-        "variable": "Gateway_To_Plc_pRequest_Id_Ack",
-        "program": "",
-        "name": "",
-        "x": 2300,
-        "y": 560,
         "wires": []
     },
     {
@@ -7089,20 +3983,5 @@
         "x": 600,
         "y": 180,
         "wires": []
-    },
-    {
-        "id": "59e16886333357ac",
-        "type": "eth-ip in",
-        "z": "7b229efa69ac7866",
-        "endpoint": "1dc8f3e6fa36769b",
-        "mode": "single",
-        "variable": "Plc_To_Gateway_Msg_Id",
-        "program": "",
-        "name": "",
-        "x": 470,
-        "y": 380,
-        "wires": [
-            []
-        ]
     }
 ]
