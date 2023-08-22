@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "dependencies": {
         "node-red-contrib-cip-st-ethernet-ip": "2.0.0-beta.3",
-        "node-red-contrib-azure-iot-hub": "0.4.0",
+        "node-red-contrib-azureiothubnode": "0.5.3",
         "node-red-contrib-simple-message-queue": "0.2.8",
         "node-red-dashboard": "3.5.0",
         "node-red-node-mongodb": "0.2.5",
