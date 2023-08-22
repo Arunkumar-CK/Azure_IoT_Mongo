@@ -137,9 +137,6 @@
                 "y": 440,
                 "wires": [
                     {
-                        "id": "03e3e42a2ada45e3"
-                    },
-                    {
                         "id": "1b87f4bc09144e6d"
                     },
                     {
@@ -156,6 +153,21 @@
                     },
                     {
                         "id": "f67869a3d5750e15"
+                    },
+                    {
+                        "id": "5afefbd3b02f87d2"
+                    },
+                    {
+                        "id": "fcd7cf673c9a5b74"
+                    },
+                    {
+                        "id": "fd708341c1cfa036"
+                    },
+                    {
+                        "id": "2183ef707db61c51"
+                    },
+                    {
+                        "id": "18c5e6c0c5521971"
                     }
                 ]
             }
@@ -179,7 +191,7 @@
     {
         "id": "a91f179c6c2c2418",
         "type": "ui_tab",
-        "name": "Carte+ Edge status ",
+        "name": "Carte+ Edge Dashboard",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
@@ -198,10 +210,10 @@
         "id": "dcc6c8e608e71d82",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-custom",
             "lightTheme": {
                 "default": "#0094CE",
-                "baseColor": "#0094CE",
+                "baseColor": "#077f88",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
                 "edited": true,
                 "reset": false
@@ -210,39 +222,41 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
-                "name": "Untitled Theme 1",
+                "name": "Cart+ dashboard theme",
                 "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                "baseColor": "#0ea418",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
+                    "default": "#4B7930",
+                    "value": "#0ea418",
+                    "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#0ea418",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
+                    "value": "#ebebeb",
+                    "edited": true
                 },
                 "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
+                    "value": "#9c9c9c",
+                    "edited": true
                 },
                 "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
+                    "value": "#000000",
+                    "edited": true
                 },
                 "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
+                    "value": "#757575",
+                    "edited": true
                 },
                 "group-backgroundColor": {
                     "value": "#ffffff",
@@ -253,7 +267,7 @@
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#0ea418",
                     "edited": false
                 },
                 "widget-borderColor": {
@@ -268,7 +282,7 @@
                 "primary": "indigo",
                 "accents": "blue",
                 "warn": "red",
-                "background": "grey",
+                "background": "blue-grey",
                 "palette": "light"
             }
         },
@@ -290,30 +304,6 @@
                 "py": 0
             }
         }
-    },
-    {
-        "id": "3d78b677.5d2c8a",
-        "type": "sqlitedb",
-        "db": "C:\\Users\\DELL\\Desktop\\PTL-Python\\SQLite.db",
-        "mode": "RWC"
-    },
-    {
-        "id": "2e14670c.5d4c98",
-        "type": "mongodb",
-        "hostname": "localhost",
-        "port": "27017",
-        "db": "test",
-        "name": ""
-    },
-    {
-        "id": "507905e135e26e8d",
-        "type": "mongodb",
-        "hostname": "127.0.0.1",
-        "topology": "direct",
-        "connectOptions": "",
-        "port": "27017",
-        "db": "database",
-        "name": ""
     },
     {
         "id": "1dc8f3e6fa36769b",
@@ -449,16 +439,6 @@
         "name": ""
     },
     {
-        "id": "c73c6e8830fe35d9",
-        "type": "ui_group",
-        "name": "Audio Switch",
-        "tab": "b99d0e74b9dec824",
-        "order": 4,
-        "disp": true,
-        "width": "6",
-        "collapse": false
-    },
-    {
         "id": "b99d0e74b9dec824",
         "type": "ui_tab",
         "name": "Home",
@@ -509,60 +489,6 @@
         "width": "6",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "3df8e910f8ec26b9",
-        "type": "ui_group",
-        "name": "Errors",
-        "tab": "a91f179c6c2c2418",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "efb54775cca118e6",
-        "type": "ui_group",
-        "name": "Task running ",
-        "tab": "a91f179c6c2c2418",
-        "order": 4,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "97a56633e4fb91d4",
-        "type": "ui_group",
-        "name": "Cloud message",
-        "tab": "a91f179c6c2c2418",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "f38b26fe4416bc8d",
-        "type": "ui_group",
-        "name": "Queue",
-        "tab": "a91f179c6c2c2418",
-        "order": 5,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "05158419ff81133f",
-        "type": "mongodb",
-        "hostname": "127.0.0.1",
-        "topology": "direct",
-        "connectOptions": "",
-        "port": "27017",
-        "db": "database",
-        "name": ""
     },
     {
         "id": "101ca770f43ae779",
@@ -678,60 +604,6 @@
         }
     },
     {
-        "id": "4ea00e12f47dc7b3",
-        "type": "ui_group",
-        "name": "Errors",
-        "tab": "a91f179c6c2c2418",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "d6349ff39d44a868",
-        "type": "ui_group",
-        "name": "Task running ",
-        "tab": "a91f179c6c2c2418",
-        "order": 4,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "ea3870b1a70b8b6b",
-        "type": "ui_group",
-        "name": "Cloud message",
-        "tab": "a91f179c6c2c2418",
-        "order": 3,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "d03ae151649e6b80",
-        "type": "ui_group",
-        "name": "Queue",
-        "tab": "a91f179c6c2c2418",
-        "order": 5,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "caf5aaecec78e650",
-        "type": "mongodb",
-        "hostname": "127.0.0.1",
-        "topology": "direct",
-        "connectOptions": "",
-        "port": "27017",
-        "db": "database",
-        "name": ""
-    },
-    {
         "id": "dae63d56f1acaa6e",
         "type": "ui_group",
         "name": "PLC controls",
@@ -743,31 +615,9 @@
         "className": ""
     },
     {
-        "id": "b78191313e775a37",
+        "id": "f32834d313194ae9",
         "type": "ui_group",
-        "name": "Errors",
-        "tab": "a91f179c6c2c2418",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "0dc8a413951e0857",
-        "type": "ui_group",
-        "name": "Task running ",
-        "tab": "a91f179c6c2c2418",
-        "order": 4,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "26fb20d57af2a41f",
-        "type": "ui_group",
-        "name": "Cloud message",
+        "name": "Mongo Database ",
         "tab": "a91f179c6c2c2418",
         "order": 3,
         "disp": true,
@@ -776,25 +626,160 @@
         "className": ""
     },
     {
-        "id": "10dd9d1d1cffe3a4",
+        "id": "91320c54320408e4",
         "type": "ui_group",
-        "name": "Queue",
+        "z": "197be159bc54b2ae",
+        "name": "Connectivity",
         "tab": "a91f179c6c2c2418",
-        "order": 5,
+        "order": 25,
         "disp": true,
         "width": "6",
         "collapse": false,
         "className": ""
     },
     {
-        "id": "4b666155457decef",
-        "type": "mongodb",
-        "hostname": "127.0.0.1",
-        "topology": "direct",
-        "connectOptions": "",
-        "port": "27017",
-        "db": "database",
-        "name": ""
+        "id": "bc25ff67bb08b249",
+        "type": "ui_group",
+        "name": "Mongo Database ",
+        "tab": "a91f179c6c2c2418",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "92c96926a54c80c0",
+        "type": "ui_group",
+        "name": "PLC controls",
+        "tab": "a91f179c6c2c2418",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "fc7f04da6c2a7a70",
+        "type": "eth-ip endpoint",
+        "address": "192.168.2.252",
+        "slot": "0",
+        "cycletime": "100",
+        "timeout": "3000000",
+        "name": "AB PLC",
+        "connectedMess": true,
+        "vartable": {
+            "": {
+                "WMS_To_Plc_Msg.CommandType": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromX": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromY": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.FromZ": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.rRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.ToX": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.ToY": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.ToZ": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.sRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.BinId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.pRequestId": {
+                    "type": "STRING"
+                },
+                "WMS_To_Plc_Msg.SkuId": {
+                    "type": "DINT"
+                },
+                "WMS_To_Plc_Msg.PickQty": {
+                    "type": "DINT"
+                },
+                "Plc_To_WMS_Msg.rRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_WMS_Msg.sRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_WMS_Msg.pRequestId": {
+                    "type": "STRING"
+                },
+                "Plc_To_Gateway_Msg_Id": {
+                    "type": "DINT"
+                },
+                "Gateway_To_Plc_Msg_Id": {
+                    "type": "DINT"
+                },
+                "Gateway_To_Plc_rRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Gateway_To_Plc_sRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Gateway_To_Plc_pRequest_Id_Ack": {
+                    "type": "STRING"
+                },
+                "Bot1_Storage_Error": {
+                    "type": "BOOL"
+                },
+                "Bot2_Storage_Error": {
+                    "type": "BOOL"
+                },
+                "Machine_Reset_ON": {
+                    "type": "BOOL"
+                },
+                "Enable_Task_Handling": {
+                    "type": "BOOL"
+                },
+                "FlushFIFO_Data": {
+                    "type": "BOOL"
+                },
+                "Cmnd_Startup": {
+                    "type": "BOOL"
+                },
+                "StartUp_Sequence_Number": {
+                    "type": "INT"
+                },
+                "Mover_ID[1].Mover_Running_Seq": {
+                    "type": "DINT"
+                },
+                "Mover_ID[2].Mover_Running_Seq": {
+                    "type": "DINT"
+                },
+                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
+                    "type": "BOOL"
+                },
+                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
+                    "type": "BOOL"
+                },
+                "GatewayMessageSequence_Number": {
+                    "type": "INT"
+                },
+                "Enable_Queue": {
+                    "type": "BOOL"
+                }
+            }
+        }
     },
     {
         "id": "5b0c921e515d49d7",
@@ -889,7 +874,7 @@
         "type": "function",
         "z": "168ce6884d330b26",
         "name": "function 22",
-        "func": "global.set(\"countercopied\", 0);\nglobal.set(\"queuecounter\", 0);\nglobal.set(\"reqcountercopied\", 0);\nglobal.set(\"reqqueuecounter\", 0);\nglobal.set(\"Azure1Status\", \"Disconnected\");\nreturn msg;",
+        "func": "global.set(\"countercopied\", 0);\nglobal.set(\"queuecounter\", 0);\nglobal.set(\"reqcountercopied\", 0);\nglobal.set(\"reqqueuecounter\", 0);\nglobal.set(\"Azure1Status\", \"Disconnected\" );\nreturn msg;",
         "outputs": 0,
         "noerr": 0,
         "initialize": "",
@@ -993,12 +978,10 @@
         "y": 280,
         "wires": [
             [
-                "5ed43246e522db81",
-                "cfaacd34cc7acd0d"
+                "5ed43246e522db81"
             ],
             [
-                "5ed43246e522db81",
-                "cfaacd34cc7acd0d"
+                "5ed43246e522db81"
             ],
             [
                 "0d13f8d48dc2412e"
@@ -1033,50 +1016,6 @@
         ]
     },
     {
-        "id": "cfaacd34cc7acd0d",
-        "type": "trigger",
-        "z": "168ce6884d330b26",
-        "name": "",
-        "op1": "true",
-        "op2": "0",
-        "op1type": "bool",
-        "op2type": "str",
-        "duration": "10",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 750,
-        "y": 420,
-        "wires": [
-            [
-                "5ce0f047f6b393b1"
-            ]
-        ]
-    },
-    {
-        "id": "5ce0f047f6b393b1",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "name": "function 21",
-        "func": "var input =msg.payload\nvar text1 = \"hello \"\nvar text2 = \"Azure Connectivity Error\"\nif (input == true)\n{\nmsg.payload = text1.concat(text2);\n}\nelse\n{\n   msg.payload= \"Azure Connectivity done\"; \n}\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 420,
-        "wires": [
-            [
-                "cd0a13b3141e0712"
-            ]
-        ]
-    },
-    {
         "id": "cd0a13b3141e0712",
         "type": "ui_audio",
         "z": "168ce6884d330b26",
@@ -1084,28 +1023,9 @@
         "group": "f4ebc30243c09416",
         "voice": "Google UK English Female",
         "always": false,
-        "x": 1140,
-        "y": 460,
+        "x": 1100,
+        "y": 500,
         "wires": []
-    },
-    {
-        "id": "e5c4e1f93d77aedf",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "name": "function 19",
-        "func": "var sw=msg.payload;\nif (sw == true) \n{\nmsg.payload=\"alarm Enabled \";\n}\nelse \n{\nmsg.payload=\"alarm disabled \";\n}\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 380,
-        "wires": [
-            [
-                "cd0a13b3141e0712"
-            ]
-        ]
     },
     {
         "id": "0d63375035b604f0",
@@ -1161,41 +1081,6 @@
         "wires": [
             [
                 "cd0a13b3141e0712"
-            ]
-        ]
-    },
-    {
-        "id": "d123c5dd50c6f2e9",
-        "type": "ui_switch",
-        "z": "168ce6884d330b26",
-        "d": true,
-        "name": "",
-        "label": "switch",
-        "tooltip": "",
-        "group": "f4ebc30243c09416",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 770,
-        "y": 380,
-        "wires": [
-            [
-                "e5c4e1f93d77aedf"
             ]
         ]
     },
@@ -1318,23 +1203,6 @@
         "x": 980,
         "y": 720,
         "wires": []
-    },
-    {
-        "id": "ebc9349a58452435",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "name": "",
-        "func": "global.set(\"Azure1Status\",msg.status.text);\nmsg.payload={\n    \"status\":msg.status.text\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 740,
-        "y": 780,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "04db87075c2dc32a",
@@ -2021,7 +1889,7 @@
         "z": "abf459b12a58a7d6",
         "name": "Generate and Inject Data",
         "props": [],
-        "repeat": "7",
+        "repeat": "2",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
@@ -2839,7 +2707,7 @@
         "type": "function",
         "z": "b21bd85f55499775",
         "name": "function 40",
-        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nif (msg.payload.status == \"rRequest recieved from PLC\") \n{\n    msg.payload.status = \"rRequest and sRequest recieved from PLC\"\n}\nelse\n{ \n    msg.payload.status = \"Error: sRequest recieved and rRequest missing from PLC\" \n}\nreturn msg;",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nif (msg.payload.status == \"rRequest recieved from PLC\" || msg.payload.status == \"rRequest and sRequest recieved from PLC\") \n{\n    msg.payload.status = \"rRequest and sRequest recieved from PLC\"\n}\nelse\n{ \n    msg.payload.status = \"Error: sRequest recieved and rRequest missing from PLC\" \n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2988,87 +2856,11 @@
         ]
     },
     {
-        "id": "03e3e42a2ada45e3",
-        "type": "function",
-        "z": "197be159bc54b2ae",
-        "name": "function 56",
-        "func": "msg.payload = { \"status\": \"Error: sRequest recieved and rRequest missing from PLC\" }\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 260,
-        "wires": [
-            [
-                "5ada1ae64fe73909"
-            ]
-        ]
-    },
-    {
-        "id": "5ada1ae64fe73909",
-        "type": "mongodb in",
-        "z": "197be159bc54b2ae",
-        "mongodb": "8bdab089b2660f17",
-        "name": "read",
-        "collection": "table",
-        "operation": "find",
-        "x": 350,
-        "y": 260,
-        "wires": [
-            [
-                "f1f9c48b0c914625",
-                "490ba1ec2490e935"
-            ]
-        ]
-    },
-    {
-        "id": "f1f9c48b0c914625",
-        "type": "function",
-        "z": "197be159bc54b2ae",
-        "name": "function 57",
-        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 260,
-        "wires": [
-            [
-                "84c4974d4d393e75"
-            ]
-        ]
-    },
-    {
-        "id": "84c4974d4d393e75",
-        "type": "ui_text",
-        "z": "197be159bc54b2ae",
-        "group": "d588eb81b40b80e4",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "sRequest received and PLC failed to send rRequest",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": true,
-        "font": "",
-        "fontSize": 16,
-        "color": "#f20707",
-        "x": 770,
-        "y": 260,
-        "wires": []
-    },
-    {
         "id": "1b87f4bc09144e6d",
         "type": "function",
         "z": "197be159bc54b2ae",
         "name": "function 58",
-        "func": "msg.payload = { \"status\": \"Acked from PLC\" }\n\n\nreturn msg;",
+        "func": "msg.payload = { \"sRequestId\": { $ne: null }, \"status\": \"Acked from PLC\" }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -3122,7 +2914,7 @@
         "type": "ui_text",
         "z": "197be159bc54b2ae",
         "group": "2b285486d89a8590",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "name": "",
@@ -3178,7 +2970,7 @@
         "type": "ui_text",
         "z": "197be159bc54b2ae",
         "group": "de98f73122196c31",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "name": "",
@@ -3253,7 +3045,7 @@
         "type": "ui_text",
         "z": "197be159bc54b2ae",
         "group": "7ad2fde08d3c125b",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "name": "",
@@ -3329,8 +3121,8 @@
         "z": "197be159bc54b2ae",
         "group": "2b285486d89a8590",
         "order": 2,
-        "width": "0",
-        "height": "0",
+        "width": 0,
+        "height": 0,
         "name": "",
         "label": "rRequest received from PLC",
         "format": "{{msg.payload}}",
@@ -3403,7 +3195,7 @@
         "type": "ui_text",
         "z": "197be159bc54b2ae",
         "group": "f4ebc30243c09416",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "name": "",
@@ -3495,54 +3287,14 @@
         "wires": []
     },
     {
-        "id": "fb25ffcadccef949",
-        "type": "ui_text",
-        "z": "197be159bc54b2ae",
-        "group": "d588eb81b40b80e4",
-        "order": 2,
-        "width": "6",
-        "height": "6",
-        "name": "",
-        "label": "Error orders",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "style": true,
-        "font": "",
-        "fontSize": 16,
-        "color": "#f20707",
-        "x": 650,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "490ba1ec2490e935",
-        "type": "function",
-        "z": "197be159bc54b2ae",
-        "name": "function 70",
-        "func": "const payload = msg.payload;\nvar numberOfObjects;\nvar text=\" \";\nif (Array.isArray(payload)) \n{\n numberOfObjects = payload.length;\n} \nelse \n{\n    numberOfObjects = 0;\n    text = \"Nil\";\n}\n\nfor (var i = 0; i < numberOfObjects;i++)\n{\n    text = text + \"-------{Sreq:\" + msg.payload[i].sRequestId + \"To X,y,Z: \" + msg.payload[i].toX + \",\" + msg.payload[i].toY + \",\" + msg.payload[i].toZ + \",  From X,y,Z: \" + msg.payload[i].fromX + \",\" + msg.payload[i].fromY + \",\" + msg.payload[i].fromZ + \"}\"\n}\n\nif (text == \" \")\n{\n    text= \"Nil\"\n}\nmsg.payload = text;\nreturn msg;\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 220,
-        "wires": [
-            [
-                "fb25ffcadccef949"
-            ]
-        ]
-    },
-    {
         "id": "63567f5dcb55e35d",
         "type": "ui_button",
         "z": "197be159bc54b2ae",
         "name": "",
         "group": "dae63d56f1acaa6e",
         "order": 1,
-        "width": "0",
-        "height": "0",
+        "width": 0,
+        "height": 0,
         "passthru": false,
         "label": "Machine Reset",
         "tooltip": "",
@@ -3554,8 +3306,8 @@
         "payloadType": "num",
         "topic": "topic",
         "topicType": "msg",
-        "x": 240,
-        "y": 700,
+        "x": 220,
+        "y": 960,
         "wires": [
             [
                 "41c53da584d5586f"
@@ -3582,8 +3334,8 @@
         "payloadType": "num",
         "topic": "topic",
         "topicType": "msg",
-        "x": 260,
-        "y": 740,
+        "x": 240,
+        "y": 1000,
         "wires": [
             [
                 "caf97a4e95b2066a"
@@ -3596,7 +3348,7 @@
         "z": "197be159bc54b2ae",
         "name": "",
         "group": "dae63d56f1acaa6e",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -3610,8 +3362,8 @@
         "payloadType": "num",
         "topic": "topic",
         "topicType": "msg",
-        "x": 230,
-        "y": 780,
+        "x": 210,
+        "y": 1040,
         "wires": [
             [
                 "0a148a51cdb7ee74"
@@ -3624,7 +3376,7 @@
         "z": "197be159bc54b2ae",
         "name": "",
         "group": "dae63d56f1acaa6e",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -3638,8 +3390,8 @@
         "payloadType": "num",
         "topic": "topic",
         "topicType": "msg",
-        "x": 250,
-        "y": 820,
+        "x": 230,
+        "y": 1080,
         "wires": [
             [
                 "25bd4056a98c15d7"
@@ -3654,8 +3406,8 @@
         "variable": "",
         "program": "",
         "name": "Command Startup",
-        "x": 510,
-        "y": 820,
+        "x": 490,
+        "y": 1080,
         "wires": []
     },
     {
@@ -3666,8 +3418,8 @@
         "variable": "FlushFIFO_Data",
         "program": "",
         "name": "Flush FIFO",
-        "x": 490,
-        "y": 780,
+        "x": 470,
+        "y": 1040,
         "wires": []
     },
     {
@@ -3678,8 +3430,8 @@
         "variable": "Enable_Task_Handling",
         "program": "",
         "name": "Enable Task Handling",
-        "x": 520,
-        "y": 740,
+        "x": 500,
+        "y": 1000,
         "wires": []
     },
     {
@@ -3690,8 +3442,1024 @@
         "variable": "Machine_Reset_ON",
         "program": "",
         "name": "Machine RESET ON",
-        "x": 520,
-        "y": 700,
+        "x": 500,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "c028913872fdf558",
+        "type": "ui_toast",
+        "z": "197be159bc54b2ae",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "Green",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "Close",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1430,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a234b629f72b0994",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 97",
+        "func": "msg.payload = { \"status\": \"Error: sRequest recieved and rRequest missing from PLC\" }\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 280,
+        "wires": [
+            [
+                "dd40d1ecbb97b426"
+            ]
+        ]
+    },
+    {
+        "id": "dd40d1ecbb97b426",
+        "type": "mongodb in",
+        "z": "197be159bc54b2ae",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 1090,
+        "y": 280,
+        "wires": [
+            [
+                "669790c18f2afdad"
+            ]
+        ]
+    },
+    {
+        "id": "669790c18f2afdad",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 98",
+        "func": "const payload = msg.payload;\nvar numberOfObjects;\nvar text=\" \";\n\nif (Array.isArray(payload)) \n{\n numberOfObjects = payload.length;\n} \nelse \n{\n    numberOfObjects = 0;\n    text = \"Nil\"\n}\ntext = \"Error Logs: \";\nfor (var i = 0; i < numberOfObjects; i++) \n{\n     \n    text = text + JSON.stringify(msg.payload[i]) + \"---->Error:\" + (i + 1) + \" \" ;\n\n}\n\nif (text == \" \") {\n    text = \"Nil\"\n}\nmsg.topic=text;\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 280,
+        "wires": [
+            [
+                "c028913872fdf558"
+            ]
+        ]
+    },
+    {
+        "id": "420f7c4141da0f34",
+        "type": "ui_audio",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "group": "f4ebc30243c09416",
+        "voice": "Google UK English Female",
+        "always": false,
+        "x": 940,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "fdc79a64614c01f4",
+        "type": "trigger",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "op1": "PLC failed acknowledgement ",
+        "op2": "",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "1",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 780,
+        "y": 240,
+        "wires": [
+            [
+                "420f7c4141da0f34"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9bb014d686dc0397",
+        "type": "switch",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 280,
+        "wires": [
+            [
+                "a234b629f72b0994"
+            ]
+        ]
+    },
+    {
+        "id": "16b855189d210eb3",
+        "type": "switch",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Nil",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [],
+            [
+                "fdc79a64614c01f4"
+            ]
+        ]
+    },
+    {
+        "id": "63aa3748aa2d0d1e",
+        "type": "ui_template",
+        "z": "197be159bc54b2ae",
+        "group": "d588eb81b40b80e4",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<md-button \nng-style=\"{'background-color': msg.payload == 'No errors found' ? 'green':'red'}\" class=\"custom-button\"\nng-click=\"send({topic: 'Button clicked'})\">\n{{msg.payload}}\n</md-button>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [
+                "9bb014d686dc0397"
+            ]
+        ]
+    },
+    {
+        "id": "f739120af63b2ee0",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 99",
+        "func": "const payload = msg.payload;\nvar numberOfObjects;\nvar text=\" \";\nif (Array.isArray(payload)) \n{\n numberOfObjects = payload.length;\n} \nelse \n{\n    numberOfObjects = 0;\n    text = \"Nil\";\n}\n\nif (numberOfObjects == 0)\n{\n    msg.payload=\"No errors found\"  \n}\nelse if (numberOfObjects == 1)\n{\n    msg.payload = \"Found \" + numberOfObjects+\" error\"\n}\nelse \n{\n    msg.payload = \"Found \" + numberOfObjects + \" errors\"\n}\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 280,
+        "wires": [
+            [
+                "63aa3748aa2d0d1e"
+            ]
+        ]
+    },
+    {
+        "id": "e09feb8fb07222f2",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 100",
+        "func": "const payload = msg.payload;\nvar numberOfObjects;\nvar text=\" \";\nif (Array.isArray(payload)) \n{\n numberOfObjects = payload.length;\n} \nelse \n{\n    numberOfObjects = 0;\n    text = \"Nil\";\n}\n\nfor (var i = 0; i < numberOfObjects;i++)\n{\n    text = text + \"-------{Sreq:\" + msg.payload[i].sRequestId + \"To X,y,Z: \" + msg.payload[i].toX + \",\" + msg.payload[i].toY + \",\" + msg.payload[i].toZ + \",  From X,y,Z: \" + msg.payload[i].fromX + \",\" + msg.payload[i].fromY + \",\" + msg.payload[i].fromZ + \"}\"\n}\n\nif (text == \" \")\n{\n    text= \"Nil\"\n}\nmsg.payload = text;\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "16b855189d210eb3"
+            ]
+        ]
+    },
+    {
+        "id": "6fd18d10cccf6e3b",
+        "type": "mongodb in",
+        "z": "197be159bc54b2ae",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "f739120af63b2ee0",
+                "e09feb8fb07222f2"
+            ]
+        ]
+    },
+    {
+        "id": "5afefbd3b02f87d2",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 101",
+        "func": "msg.payload = { \"status\": \"Error: sRequest recieved and rRequest missing from PLC\" }\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "6fd18d10cccf6e3b"
+            ]
+        ]
+    },
+    {
+        "id": "fcd7cf673c9a5b74",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 102",
+        "func": "msg.payload = { \"pRequestId\": { $ne: null }, \"status\": \"Acked from PLC\" }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "476dd1b7edd93d37"
+            ]
+        ]
+    },
+    {
+        "id": "476dd1b7edd93d37",
+        "type": "mongodb in",
+        "z": "197be159bc54b2ae",
+        "mongodb": "8bdab089b2660f17",
+        "name": "read",
+        "collection": "table",
+        "operation": "find",
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "efc44a2fa54ceea3"
+            ]
+        ]
+    },
+    {
+        "id": "efc44a2fa54ceea3",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 103",
+        "func": "const payload = msg.payload;\n\nif (Array.isArray(payload)) \n{\n    const numberOfObjects = payload.length;\n    msg.payload = numberOfObjects;\n    return msg;\n} else \n{  \n    msg.payload = 0; \n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 180,
+        "wires": [
+            [
+                "9a23c92d3273b44f"
+            ]
+        ]
+    },
+    {
+        "id": "9a23c92d3273b44f",
+        "type": "ui_text",
+        "z": "197be159bc54b2ae",
+        "group": "2b285486d89a8590",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "pRequest not recieved ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": 16,
+        "color": "#ff7300",
+        "x": 680,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2183ef707db61c51",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 104",
+        "func": "msg.payload = global.get(\"plcstatus\");\nif (msg.payload ==\"offline\")\n{ \n    msg.payload = \"Disconnected\"\n    return msg; }\nelse \n{\n    msg.payload = \"Connected\"\n    return msg;\n} \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 760,
+        "wires": [
+            [
+                "5f30eea6e3504343",
+                "bb8aa256065beb7f"
+            ]
+        ]
+    },
+    {
+        "id": "fd708341c1cfa036",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 105",
+        "func": "msg.payload = global.get(\"Azure1Status\");\nif (msg.payload == \"Disconnected\" || msg.payload == \"Error\")\n{\n    return msg;\n}\nelse\n{\n    msg.payload = \"Connected\";\n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 680,
+        "wires": [
+            [
+                "17ca8a4fc3b6835b",
+                "8ad0093b7ddd7b5a",
+                "7c30ac26008bd243"
+            ]
+        ]
+    },
+    {
+        "id": "17ca8a4fc3b6835b",
+        "type": "ui_text",
+        "z": "197be159bc54b2ae",
+        "group": "91320c54320408e4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Azure IoT Hub",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 380,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "5f30eea6e3504343",
+        "type": "ui_text",
+        "z": "197be159bc54b2ae",
+        "group": "91320c54320408e4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PLC",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 370,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "e562b88af3ee2879",
+        "type": "ui_text",
+        "z": "197be159bc54b2ae",
+        "group": "91320c54320408e4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Mongo DB",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 390,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "18c5e6c0c5521971",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 106",
+        "func": "msg.payload = global.get(\"mongo\");\nif (msg.payload == \"connected\") {\n    msg.payload = \"Connected\"\n    return msg;\n}\nelse {\n    \n    return msg;\n} \n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 820,
+        "wires": [
+            [
+                "e562b88af3ee2879",
+                "ea15de46c9ef674b"
+            ]
+        ]
+    },
+    {
+        "id": "ca0a94eb235b709b",
+        "type": "trigger",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "op1": "Azure Disconnected",
+        "op2": "",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "1",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 700,
+        "y": 680,
+        "wires": [
+            [
+                "79ee25c0573af28f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8ad0093b7ddd7b5a",
+        "type": "switch",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 680,
+        "wires": [
+            [
+                "ca0a94eb235b709b"
+            ]
+        ]
+    },
+    {
+        "id": "7c30ac26008bd243",
+        "type": "switch",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Error",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 720,
+        "wires": [
+            [
+                "457e68fc3f618d92"
+            ]
+        ]
+    },
+    {
+        "id": "457e68fc3f618d92",
+        "type": "trigger",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "op1": "Azure Error",
+        "op2": "",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "1",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 700,
+        "y": 720,
+        "wires": [
+            [
+                "79ee25c0573af28f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bb8aa256065beb7f",
+        "type": "switch",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 760,
+        "wires": [
+            [
+                "9e9a4030fe0fbaeb"
+            ]
+        ]
+    },
+    {
+        "id": "9e9a4030fe0fbaeb",
+        "type": "trigger",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "op1": "PLC Disconnected",
+        "op2": "",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "1",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 700,
+        "y": 760,
+        "wires": [
+            [
+                "79ee25c0573af28f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ea15de46c9ef674b",
+        "type": "switch",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "Connected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 820,
+        "wires": [
+            [
+                "43e11c9ca22f7788"
+            ]
+        ]
+    },
+    {
+        "id": "43e11c9ca22f7788",
+        "type": "trigger",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "op1": "Mongo Disconnected",
+        "op2": "",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "1",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 700,
+        "y": 820,
+        "wires": [
+            [
+                "79ee25c0573af28f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cbd077c3dd6af49b",
+        "type": "inject",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "props": [
+            {
+                "p": "reset",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 710,
+        "y": 860,
+        "wires": [
+            [
+                "79ee25c0573af28f"
+            ]
+        ]
+    },
+    {
+        "id": "e10254cba63f033a",
+        "type": "mongodb out",
+        "z": "197be159bc54b2ae",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Clear database",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 620,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "42d8a712b58e6ca9",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "Query",
+        "func": "if (msg.payload==\"Yes\")\n{\nmsg.payload={};\nreturn msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 900,
+        "wires": [
+            [
+                "e10254cba63f033a"
+            ]
+        ],
+        "icon": "font-awesome/fa-align-justify"
+    },
+    {
+        "id": "587f632c41306934",
+        "type": "ui_toast",
+        "z": "197be159bc54b2ae",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "Green",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "Yes",
+        "cancel": "No",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 290,
+        "y": 900,
+        "wires": [
+            [
+                "42d8a712b58e6ca9"
+            ]
+        ]
+    },
+    {
+        "id": "fa5e5275a830966d",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "Query",
+        "func": "msg.payload=\"Are you sure to clear the database?\"\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 185,
+        "y": 900,
+        "wires": [
+            [
+                "587f632c41306934"
+            ]
+        ],
+        "icon": "node-red-dashboard/ui_button.png",
+        "l": false
+    },
+    {
+        "id": "20ec166a70ed29e5",
+        "type": "ui_button",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "group": "f32834d313194ae9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Click here to clear database",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "orange",
+        "className": "",
+        "icon": "delete",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 135,
+        "y": 900,
+        "wires": [
+            [
+                "fa5e5275a830966d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "79ee25c0573af28f",
+        "type": "ui_audio",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "group": "f4ebc30243c09416",
+        "voice": "Google UK English Female",
+        "always": false,
+        "x": 900,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "0130ee2c98503cb7",
+        "type": "eth-ip out",
+        "z": "197be159bc54b2ae",
+        "endpoint": "101ca770f43ae779",
+        "variable": "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done",
+        "program": "",
+        "name": "Fork Bot Single Left Storage DONE",
+        "x": 540,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "a63da5d719317517",
+        "type": "ui_button",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "group": "dae63d56f1acaa6e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fork Bot 1 Storage DONE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "teal",
+        "className": "",
+        "icon": "vertical_align_top",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 1140,
+        "wires": [
+            [
+                "0130ee2c98503cb7"
+            ]
+        ]
+    },
+    {
+        "id": "bdfb30ef771c9a2d",
+        "type": "eth-ip out",
+        "z": "197be159bc54b2ae",
+        "endpoint": "101ca770f43ae779",
+        "variable": "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done",
+        "program": "",
+        "name": "Fork Bot Double Left Retrieve DONE",
+        "x": 550,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "ad22f36be1eadd0a",
+        "type": "ui_button",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "group": "dae63d56f1acaa6e",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fork Bot 1  Retrieve DONE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "teal",
+        "className": "",
+        "icon": "vertical_align_bottom",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 1180,
+        "wires": [
+            [
+                "bdfb30ef771c9a2d"
+            ]
+        ]
+    },
+    {
+        "id": "2be900dfb5a9894a",
+        "type": "eth-ip out",
+        "z": "197be159bc54b2ae",
+        "endpoint": "101ca770f43ae779",
+        "variable": "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done",
+        "program": "",
+        "name": "Fork Bot 2 Single Left Storage DONE",
+        "x": 550,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "f16d088a635f6be1",
+        "type": "ui_button",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "group": "dae63d56f1acaa6e",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fork Bot 2 Storage DONE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "teal",
+        "className": "",
+        "icon": "vertical_align_top",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 1220,
+        "wires": [
+            [
+                "2be900dfb5a9894a"
+            ]
+        ]
+    },
+    {
+        "id": "81c84a0a6b5e8bc7",
+        "type": "eth-ip out",
+        "z": "197be159bc54b2ae",
+        "endpoint": "101ca770f43ae779",
+        "variable": "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done",
+        "program": "",
+        "name": "Fork Bot  2 Double Left Retrieve DONE",
+        "x": 550,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "7ad45adfa3c09787",
+        "type": "ui_button",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "group": "dae63d56f1acaa6e",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fork Bot 2  Retrieve DONE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "teal",
+        "className": "",
+        "icon": "vertical_align_bottom",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 1260,
+        "wires": [
+            [
+                "81c84a0a6b5e8bc7"
+            ]
+        ]
+    },
+    {
+        "id": "8e2b31e3f99f8968",
+        "type": "ui_switch",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "label": "Enable Dynamic Pick wall",
+        "tooltip": "",
+        "group": "dae63d56f1acaa6e",
+        "order": 9,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 250,
+        "y": 1300,
+        "wires": [
+            [
+                "599ad0e49a6857f5"
+            ]
+        ]
+    },
+    {
+        "id": "599ad0e49a6857f5",
+        "type": "eth-ip out",
+        "z": "197be159bc54b2ae",
+        "endpoint": "101ca770f43ae779",
+        "variable": "Enable_Queue",
+        "program": "",
+        "name": "Enable Dynamic Pick wall",
+        "x": 510,
+        "y": 1300,
         "wires": []
     },
     {
@@ -3699,7 +4467,7 @@
         "type": "subflow:abf459b12a58a7d6",
         "z": "7b229efa69ac7866",
         "name": "Write Database",
-        "x": 920,
+        "x": 980,
         "y": 100,
         "wires": [
             [
@@ -3712,7 +4480,7 @@
         "type": "subflow:168ce6884d330b26",
         "z": "7b229efa69ac7866",
         "name": "Azure status and other functions ",
-        "x": 450,
+        "x": 510,
         "y": 120,
         "wires": [
             [
@@ -3725,7 +4493,7 @@
         "type": "subflow:b21bd85f55499775",
         "z": "7b229efa69ac7866",
         "name": "Acknowlegement from PLC",
-        "x": 470,
+        "x": 530,
         "y": 80,
         "wires": [
             [
@@ -3739,7 +4507,7 @@
         "type": "subflow:a27b931a44c8fb3e",
         "z": "7b229efa69ac7866",
         "name": "Read DB and send data to PLC",
-        "x": 1170,
+        "x": 1230,
         "y": 100,
         "wires": []
     },
@@ -3749,7 +4517,7 @@
         "z": "7b229efa69ac7866",
         "name": "Azure IoT Hub",
         "protocol": "amqp",
-        "x": 720,
+        "x": 780,
         "y": 100,
         "wires": [
             [
@@ -3768,44 +4536,10 @@
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 720,
+        "x": 780,
         "y": 60,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "a5eff9b386b1b84d",
-        "type": "mongodb out",
-        "z": "7b229efa69ac7866",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Delete ",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "delete",
-        "x": 550,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "e376f4ed3c9fd3ce",
-        "type": "inject",
-        "z": "7b229efa69ac7866",
-        "name": "Delete all data in DB",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 370,
-        "y": 240,
-        "wires": [
-            [
-                "a5eff9b386b1b84d"
-            ]
         ]
     },
     {
@@ -3819,7 +4553,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 330,
+        "x": 650,
         "y": 180,
         "wires": [
             [
@@ -3832,43 +4566,148 @@
         "type": "subflow:197be159bc54b2ae",
         "z": "7b229efa69ac7866",
         "name": "",
-        "x": 600,
+        "x": 940,
         "y": 180,
         "wires": []
     },
     {
-        "id": "84f458adc8b8dfab",
-        "type": "status",
-        "z": "7b229efa69ac7866",
-        "name": "",
-        "scope": [
-            "dcf4aba0b4f3e532"
-        ],
-        "x": 80,
-        "y": 120,
-        "wires": [
-            [
-                "9abdaafbf381a3e1"
-            ]
-        ]
-    },
-    {
-        "id": "9abdaafbf381a3e1",
+        "id": "37737d9ff937b60b",
         "type": "function",
         "z": "7b229efa69ac7866",
+        "name": "Set status as global",
+        "func": "global.set(\"plcstatus\",msg.status.text);\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 240,
+        "wires": [
+            [
+                "eecace2da74617d3"
+            ]
+        ],
+        "icon": "node-red/subflow.svg"
+    },
+    {
+        "id": "9401f4ca81ca41a3",
+        "type": "status",
+        "z": "7b229efa69ac7866",
+        "name": "PLC status",
+        "scope": [
+            "eecace2da74617d3"
+        ],
+        "x": 700,
+        "y": 240,
+        "wires": [
+            [
+                "37737d9ff937b60b"
+            ]
+        ],
+        "icon": "node-red/subflow.svg"
+    },
+    {
+        "id": "6d05f40a72d2004e",
+        "type": "mongodb out",
+        "z": "7b229efa69ac7866",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Clear database",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1015,
+        "y": 300,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "e7382c5e90b73c3d",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "Set status as global",
+        "func": "global.set(\"mongo\",msg.status.text);\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 300,
+        "wires": [
+            [
+                "6d05f40a72d2004e"
+            ]
+        ],
+        "icon": "node-red/db.svg"
+    },
+    {
+        "id": "3515cd590babf79d",
+        "type": "status",
+        "z": "7b229efa69ac7866",
+        "name": "Mongo status",
+        "scope": [
+            "6d05f40a72d2004e"
+        ],
+        "x": 690,
+        "y": 300,
+        "wires": [
+            [
+                "e7382c5e90b73c3d"
+            ]
+        ],
+        "icon": "node-red/db.svg"
+    },
+    {
+        "id": "eecace2da74617d3",
+        "type": "eth-ip out",
+        "z": "7b229efa69ac7866",
+        "endpoint": "101ca770f43ae779",
+        "variable": "FlushFIFO_Data",
+        "program": "",
         "name": "",
+        "x": 1015,
+        "y": 240,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "b2725f95d3200c42",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "Set status as global",
         "func": "global.set(\"Azure1Status\",msg.status.text);\nmsg.payload={\n    \"status\":msg.status.text\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 220,
+        "x": 270,
         "y": 120,
         "wires": [
             [
                 "174abfca7c1eff91"
             ]
-        ]
+        ],
+        "icon": "node-red/white-globe.svg"
+    },
+    {
+        "id": "202083b15d5a623a",
+        "type": "status",
+        "z": "7b229efa69ac7866",
+        "name": "Azure status",
+        "scope": [
+            "dcf4aba0b4f3e532"
+        ],
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "b2725f95d3200c42"
+            ]
+        ],
+        "icon": "node-red/white-globe.svg"
     }
 ]
