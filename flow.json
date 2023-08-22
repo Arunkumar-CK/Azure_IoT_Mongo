@@ -13,14 +13,28 @@
         "name": "Azure status and other functions",
         "info": "",
         "category": "",
-        "in": [],
-        "out": [
+        "in": [
             {
-                "x": 1120,
-                "y": 160,
+                "x": 420,
+                "y": 280,
                 "wires": [
                     {
-                        "id": "d1ee9a47f23ddfe9",
+                        "id": "464205922a79ea08"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 900,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "86f6fa421f27cd15",
+                        "port": 0
+                    },
+                    {
+                        "id": "5ed43246e522db81",
                         "port": 0
                     }
                 ]
@@ -799,12 +813,12 @@
         "repeat": "0.5",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "2",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1700,
-        "y": 520,
+        "x": 520,
+        "y": 680,
         "wires": [
             [
                 "3ce75bca1545495d",
@@ -824,8 +838,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1980,
-        "y": 480,
+        "x": 740,
+        "y": 640,
         "wires": [
             [
                 "291330fa96143469"
@@ -843,8 +857,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1980,
-        "y": 520,
+        "x": 740,
+        "y": 680,
         "wires": [
             [
                 "ac33b1cfb1d8f8ab"
@@ -862,8 +876,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1980,
-        "y": 560,
+        "x": 740,
+        "y": 720,
         "wires": [
             [
                 "e38f5f7a2d039940"
@@ -875,41 +889,29 @@
         "type": "function",
         "z": "168ce6884d330b26",
         "name": "function 22",
-        "func": "global.set(\"countercopied\", 0);\nglobal.set(\"queuecounter\", 0);\nglobal.set(\"reqcountercopied\", 0);\nglobal.set(\"reqqueuecounter\", 0);\nreturn msg;",
-        "outputs": 1,
+        "func": "global.set(\"countercopied\", 0);\nglobal.set(\"queuecounter\", 0);\nglobal.set(\"reqcountercopied\", 0);\nglobal.set(\"reqqueuecounter\", 0);\nglobal.set(\"Azure1Status\", \"Disconnected\");\nreturn msg;",
+        "outputs": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
-        "y": 740,
-        "wires": [
-            []
-        ]
+        "x": 630,
+        "y": 580,
+        "wires": []
     },
     {
         "id": "c26b67d15dfeca1c",
         "type": "inject",
         "z": "168ce6884d330b26",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 590,
-        "y": 740,
+        "x": 470,
+        "y": 580,
         "wires": [
             [
                 "03d636e3e0237e20"
@@ -917,106 +919,26 @@
         ]
     },
     {
-        "id": "f570237459f554b9",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "name": "buffer to String",
-        "func": "//var b=Buffer.from(msg.payload);\n//var s=b.toString();\nvar type = typeof msg.payload\nif (type == \"object\")\n{\n    msg.payload = JSON.parse(msg.payload)\n    return msg\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1060,
-        "y": 1060,
-        "wires": [
-            [
-                "3059d104d8fab924"
-            ]
-        ]
-    },
-    {
-        "id": "ae700514bdc9f499",
-        "type": "inject",
-        "z": "168ce6884d330b26",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"properties\":{\"propertyList\":[]},\"messageId\":\"\",\"to\":\"\",\"expiryTimeUtc\":null,\"lockToken\":\"\",\"correlationId\":\"\",\"userId\":\"\",\"payload\":{\"type\":\"Buffer\",\"data\":[123,10,32,32,34,98,105,110,73,100,34,58,32,34,66,80,84,67,48,50,45,51,55,45,49,45,50,45,49,34,44,10,32,32,34,99,111,109,109,97,110,100,84,121,112,101,34,58,32,53,44,10,32,32,34,112,82,101,113,117,101,115,116,73,100,34,58,32,34,57,97,54,48,55,102,51,51,45,51,53,55,53,45,52,97,49,102,45,57,51,98,54,45,100,51,55,48,100,101,99,102,101,53,55,51,34,44,10,32,32,34,112,105,99,107,81,116,121,34,58,32,49,44,10,32,32,34,115,107,117,73,100,34,58,32,34,70,67,66,49,48,48,54,48,34,10,125]}}",
-        "payloadType": "json",
-        "x": 790,
-        "y": 1080,
-        "wires": [
-            [
-                "f570237459f554b9"
-            ]
-        ]
-    },
-    {
-        "id": "3059d104d8fab924",
-        "type": "debug",
-        "z": "168ce6884d330b26",
-        "name": "debug 40",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1340,
-        "y": 1080,
-        "wires": []
-    },
-    {
         "id": "86f6fa421f27cd15",
         "type": "inject",
         "z": "168ce6884d330b26",
         "name": "connect first scan",
-        "props": [],
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "1",
+        "onceDelay": "0.5",
         "topic": "",
+        "payload": "\"\"",
+        "payloadType": "str",
         "x": 750,
-        "y": 120,
+        "y": 220,
         "wires": [
-            [
-                "d1ee9a47f23ddfe9"
-            ]
-        ]
-    },
-    {
-        "id": "91c2d14297728a8a",
-        "type": "inject",
-        "z": "168ce6884d330b26",
-        "name": "disconnect manually",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": "1",
-        "topic": "",
-        "x": 750,
-        "y": 160,
-        "wires": [
-            [
-                "d1ee9a47f23ddfe9"
-            ]
+            []
         ]
     },
     {
@@ -1024,9 +946,9 @@
         "type": "trigger",
         "z": "168ce6884d330b26",
         "name": "",
-        "op1": "",
+        "op1": "\"\"",
         "op2": "0",
-        "op1type": "nul",
+        "op1type": "str",
         "op2type": "str",
         "duration": "-5",
         "extend": false,
@@ -1037,11 +959,9 @@
         "topic": "topic",
         "outputs": 1,
         "x": 760,
-        "y": 200,
+        "y": 260,
         "wires": [
-            [
-                "d1ee9a47f23ddfe9"
-            ]
+            []
         ]
     },
     {
@@ -1105,30 +1025,10 @@
         "to": "",
         "reg": false,
         "x": 760,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "5ed43246e522db81"
-            ]
-        ]
-    },
-    {
-        "id": "9abdaafbf381a3e1",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "name": "",
-        "func": "global.set(\"Azure1Status\",msg.status.text);\nmsg.payload={\n    \"status\":msg.status.text\n}\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 200,
-        "wires": [
-            [
-                "464205922a79ea08",
-                "3fe59fb04c3d59b5"
             ]
         ]
     },
@@ -1149,46 +1049,13 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 910,
-        "y": 520,
+        "x": 750,
+        "y": 420,
         "wires": [
             [
                 "5ce0f047f6b393b1"
             ]
         ]
-    },
-    {
-        "id": "84f458adc8b8dfab",
-        "type": "status",
-        "z": "168ce6884d330b26",
-        "name": "",
-        "scope": [
-            "842966e89dcb8992"
-        ],
-        "x": 200,
-        "y": 200,
-        "wires": [
-            [
-                "9abdaafbf381a3e1"
-            ]
-        ]
-    },
-    {
-        "id": "3fe59fb04c3d59b5",
-        "type": "debug",
-        "z": "168ce6884d330b26",
-        "name": "connection status Azure",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 80,
-        "wires": []
     },
     {
         "id": "5ce0f047f6b393b1",
@@ -1201,8 +1068,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 520,
+        "x": 930,
+        "y": 420,
         "wires": [
             [
                 "cd0a13b3141e0712"
@@ -1217,8 +1084,8 @@
         "group": "f4ebc30243c09416",
         "voice": "Google UK English Female",
         "always": false,
-        "x": 1400,
-        "y": 540,
+        "x": 1140,
+        "y": 460,
         "wires": []
     },
     {
@@ -1232,31 +1099,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1100,
-        "y": 480,
+        "x": 930,
+        "y": 380,
         "wires": [
             [
                 "cd0a13b3141e0712"
-            ]
-        ]
-    },
-    {
-        "id": "33396929adf75cc1",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "name": "function 20",
-        "func": "msg.payload = \"Task Request Queue Unload Stopped\";\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1190,
-        "y": 860,
-        "wires": [
-            [
-                "cd0a13b3141e0712",
-                "242b0c63615144ac"
             ]
         ]
     },
@@ -1271,8 +1118,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 580,
+        "x": 930,
+        "y": 460,
         "wires": [
             [
                 "cd0a13b3141e0712"
@@ -1290,8 +1137,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
-        "y": 800,
+        "x": 930,
+        "y": 540,
         "wires": [
             [
                 "cd0a13b3141e0712"
@@ -1309,8 +1156,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
-        "y": 620,
+        "x": 930,
+        "y": 500,
         "wires": [
             [
                 "cd0a13b3141e0712"
@@ -1344,48 +1191,13 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 930,
-        "y": 480,
+        "x": 770,
+        "y": 380,
         "wires": [
             [
                 "e5c4e1f93d77aedf"
             ]
         ]
-    },
-    {
-        "id": "772d17640549f38f",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "name": "Task QUeue Stopped",
-        "func": "var counter=global.get(\"queuecounter\");\nvar ccopied = global.get(\"countercopied\");\nif (counter==ccopied && counter!=0){\n    msg.payload =\"Queue Failure\";\n    return msg;\n}\nelse{\n   // msg.payload =\"Queue Okay\"\nglobal.set(\"countercopied\", counter);\n}\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 880,
-        "y": 860,
-        "wires": [
-            [
-                "33396929adf75cc1"
-            ]
-        ]
-    },
-    {
-        "id": "242b0c63615144ac",
-        "type": "debug",
-        "z": "168ce6884d330b26",
-        "name": "debug 39",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1460,
-        "y": 760,
-        "wires": []
     },
     {
         "id": "b9396654d36322d6",
@@ -1398,40 +1210,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
-        "y": 800,
+        "x": 690,
+        "y": 540,
         "wires": [
             [
                 "e860f97e60f7f5b4"
-            ]
-        ]
-    },
-    {
-        "id": "29f00e345537275b",
-        "type": "inject",
-        "z": "168ce6884d330b26",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "1",
-        "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "x": 590,
-        "y": 860,
-        "wires": [
-            [
-                "772d17640549f38f"
             ]
         ]
     },
@@ -1456,29 +1239,12 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 590,
-        "y": 800,
+        "x": 470,
+        "y": 540,
         "wires": [
             [
                 "b9396654d36322d6"
             ]
-        ]
-    },
-    {
-        "id": "d1ee9a47f23ddfe9",
-        "type": "function",
-        "z": "168ce6884d330b26",
-        "name": "function 29",
-        "func": "\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 970,
-        "y": 160,
-        "wires": [
-            []
         ]
     },
     {
@@ -1491,8 +1257,8 @@
         "variable": "",
         "program": "",
         "name": "",
-        "x": 900,
-        "y": 580,
+        "x": 740,
+        "y": 460,
         "wires": [
             [
                 "0d63375035b604f0"
@@ -1509,8 +1275,8 @@
         "variable": "",
         "program": "",
         "name": "",
-        "x": 900,
-        "y": 620,
+        "x": 740,
+        "y": 500,
         "wires": [
             [
                 "2d667b62586bab62"
@@ -1525,8 +1291,8 @@
         "variable": "Gateway_To_Plc_rRequest_Id_Ack",
         "program": "",
         "name": "",
-        "x": 2300,
-        "y": 480,
+        "x": 980,
+        "y": 640,
         "wires": []
     },
     {
@@ -1537,8 +1303,8 @@
         "variable": "Gateway_To_Plc_sRequest_Id_Ack",
         "program": "",
         "name": "",
-        "x": 2300,
-        "y": 520,
+        "x": 980,
+        "y": 680,
         "wires": []
     },
     {
@@ -1549,9 +1315,26 @@
         "variable": "Gateway_To_Plc_pRequest_Id_Ack",
         "program": "",
         "name": "",
-        "x": 2300,
-        "y": 560,
+        "x": 980,
+        "y": 720,
         "wires": []
+    },
+    {
+        "id": "ebc9349a58452435",
+        "type": "function",
+        "z": "168ce6884d330b26",
+        "name": "",
+        "func": "global.set(\"Azure1Status\",msg.status.text);\nmsg.payload={\n    \"status\":msg.status.text\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 780,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "04db87075c2dc32a",
@@ -2997,7 +2780,7 @@
         "y": 760,
         "wires": [
             [
-                "7c95d675bc9d596e"
+                "1b3ae9f6d287d724"
             ]
         ]
     },
@@ -3012,7 +2795,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
+        "x": 910,
         "y": 760,
         "wires": [
             [
@@ -3031,7 +2814,7 @@
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 940,
+        "x": 1080,
         "y": 760,
         "wires": []
     },
@@ -3047,7 +2830,7 @@
         "y": 620,
         "wires": [
             [
-                "94be1ed149e32997"
+                "6dc0e3cc84d896ea"
             ]
         ]
     },
@@ -3062,7 +2845,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
+        "x": 910,
         "y": 620,
         "wires": [
             [
@@ -3081,7 +2864,7 @@
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 940,
+        "x": 1080,
         "y": 620,
         "wires": []
     },
@@ -3096,7 +2879,7 @@
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 940,
+        "x": 1080,
         "y": 700,
         "wires": []
     },
@@ -3111,7 +2894,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
+        "x": 910,
         "y": 700,
         "wires": [
             [
@@ -3131,7 +2914,76 @@
         "y": 700,
         "wires": [
             [
+                "62bbac3cb9d4812a"
+            ]
+        ]
+    },
+    {
+        "id": "6dc0e3cc84d896ea",
+        "type": "switch",
+        "z": "b21bd85f55499775",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 620,
+        "wires": [
+            [
+                "94be1ed149e32997"
+            ]
+        ]
+    },
+    {
+        "id": "62bbac3cb9d4812a",
+        "type": "switch",
+        "z": "b21bd85f55499775",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 700,
+        "wires": [
+            [
                 "496d7474ddb8b782"
+            ]
+        ]
+    },
+    {
+        "id": "1b3ae9f6d287d724",
+        "type": "switch",
+        "z": "b21bd85f55499775",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 750,
+        "y": 760,
+        "wires": [
+            [
+                "7c95d675bc9d596e"
             ]
         ]
     },
@@ -3847,7 +3699,7 @@
         "type": "subflow:abf459b12a58a7d6",
         "z": "7b229efa69ac7866",
         "name": "Write Database",
-        "x": 720,
+        "x": 920,
         "y": 100,
         "wires": [
             [
@@ -3860,7 +3712,7 @@
         "type": "subflow:168ce6884d330b26",
         "z": "7b229efa69ac7866",
         "name": "Azure status and other functions ",
-        "x": 250,
+        "x": 450,
         "y": 120,
         "wires": [
             [
@@ -3873,7 +3725,7 @@
         "type": "subflow:b21bd85f55499775",
         "z": "7b229efa69ac7866",
         "name": "Acknowlegement from PLC",
-        "x": 270,
+        "x": 470,
         "y": 80,
         "wires": [
             [
@@ -3887,7 +3739,7 @@
         "type": "subflow:a27b931a44c8fb3e",
         "z": "7b229efa69ac7866",
         "name": "Read DB and send data to PLC",
-        "x": 970,
+        "x": 1170,
         "y": 100,
         "wires": []
     },
@@ -3897,7 +3749,7 @@
         "z": "7b229efa69ac7866",
         "name": "Azure IoT Hub",
         "protocol": "amqp",
-        "x": 520,
+        "x": 720,
         "y": 100,
         "wires": [
             [
@@ -3916,7 +3768,7 @@
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 520,
+        "x": 720,
         "y": 60,
         "wires": [
             []
@@ -3983,5 +3835,40 @@
         "x": 600,
         "y": 180,
         "wires": []
+    },
+    {
+        "id": "84f458adc8b8dfab",
+        "type": "status",
+        "z": "7b229efa69ac7866",
+        "name": "",
+        "scope": [
+            "dcf4aba0b4f3e532"
+        ],
+        "x": 80,
+        "y": 120,
+        "wires": [
+            [
+                "9abdaafbf381a3e1"
+            ]
+        ]
+    },
+    {
+        "id": "9abdaafbf381a3e1",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "",
+        "func": "global.set(\"Azure1Status\",msg.status.text);\nmsg.payload={\n    \"status\":msg.status.text\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 120,
+        "wires": [
+            [
+                "174abfca7c1eff91"
+            ]
+        ]
     }
 ]
