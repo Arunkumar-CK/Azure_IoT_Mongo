@@ -53,7 +53,7 @@
         "in": [
             {
                 "x": 200,
-                "y": 1120,
+                "y": 1180,
                 "wires": [
                     {
                         "id": "e8fd3c8a0e001539"
@@ -88,7 +88,7 @@
         ],
         "out": [
             {
-                "x": 880,
+                "x": 920,
                 "y": 360,
                 "wires": [
                     {
@@ -168,6 +168,9 @@
                     },
                     {
                         "id": "18c5e6c0c5521971"
+                    },
+                    {
+                        "id": "1f68a5203d44e5ae"
                     }
                 ]
             }
@@ -429,16 +432,6 @@
         }
     },
     {
-        "id": "63b7f9e1d917f433",
-        "type": "mongodb",
-        "hostname": "127.0.0.1",
-        "topology": "direct",
-        "connectOptions": "",
-        "port": "27017",
-        "db": "database",
-        "name": ""
-    },
-    {
         "id": "b99d0e74b9dec824",
         "type": "ui_tab",
         "name": "Home",
@@ -493,7 +486,7 @@
     {
         "id": "101ca770f43ae779",
         "type": "eth-ip endpoint",
-        "address": "192.168.1.10",
+        "address": "192.168.2.252",
         "slot": "0",
         "cycletime": "100",
         "timeout": "3000000",
@@ -660,9 +653,29 @@
         "className": ""
     },
     {
-        "id": "fc7f04da6c2a7a70",
+        "id": "a0565cea9292cad1",
+        "type": "mongodb",
+        "hostname": "cluster0.2cqeiyz.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "database",
+        "name": ""
+    },
+    {
+        "id": "822e1e625f0f9784",
+        "type": "mongodb",
+        "hostname": "cluster0.2cqeiyz.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "DB",
+        "name": ""
+    },
+    {
+        "id": "f4cf08050e338d7b",
         "type": "eth-ip endpoint",
-        "address": "192.168.2.252",
+        "address": "192.168.1.10",
         "slot": "0",
         "cycletime": "100",
         "timeout": "3000000",
@@ -732,54 +745,39 @@
                 },
                 "Gateway_To_Plc_pRequest_Id_Ack": {
                     "type": "STRING"
-                },
-                "Bot1_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Bot2_Storage_Error": {
-                    "type": "BOOL"
-                },
-                "Machine_Reset_ON": {
-                    "type": "BOOL"
-                },
-                "Enable_Task_Handling": {
-                    "type": "BOOL"
-                },
-                "FlushFIFO_Data": {
-                    "type": "BOOL"
-                },
-                "Cmnd_Startup": {
-                    "type": "BOOL"
-                },
-                "StartUp_Sequence_Number": {
-                    "type": "INT"
-                },
-                "Mover_ID[1].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[2].Mover_Running_Seq": {
-                    "type": "DINT"
-                },
-                "Mover_ID[1].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[1].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Single_Left_Storage_Done": {
-                    "type": "BOOL"
-                },
-                "Mover_ID[2].ForkBot.Input.Double_Left_Retrieval_Done": {
-                    "type": "BOOL"
-                },
-                "GatewayMessageSequence_Number": {
-                    "type": "INT"
-                },
-                "Enable_Queue": {
-                    "type": "BOOL"
                 }
             }
         }
+    },
+    {
+        "id": "484f7133e546e808",
+        "type": "mongodb",
+        "hostname": "arun-test.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@arun-test@",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "arun-temp-db",
+        "name": ""
+    },
+    {
+        "id": "7ed83f31da89f821",
+        "type": "ui_group",
+        "name": "Audio Switch",
+        "tab": "b99d0e74b9dec824",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "0a08a1ed71a37be8",
+        "type": "mongodb",
+        "hostname": "cluster0.2cqeiyz.mongodb.net",
+        "topology": "dnscluster",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "DB",
+        "name": ""
     },
     {
         "id": "5b0c921e515d49d7",
@@ -1209,14 +1207,14 @@
         "type": "mongodb out",
         "z": "a27b931a44c8fb3e",
         "mongodb": "8bdab089b2660f17",
-        "name": "Update",
+        "name": "Local Update",
         "collection": "table",
         "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 920,
-        "y": 980,
+        "x": 970,
+        "y": 1040,
         "wires": []
     },
     {
@@ -1230,8 +1228,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 980,
+        "x": 770,
+        "y": 1040,
         "wires": [
             [
                 "04db87075c2dc32a",
@@ -1244,11 +1242,11 @@
         "type": "mongodb in",
         "z": "a27b931a44c8fb3e",
         "mongodb": "8bdab089b2660f17",
-        "name": "findSeq",
+        "name": "Local findSeq",
         "collection": "table",
         "operation": "find",
-        "x": 540,
-        "y": 980,
+        "x": 560,
+        "y": 1040,
         "wires": [
             [
                 "a4f36c4de9f991e5"
@@ -1267,7 +1265,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "4b230ef305221d80"
@@ -1283,8 +1281,8 @@
         "links": [
             "2ddfbeabf9c20d7c"
         ],
-        "x": 1025,
-        "y": 1080,
+        "x": 1055,
+        "y": 1140,
         "wires": []
     },
     {
@@ -1308,13 +1306,13 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "lte",
+                "t": "neq",
                 "v": "5",
                 "vt": "str"
             },
             {
                 "t": "eq",
-                "v": "6",
+                "v": "5",
                 "vt": "num"
             }
         ],
@@ -1470,7 +1468,8 @@
         "wires": [
             [
                 "4a82e2fbf07da45b",
-                "7d0cb4005397cfab"
+                "7d0cb4005397cfab",
+                "ebcbfc0a85083abe"
             ]
         ]
     },
@@ -1541,7 +1540,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 1080,
+        "y": 1140,
         "wires": [
             [
                 "86a85c753c93bf6e"
@@ -1553,11 +1552,11 @@
         "type": "mongodb in",
         "z": "a27b931a44c8fb3e",
         "mongodb": "8bdab089b2660f17",
-        "name": "findUnsent",
+        "name": "Local findUnsent",
         "collection": "table",
         "operation": "find",
-        "x": 570,
-        "y": 1080,
+        "x": 590,
+        "y": 1140,
         "wires": [
             [
                 "8bda8b23ccbac41a"
@@ -1575,8 +1574,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 750,
-        "y": 1080,
+        "x": 780,
+        "y": 1140,
         "wires": [
             [
                 "a5a7b4f24ffaacc5"
@@ -1598,8 +1597,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 910,
-        "y": 1080,
+        "x": 940,
+        "y": 1140,
         "wires": [
             [
                 "4eceaefe693f31c7"
@@ -1624,7 +1623,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 150,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "e8fd3c8a0e001539"
@@ -1813,6 +1812,75 @@
         ]
     },
     {
+        "id": "ebcbfc0a85083abe",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "constructSeqQuery",
+        "func": "msg.payload = { \"seq\": msg.payload };\nmsg.limit = 1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 980,
+        "wires": [
+            [
+                "2c375da611705084"
+            ]
+        ]
+    },
+    {
+        "id": "2c375da611705084",
+        "type": "mongodb in",
+        "z": "a27b931a44c8fb3e",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud findSeq",
+        "collection": "table",
+        "operation": "find",
+        "x": 560,
+        "y": 980,
+        "wires": [
+            [
+                "f5b55af72c635cdb"
+            ]
+        ]
+    },
+    {
+        "id": "f5b55af72c635cdb",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "checkSeqValidity",
+        "func": "if (Array.isArray(msg.payload) && msg.payload.length) {\n\n    msg.query = { \"_id\": msg.payload[0]._id };\n    msg.payload = msg.payload[0];\n    msg.payload.status = \"Acked from PLC\";\n\n    return msg;\n\n} else {\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 980,
+        "wires": [
+            [
+                "59e587cb9f7d86ba"
+            ]
+        ]
+    },
+    {
+        "id": "59e587cb9f7d86ba",
+        "type": "mongodb out",
+        "z": "a27b931a44c8fb3e",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 980,
+        "y": 980,
+        "wires": []
+    },
+    {
         "id": "3edcd3191df4764f",
         "type": "function",
         "z": "abf459b12a58a7d6",
@@ -1833,26 +1901,11 @@
         ]
     },
     {
-        "id": "905d8b1b9d4c69a2",
-        "type": "mongodb out",
-        "z": "abf459b12a58a7d6",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Insert",
-        "collection": "table",
-        "payonly": true,
-        "upsert": false,
-        "multi": false,
-        "operation": "insert",
-        "x": 1050,
-        "y": 160,
-        "wires": []
-    },
-    {
         "id": "6077afeb2b877fbc",
         "type": "function",
         "z": "abf459b12a58a7d6",
         "name": "Set status and gen seq",
-        "func": "msg.payload.status = \"Received from cloud\";\n\nvar ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload.seq = seq;\n\nreturn msg;\n",
+        "func": "var date = new Date();\nvar month = date.getMonth() + 1;\nvar day = date.getDate();\nvar year = date.getFullYear();\nvar hours = date.getHours();\nvar minutes = date.getMinutes();\nvar seconds = date.getSeconds();\nvar amOrPm = hours >= 12 ? 'PM' : 'AM';\nhours = hours % 12;\nhours = hours ? hours : 12;\nvar formattedDateTime = `${day}/${month}/${year} , ${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${amOrPm}`;\nmsg.payload.timestamp = formattedDateTime;\n\nmsg.payload.status = \"Received from cloud\";\n\nvar ggSeqName = \"sequenceId\";\nvar seq = global.get(ggSeqName) ||\n    Math.floor(Math.random() * 1000 * 1000 * 1000);\nseq = seq + 1;\nglobal.set(ggSeqName, seq);\nmsg.payload.seq = seq;\n\n\nreturn msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1870,14 +1923,14 @@
         "id": "8b2d2448e6211117",
         "type": "function",
         "z": "abf459b12a58a7d6",
-        "name": "Prepare random data",
-        "func": "if (!flow.get('counter')) {\n    flow.set('counter', 0);\n}\n\nvar counter = flow.get('counter') + 1;\nflow.set('counter', counter);\n\nvar characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789012345678901234567890123456789012345678901234567890123456789';\nvar str5 = '', str1 = '', str2 = '', str3 = '', str4 = '', rrequest = '', srequest = '';\nvar binid ='BPTC02-37-0-1-3'\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nrrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\n\nstr1 = str2 = str3 = str4 = str5=''\n\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nsrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\nmsg.payload={ \n    \"binId\": \"TOTE0101010\" + counter, \n    \"commandType\": 1, \n    \"rRequestId\": rrequest, \n    \"sRequestId\": srequest, \n    \"toX\": 1, \"toY\": 1, \"toZ\": 1, \n    \"fromX\": 12, \"fromY\": 4, \"fromZ\": 1 \n    }\n\nreturn msg;",
+        "name": "R and S req random data",
+        "func": "if (!flow.get('counter')) {\n    flow.set('counter', 0);\n}\n\nvar counter = flow.get('counter') + 1;\nflow.set('counter', counter);\nvar ran = '0123456789';\nvar cmd = '1234';\nvar characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789012345678901234567890123456789012345678901234567890123456789';\nvar str5 = '', str1 = '', str2 = '', str3 = '', str4 = '', rrequest = '', srequest = '';\nvar binid = 'BPTC02-37-0-1-3'\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nrrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\n\nstr1 = str2 = str3 = str4 = str5 = ''\n\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nsrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\nmsg.payload = {\n    \"binId\": \"TOTE01010\" + counter,\n    \"commandType\": Math.floor(Math.random() * cmd.length) + 1,\n    \"rRequestId\": rrequest,\n    \"sRequestId\": srequest,\n    \"toX\": Math.floor(Math.random() * ran.length), \"toY\": Math.floor(Math.random() * ran.length), \"toZ\": Math.floor(Math.random() * ran.length),\n    \"fromX\": Math.floor(Math.random() * ran.length), \"fromY\": Math.floor(Math.random() * ran.length), \"fromZ\": Math.floor(Math.random() * ran.length)\n    \n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
+        "x": 490,
         "y": 80,
         "wires": [
             []
@@ -1892,7 +1945,7 @@
         "repeat": "2",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "2",
         "topic": "",
         "x": 220,
         "y": 80,
@@ -1978,7 +2031,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 610,
+        "x": 650,
         "y": 360,
         "wires": [
             [
@@ -2010,10 +2063,10 @@
         "type": "mongodb in",
         "z": "abf459b12a58a7d6",
         "mongodb": "8bdab089b2660f17",
-        "name": "read",
+        "name": "Local read",
         "collection": "table",
         "operation": "find",
-        "x": 470,
+        "x": 490,
         "y": 360,
         "wires": [
             [
@@ -2038,7 +2091,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 760,
+        "x": 800,
         "y": 360,
         "wires": [
             []
@@ -2065,7 +2118,74 @@
         "y": 160,
         "wires": [
             [
+                "16a4191d5892c681",
                 "905d8b1b9d4c69a2"
+            ]
+        ]
+    },
+    {
+        "id": "905d8b1b9d4c69a2",
+        "type": "mongodb out",
+        "z": "abf459b12a58a7d6",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local Insert",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 1010,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "16a4191d5892c681",
+        "type": "mongodb out",
+        "z": "abf459b12a58a7d6",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud insert",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 1010,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "585e9a73f8ed0298",
+        "type": "function",
+        "z": "abf459b12a58a7d6",
+        "name": "Preq random data",
+        "func": "if (!flow.get('counter')) {\n    flow.set('counter', 0);\n}\n\nvar counter = flow.get('counter') + 1;\nflow.set('counter', counter);\nvar ran = '0123456789';\nvar cmd = '1234';\nvar characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789012345678901234567890123456789012345678901234567890123456789';\nvar str5 = '', str1 = '', str2 = '', str3 = '', str4 = '', rrequest = '', srequest = '', skuid = '';\nvar binid = 'BPTC02-37-0-1-3'\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nrrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\n\nstr1 = str2 = str3 = str4 = str5 = ''\n\nfor (var i = 0; i < 8; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str1 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str2 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str3 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 4; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str4 += characters.charAt(randomIndex);\n}\n\nfor (var i = 0; i < 12; i++) {\n    var randomIndex = Math.floor(Math.random() * characters.length);\n    str5 += characters.charAt(randomIndex);\n}\nfor (var i = 0; i < 12; i++) {\n    skuid += Math.floor(Math.random() * ran.length);\n}\nsrequest = str1 + '-' + str2 + '-' + str3 + '-' + str4 + '-' + str5;\nmsg.payload = {\n    \"binId\": \"TOTE01010\" + counter,\n    \"commandType\": Math.floor(Math.random() * cmd.length) + 1,\n    \"pRequestId\": rrequest,\n    \"pickQty\": Math.floor(Math.random() * cmd.length) + 1,\n    \"skuId\": skuid\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a400db682917927a",
+        "type": "inject",
+        "z": "abf459b12a58a7d6",
+        "name": "Generate and Inject Data",
+        "props": [],
+        "repeat": "4",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "x": 220,
+        "y": 40,
+        "wires": [
+            [
+                "585e9a73f8ed0298"
             ]
         ]
     },
@@ -2133,7 +2253,8 @@
         "name": "link out 3",
         "mode": "link",
         "links": [
-            "95a946ace8a5fdca"
+            "95a946ace8a5fdca",
+            "6ca31770c35d62c5"
         ],
         "x": 385,
         "y": 220,
@@ -2459,7 +2580,8 @@
         "name": "link out 4",
         "mode": "link",
         "links": [
-            "f6415885ca6b290a"
+            "f6415885ca6b290a",
+            "001714c88e6d6cf2"
         ],
         "x": 385,
         "y": 320,
@@ -2491,7 +2613,8 @@
         "name": "link out 5",
         "mode": "link",
         "links": [
-            "1b6e432bd20c4993"
+            "1b6e432bd20c4993",
+            "9564d9d16f9ebc47"
         ],
         "x": 375,
         "y": 120,
@@ -2555,14 +2678,14 @@
         "type": "function",
         "z": "b21bd85f55499775",
         "name": "function 34",
-        "func": "msg.payload = { \"PRequestId\": msg.payload}\nreturn msg;",
+        "func": "msg.payload = { \"pRequestId\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 700,
+        "y": 740,
         "wires": [
             [
                 "4726f78b4cd6ea9a"
@@ -2581,7 +2704,8 @@
         "y": 620,
         "wires": [
             [
-                "12a58724ddade1e8"
+                "12a58724ddade1e8",
+                "47aaf59cc7d5ca01"
             ]
         ]
     },
@@ -2594,10 +2718,11 @@
             "24ea2502f7362e25"
         ],
         "x": 305,
-        "y": 700,
+        "y": 740,
         "wires": [
             [
-                "d60c399fc8adb2c7"
+                "d60c399fc8adb2c7",
+                "ec3eda21d0adf852"
             ]
         ]
     },
@@ -2610,10 +2735,11 @@
             "1db70c93e855a135"
         ],
         "x": 305,
-        "y": 760,
+        "y": 880,
         "wires": [
             [
-                "ca16a37db5227346"
+                "ca16a37db5227346",
+                "484867ff260638ca"
             ]
         ]
     },
@@ -2629,7 +2755,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 760,
+        "y": 880,
         "wires": [
             [
                 "9c71686891dc73db"
@@ -2641,11 +2767,11 @@
         "type": "mongodb in",
         "z": "b21bd85f55499775",
         "mongodb": "8bdab089b2660f17",
-        "name": "read",
+        "name": "Local read",
         "collection": "table",
         "operation": "find",
-        "x": 610,
-        "y": 760,
+        "x": 630,
+        "y": 880,
         "wires": [
             [
                 "1b3ae9f6d287d724"
@@ -2663,8 +2789,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
-        "y": 760,
+        "x": 950,
+        "y": 880,
         "wires": [
             [
                 "a755d98a29858474"
@@ -2676,25 +2802,25 @@
         "type": "mongodb out",
         "z": "b21bd85f55499775",
         "mongodb": "8bdab089b2660f17",
-        "name": "Update",
+        "name": "Local Update",
         "collection": "table",
         "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 1080,
-        "y": 760,
+        "x": 1130,
+        "y": 880,
         "wires": []
     },
     {
         "id": "52ebbb88cf12c53c",
         "type": "mongodb in",
         "z": "b21bd85f55499775",
-        "mongodb": "63b7f9e1d917f433",
-        "name": "read",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local read",
         "collection": "table",
         "operation": "find",
-        "x": 610,
+        "x": 630,
         "y": 620,
         "wires": [
             [
@@ -2713,7 +2839,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
+        "x": 950,
         "y": 620,
         "wires": [
             [
@@ -2725,14 +2851,14 @@
         "id": "afe90f0d4829a716",
         "type": "mongodb out",
         "z": "b21bd85f55499775",
-        "mongodb": "63b7f9e1d917f433",
-        "name": "Update",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local Update",
         "collection": "table",
         "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 1080,
+        "x": 1130,
         "y": 620,
         "wires": []
     },
@@ -2740,15 +2866,15 @@
         "id": "6742fbf1e7160334",
         "type": "mongodb out",
         "z": "b21bd85f55499775",
-        "mongodb": "63b7f9e1d917f433",
-        "name": "Update",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local Update",
         "collection": "table",
         "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "update",
-        "x": 1080,
-        "y": 700,
+        "x": 1130,
+        "y": 740,
         "wires": []
     },
     {
@@ -2762,8 +2888,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
-        "y": 700,
+        "x": 950,
+        "y": 740,
         "wires": [
             [
                 "6742fbf1e7160334"
@@ -2774,12 +2900,12 @@
         "id": "4726f78b4cd6ea9a",
         "type": "mongodb in",
         "z": "b21bd85f55499775",
-        "mongodb": "63b7f9e1d917f433",
-        "name": "read",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local read",
         "collection": "table",
         "operation": "find",
-        "x": 610,
-        "y": 700,
+        "x": 630,
+        "y": 740,
         "wires": [
             [
                 "62bbac3cb9d4812a"
@@ -2801,7 +2927,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 750,
+        "x": 790,
         "y": 620,
         "wires": [
             [
@@ -2824,8 +2950,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 750,
-        "y": 700,
+        "x": 790,
+        "y": 740,
         "wires": [
             [
                 "496d7474ddb8b782"
@@ -2847,11 +2973,287 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 750,
-        "y": 760,
+        "x": 790,
+        "y": 880,
         "wires": [
             [
                 "7c95d675bc9d596e"
+            ]
+        ]
+    },
+    {
+        "id": "0f5f68a9c6d82dae",
+        "type": "mongodb out",
+        "z": "b21bd85f55499775",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1140,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "5a4903c9c62a5d7e",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 107",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nif (msg.payload.status == \"rRequest recieved from PLC\" || msg.payload.status == \"rRequest and sRequest recieved from PLC\") \n{\n    msg.payload.status = \"rRequest and sRequest recieved from PLC\"\n}\nelse\n{ \n    msg.payload.status = \"Error: sRequest recieved and rRequest missing from PLC\" \n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 660,
+        "wires": [
+            [
+                "0f5f68a9c6d82dae"
+            ]
+        ]
+    },
+    {
+        "id": "86cce52c6249ea8a",
+        "type": "switch",
+        "z": "b21bd85f55499775",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 660,
+        "wires": [
+            [
+                "5a4903c9c62a5d7e"
+            ]
+        ]
+    },
+    {
+        "id": "36d3aa3d16fe9286",
+        "type": "mongodb in",
+        "z": "b21bd85f55499775",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud read",
+        "collection": "table",
+        "operation": "find",
+        "x": 630,
+        "y": 660,
+        "wires": [
+            [
+                "86cce52c6249ea8a"
+            ]
+        ]
+    },
+    {
+        "id": "47aaf59cc7d5ca01",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 108",
+        "func": "msg.payload = { \"sRequestId\": msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 660,
+        "wires": [
+            [
+                "36d3aa3d16fe9286"
+            ]
+        ]
+    },
+    {
+        "id": "37b1e6381ad4d7bc",
+        "type": "mongodb out",
+        "z": "b21bd85f55499775",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1140,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "b10a6c27b0628563",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 115",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id }\nmsg.payload = msg.payload[0]\n\nmsg.payload.status = \"rRequest recieved from PLC\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 920,
+        "wires": [
+            [
+                "37b1e6381ad4d7bc"
+            ]
+        ]
+    },
+    {
+        "id": "2c6bd2e9f5546726",
+        "type": "switch",
+        "z": "b21bd85f55499775",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 920,
+        "wires": [
+            [
+                "b10a6c27b0628563"
+            ]
+        ]
+    },
+    {
+        "id": "1526ac4ef5eb45b4",
+        "type": "mongodb in",
+        "z": "b21bd85f55499775",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud read",
+        "collection": "table",
+        "operation": "find",
+        "x": 630,
+        "y": 920,
+        "wires": [
+            [
+                "2c6bd2e9f5546726"
+            ]
+        ]
+    },
+    {
+        "id": "484867ff260638ca",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 116",
+        "func": "msg.payload = { \"rRequestId\": msg.payload }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 920,
+        "wires": [
+            [
+                "1526ac4ef5eb45b4"
+            ]
+        ]
+    },
+    {
+        "id": "e97c8cf32693d862",
+        "type": "mongodb out",
+        "z": "b21bd85f55499775",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1140,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "2d2adb7610305dad",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 117",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\n\nmsg.payload.status = \"pRequest recieved from PLC\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 780,
+        "wires": [
+            [
+                "e97c8cf32693d862"
+            ]
+        ]
+    },
+    {
+        "id": "d9ed03f05f46cf1a",
+        "type": "switch",
+        "z": "b21bd85f55499775",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 780,
+        "wires": [
+            [
+                "2d2adb7610305dad"
+            ]
+        ]
+    },
+    {
+        "id": "7dd85e882369d516",
+        "type": "mongodb in",
+        "z": "b21bd85f55499775",
+        "mongodb": "484f7133e546e808",
+        "name": "Cloud read",
+        "collection": "table",
+        "operation": "find",
+        "x": 630,
+        "y": 780,
+        "wires": [
+            [
+                "d9ed03f05f46cf1a"
+            ]
+        ]
+    },
+    {
+        "id": "ec3eda21d0adf852",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 118",
+        "func": "msg.payload = { \"pRequestId\": msg.payload}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 780,
+        "wires": [
+            [
+                "7dd85e882369d516"
             ]
         ]
     },
@@ -3307,7 +3709,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 220,
-        "y": 960,
+        "y": 1040,
         "wires": [
             [
                 "41c53da584d5586f"
@@ -3335,7 +3737,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 240,
-        "y": 1000,
+        "y": 1080,
         "wires": [
             [
                 "caf97a4e95b2066a"
@@ -3363,7 +3765,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 210,
-        "y": 1040,
+        "y": 1120,
         "wires": [
             [
                 "0a148a51cdb7ee74"
@@ -3391,7 +3793,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 230,
-        "y": 1080,
+        "y": 1160,
         "wires": [
             [
                 "25bd4056a98c15d7"
@@ -3407,7 +3809,7 @@
         "program": "",
         "name": "Command Startup",
         "x": 490,
-        "y": 1080,
+        "y": 1160,
         "wires": []
     },
     {
@@ -3419,7 +3821,7 @@
         "program": "",
         "name": "Flush FIFO",
         "x": 470,
-        "y": 1040,
+        "y": 1120,
         "wires": []
     },
     {
@@ -3431,7 +3833,7 @@
         "program": "",
         "name": "Enable Task Handling",
         "x": 500,
-        "y": 1000,
+        "y": 1080,
         "wires": []
     },
     {
@@ -3443,7 +3845,7 @@
         "program": "",
         "name": "Machine RESET ON",
         "x": 500,
-        "y": 960,
+        "y": 1040,
         "wires": []
     },
     {
@@ -3875,7 +4277,7 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Mongo DB",
+        "label": "Local Mongo DB",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
@@ -3884,7 +4286,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 390,
-        "y": 820,
+        "y": 800,
         "wires": []
     },
     {
@@ -3899,7 +4301,7 @@
         "finalize": "",
         "libs": [],
         "x": 190,
-        "y": 820,
+        "y": 800,
         "wires": [
             [
                 "e562b88af3ee2879",
@@ -4078,7 +4480,7 @@
         "repair": false,
         "outputs": 1,
         "x": 550,
-        "y": 820,
+        "y": 800,
         "wires": [
             [
                 "43e11c9ca22f7788"
@@ -4090,7 +4492,7 @@
         "type": "trigger",
         "z": "197be159bc54b2ae",
         "name": "",
-        "op1": "Mongo Disconnected",
+        "op1": "Local Mongo Disconnected",
         "op2": "",
         "op1type": "str",
         "op2type": "str",
@@ -4103,7 +4505,7 @@
         "topic": "topic",
         "outputs": 2,
         "x": 700,
-        "y": 820,
+        "y": 800,
         "wires": [
             [
                 "79ee25c0573af28f"
@@ -4129,7 +4531,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 710,
-        "y": 860,
+        "y": 880,
         "wires": [
             [
                 "79ee25c0573af28f"
@@ -4141,14 +4543,14 @@
         "type": "mongodb out",
         "z": "197be159bc54b2ae",
         "mongodb": "8bdab089b2660f17",
-        "name": "Clear database",
+        "name": "Clear local database",
         "collection": "table",
         "payonly": true,
         "upsert": false,
         "multi": false,
         "operation": "delete",
-        "x": 620,
-        "y": 900,
+        "x": 640,
+        "y": 940,
         "wires": []
     },
     {
@@ -4163,10 +4565,11 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
-                "e10254cba63f033a"
+                "e10254cba63f033a",
+                "98078f7a64e38725"
             ]
         ],
         "icon": "font-awesome/fa-align-justify"
@@ -4187,7 +4590,7 @@
         "topic": "",
         "name": "",
         "x": 290,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "42d8a712b58e6ca9"
@@ -4206,7 +4609,7 @@
         "finalize": "",
         "libs": [],
         "x": 185,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "587f632c41306934"
@@ -4236,7 +4639,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 135,
-        "y": 900,
+        "y": 940,
         "wires": [
             [
                 "fa5e5275a830966d"
@@ -4265,7 +4668,7 @@
         "program": "",
         "name": "Fork Bot Single Left Storage DONE",
         "x": 540,
-        "y": 1140,
+        "y": 1220,
         "wires": []
     },
     {
@@ -4289,7 +4692,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 250,
-        "y": 1140,
+        "y": 1220,
         "wires": [
             [
                 "0130ee2c98503cb7"
@@ -4305,7 +4708,7 @@
         "program": "",
         "name": "Fork Bot Double Left Retrieve DONE",
         "x": 550,
-        "y": 1180,
+        "y": 1260,
         "wires": []
     },
     {
@@ -4329,7 +4732,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 260,
-        "y": 1180,
+        "y": 1260,
         "wires": [
             [
                 "bdfb30ef771c9a2d"
@@ -4345,7 +4748,7 @@
         "program": "",
         "name": "Fork Bot 2 Single Left Storage DONE",
         "x": 550,
-        "y": 1220,
+        "y": 1300,
         "wires": []
     },
     {
@@ -4369,7 +4772,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 250,
-        "y": 1220,
+        "y": 1300,
         "wires": [
             [
                 "2be900dfb5a9894a"
@@ -4385,7 +4788,7 @@
         "program": "",
         "name": "Fork Bot  2 Double Left Retrieve DONE",
         "x": 550,
-        "y": 1260,
+        "y": 1340,
         "wires": []
     },
     {
@@ -4409,7 +4812,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 260,
-        "y": 1260,
+        "y": 1340,
         "wires": [
             [
                 "81c84a0a6b5e8bc7"
@@ -4443,7 +4846,7 @@
         "animate": false,
         "className": "",
         "x": 250,
-        "y": 1300,
+        "y": 1380,
         "wires": [
             [
                 "599ad0e49a6857f5"
@@ -4459,7 +4862,114 @@
         "program": "",
         "name": "Enable Dynamic Pick wall",
         "x": 510,
-        "y": 1300,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "af5a5f1e902dbf85",
+        "type": "trigger",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "op1": "Cloud Mongo Disconnected",
+        "op2": "",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "1",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 700,
+        "y": 840,
+        "wires": [
+            [
+                "79ee25c0573af28f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1cbd3232232c236d",
+        "type": "switch",
+        "z": "197be159bc54b2ae",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "Connected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 840,
+        "wires": [
+            [
+                "af5a5f1e902dbf85"
+            ]
+        ]
+    },
+    {
+        "id": "0f593f6c78ffd7f4",
+        "type": "ui_text",
+        "z": "197be159bc54b2ae",
+        "group": "91320c54320408e4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Cloud Mongo DB",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 390,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "1f68a5203d44e5ae",
+        "type": "function",
+        "z": "197be159bc54b2ae",
+        "name": "function 119",
+        "func": "msg.payload = global.get(\"mongocloud\");\nif (msg.payload == \"connected\") {\n    msg.payload = \"Connected\"\n    return msg;\n}\nelse {\n    \n    return msg;\n} \n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 840,
+        "wires": [
+            [
+                "0f593f6c78ffd7f4",
+                "1cbd3232232c236d"
+            ]
+        ]
+    },
+    {
+        "id": "98078f7a64e38725",
+        "type": "mongodb out",
+        "z": "197be159bc54b2ae",
+        "mongodb": "a0565cea9292cad1",
+        "name": "Clear cloud database",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 640,
+        "y": 980,
         "wires": []
     },
     {
@@ -4647,11 +5157,11 @@
         "id": "3515cd590babf79d",
         "type": "status",
         "z": "7b229efa69ac7866",
-        "name": "Mongo status",
+        "name": "Local Mongo status",
         "scope": [
             "6d05f40a72d2004e"
         ],
-        "x": 690,
+        "x": 670,
         "y": 300,
         "wires": [
             [
@@ -4709,5 +5219,58 @@
             ]
         ],
         "icon": "node-red/white-globe.svg"
+    },
+    {
+        "id": "a6ae37f4cb5585ee",
+        "type": "status",
+        "z": "7b229efa69ac7866",
+        "name": "Cloud Mongo status",
+        "scope": [
+            "c9f14285a0fb4ade"
+        ],
+        "x": 670,
+        "y": 360,
+        "wires": [
+            [
+                "ad1be7025411f2c0"
+            ]
+        ],
+        "icon": "node-red/db.svg"
+    },
+    {
+        "id": "ad1be7025411f2c0",
+        "type": "function",
+        "z": "7b229efa69ac7866",
+        "name": "Set status as global",
+        "func": "global.set(\"mongocloud\",msg.status.text);\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 360,
+        "wires": [
+            [
+                "c9f14285a0fb4ade"
+            ]
+        ],
+        "icon": "node-red/db.svg"
+    },
+    {
+        "id": "c9f14285a0fb4ade",
+        "type": "mongodb out",
+        "z": "7b229efa69ac7866",
+        "mongodb": "a0565cea9292cad1",
+        "name": "Clear database",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1015,
+        "y": 360,
+        "wires": [],
+        "l": false
     }
 ]
