@@ -1909,7 +1909,8 @@
         "name": "link out 7",
         "mode": "link",
         "links": [
-            "35caa771ba67afb0"
+            "35caa771ba67afb0",
+            "83e9d22f67894393"
         ],
         "x": 1605,
         "y": 1180,
@@ -1920,7 +1921,7 @@
         "type": "function",
         "z": "a27b931a44c8fb3e",
         "name": "function 128",
-        "func": "msg.payload = msg.payload[0];\nmsg.topic = msg.payload;\nmsg.payload = { \"status\": \"Received from cloud\", \"toX\": msg.payload.fromX, \"toY\": msg.payload.fromY, \"toZ\": msg.payload.fromZ};\n    return msg;\n",
+        "func": "msg.payload = msg.payload[0];\nmsg.topic = msg.payload;\nmsg.payload = { \"status\": \"Received from cloud\", \"toX\": msg.payload.fromX, \"toY\": msg.payload.fromY, \"toZ\": msg.payload.fromZ, \"commandType\": { $ne: 5}};\n    return msg;\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2023,7 +2024,8 @@
         "z": "a27b931a44c8fb3e",
         "name": "link in 7",
         "links": [
-            "553299bcb79edf95"
+            "553299bcb79edf95",
+            "dd184faf27ef553c"
         ],
         "x": 45,
         "y": 1140,
