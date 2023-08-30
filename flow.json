@@ -56,7 +56,7 @@
                 "y": 1180,
                 "wires": [
                     {
-                        "id": "e8fd3c8a0e001539"
+                        "id": "45b3e8675f573810"
                     }
                 ]
             }
@@ -1281,8 +1281,8 @@
         "links": [
             "2ddfbeabf9c20d7c"
         ],
-        "x": 1055,
-        "y": 1140,
+        "x": 1585,
+        "y": 1060,
         "wires": []
     },
     {
@@ -1529,83 +1529,6 @@
         ]
     },
     {
-        "id": "e8fd3c8a0e001539",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "constructUnsentQuery",
-        "func": "msg.payload = { \"status\": \"Received from cloud\" };\nmsg.limit = 1;\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 1140,
-        "wires": [
-            [
-                "86a85c753c93bf6e"
-            ]
-        ]
-    },
-    {
-        "id": "86a85c753c93bf6e",
-        "type": "mongodb in",
-        "z": "a27b931a44c8fb3e",
-        "mongodb": "8bdab089b2660f17",
-        "name": "Local findUnsent",
-        "collection": "table",
-        "operation": "find",
-        "x": 590,
-        "y": 1140,
-        "wires": [
-            [
-                "8bda8b23ccbac41a"
-            ]
-        ]
-    },
-    {
-        "id": "8bda8b23ccbac41a",
-        "type": "function",
-        "z": "a27b931a44c8fb3e",
-        "name": "function 73",
-        "func": "if (Array.isArray(msg.payload) && msg.payload.length) {\n    msg.payload = msg.payload[0];\n    return msg;\n} else {\n    return null;\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 780,
-        "y": 1140,
-        "wires": [
-            [
-                "a5a7b4f24ffaacc5"
-            ]
-        ]
-    },
-    {
-        "id": "a5a7b4f24ffaacc5",
-        "type": "switch",
-        "z": "a27b931a44c8fb3e",
-        "name": "",
-        "property": "msg.payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nempty"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 940,
-        "y": 1140,
-        "wires": [
-            [
-                "4eceaefe693f31c7"
-            ]
-        ]
-    },
-    {
         "id": "a97b2311ffa69191",
         "type": "delay",
         "z": "a27b931a44c8fb3e",
@@ -1626,7 +1549,7 @@
         "y": 1100,
         "wires": [
             [
-                "e8fd3c8a0e001539"
+                "45b3e8675f573810"
             ]
         ]
     },
@@ -1879,6 +1802,236 @@
         "x": 980,
         "y": 980,
         "wires": []
+    },
+    {
+        "id": "bac4659c7deec9a4",
+        "type": "mongodb in",
+        "z": "a27b931a44c8fb3e",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local compare",
+        "collection": "table",
+        "operation": "find",
+        "x": 1140,
+        "y": 1100,
+        "wires": [
+            [
+                "b08cb8d799670b95"
+            ]
+        ]
+    },
+    {
+        "id": "b08cb8d799670b95",
+        "type": "switch",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1310,
+        "y": 1100,
+        "wires": [
+            [
+                "c3d26159011d527a"
+            ],
+            [
+                "e91edeec2bc7ccb9"
+            ]
+        ]
+    },
+    {
+        "id": "e91edeec2bc7ccb9",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "function 126",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nmsg.payload.delay = msg.topic.sRequestId\nmsg.payload.status = \"Paused and waiting for Sreq\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 1120,
+        "wires": [
+            [
+                "5ea3ce23b872f0d9",
+                "553299bcb79edf95"
+            ]
+        ]
+    },
+    {
+        "id": "5ea3ce23b872f0d9",
+        "type": "mongodb out",
+        "z": "a27b931a44c8fb3e",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1650,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "c3d26159011d527a",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "function 127",
+        "func": "msg.payload = msg.topic;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 1060,
+        "wires": [
+            [
+                "4eceaefe693f31c7"
+            ]
+        ]
+    },
+    {
+        "id": "553299bcb79edf95",
+        "type": "link out",
+        "z": "a27b931a44c8fb3e",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "35caa771ba67afb0"
+        ],
+        "x": 1605,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "217a74ca43f38316",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "function 128",
+        "func": "msg.payload = msg.payload[0];\nmsg.topic = msg.payload;\nmsg.payload = { \"status\": \"Received from cloud\", \"toX\": msg.payload.fromX, \"toY\": msg.payload.fromY, \"toZ\": msg.payload.fromZ};\n    return msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1100,
+        "wires": [
+            [
+                "bac4659c7deec9a4"
+            ]
+        ]
+    },
+    {
+        "id": "72d2d6c3163806bf",
+        "type": "switch",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 1100,
+        "wires": [
+            [
+                "217a74ca43f38316"
+            ]
+        ]
+    },
+    {
+        "id": "44b0780b3d7c4504",
+        "type": "mongodb in",
+        "z": "a27b931a44c8fb3e",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local findUnsent",
+        "collection": "table",
+        "operation": "find",
+        "x": 610,
+        "y": 1100,
+        "wires": [
+            [
+                "72d2d6c3163806bf"
+            ]
+        ]
+    },
+    {
+        "id": "45b3e8675f573810",
+        "type": "function",
+        "z": "a27b931a44c8fb3e",
+        "name": "constructUnsentQuery",
+        "func": "msg.payload = {$or:[{ \"status\": \"Received from cloud\" },{ \"status\": \"Resume\" }]};\nmsg.limit = 1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1100,
+        "wires": [
+            [
+                "44b0780b3d7c4504"
+            ]
+        ]
+    },
+    {
+        "id": "2d79dcac71bfeb0b",
+        "type": "delay",
+        "z": "a27b931a44c8fb3e",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 150,
+        "y": 1140,
+        "wires": [
+            [
+                "45b3e8675f573810"
+            ]
+        ]
+    },
+    {
+        "id": "35caa771ba67afb0",
+        "type": "link in",
+        "z": "a27b931a44c8fb3e",
+        "name": "link in 7",
+        "links": [
+            "553299bcb79edf95"
+        ],
+        "x": 45,
+        "y": 1140,
+        "wires": [
+            [
+                "2d79dcac71bfeb0b"
+            ]
+        ]
     },
     {
         "id": "3edcd3191df4764f",
@@ -2705,7 +2858,8 @@
         "wires": [
             [
                 "12a58724ddade1e8",
-                "47aaf59cc7d5ca01"
+                "47aaf59cc7d5ca01",
+                "dd8cb2b587c08189"
             ]
         ]
     },
@@ -3256,6 +3410,98 @@
                 "7dd85e882369d516"
             ]
         ]
+    },
+    {
+        "id": "dd8cb2b587c08189",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "constructQuery",
+        "func": "msg.payload = { \"delay\": msg.payload, \"status\": \"Paused and waiting for Sreq\" };\nmsg.limit = 1;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 580,
+        "wires": [
+            [
+                "700b0206a42e8572"
+            ]
+        ]
+    },
+    {
+        "id": "700b0206a42e8572",
+        "type": "mongodb in",
+        "z": "b21bd85f55499775",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local findDelayMsg",
+        "collection": "table",
+        "operation": "find",
+        "x": 650,
+        "y": 580,
+        "wires": [
+            [
+                "27d66ede3732d9ec"
+            ]
+        ]
+    },
+    {
+        "id": "27d66ede3732d9ec",
+        "type": "switch",
+        "z": "b21bd85f55499775",
+        "name": "",
+        "property": "msg.payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 830,
+        "y": 580,
+        "wires": [
+            [
+                "535b13a8c84bad74"
+            ]
+        ]
+    },
+    {
+        "id": "535b13a8c84bad74",
+        "type": "function",
+        "z": "b21bd85f55499775",
+        "name": "function 129",
+        "func": "msg.query = { \"_id\": msg.payload[0]._id}\nmsg.payload = msg.payload[0]\nmsg.payload.status = \"Resume\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 580,
+        "wires": [
+            [
+                "2e470ba99773c4ac"
+            ]
+        ]
+    },
+    {
+        "id": "2e470ba99773c4ac",
+        "type": "mongodb out",
+        "z": "b21bd85f55499775",
+        "mongodb": "8bdab089b2660f17",
+        "name": "Local Update",
+        "collection": "table",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1170,
+        "y": 580,
+        "wires": []
     },
     {
         "id": "1b87f4bc09144e6d",
